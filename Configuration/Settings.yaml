@@ -1,0 +1,42 @@
+TYPO3:
+  Neos:
+
+    userInterface:
+      requireJsPathMapping:
+        'TYPO3.Neos.GoogleAnalytics/Inspector/Editors': 'resource://TYPO3.Neos.GoogleAnalytics/Public/Scripts/Inspector/Editors'
+
+    modules:
+      administration:
+        submodules:
+          googleAnalytics:
+            label: 'Analytics'
+            controller: 'TYPO3\Neos\GoogleAnalytics\Controller\ConfigurationController'
+            description: 'Google Analytics configuration'
+            icon: 'icon-bar-chart'
+            resource: 'TYPO3_Neos_GoogleAnalytics_Module_Administration_Configuration'
+
+    GoogleAnalytics:
+      authentication:
+        # Application name for the consent screen
+        applicationName: 'TYPO3 Neos'
+        # "Client ID" of the OAuth 2.0 "Client ID for web application"
+        clientId: ~
+        # "Client Secret" of the OAuth 2.0 "Client ID for web application"
+        clientSecret: ~
+        # "API Key" of the Public API access credential "Key for server applications"
+        developerKey: ~
+
+      stats:
+        sessionsPerDay:
+          metrics: 'ga:sessions'
+          dimensions: 'ga:date'
+        basic:
+          metrics: 'ga:pageviews,ga:sessions,ga:users'
+        sessionsByUserType:
+          metrics: 'ga:sessions'
+          dimensions: 'ga:userType'
+        sessionsByDeviceCategory:
+          metrics: 'ga:sessions'
+          dimensions: 'ga:deviceCategory'
+        loadTimes:
+          metrics: 'ga:avgPageLoadTime,ga:avgServerResponseTime'

@@ -1,0 +1,117 @@
+#
+# Add the Google Analytics mixin to TYPO3.Neos:Document
+#
+'TYPO3.Neos:Document':
+  superTypes:
+    'TYPO3.Neos.GoogleAnalytics.StatsTabMixin': 'TYPO3.Neos.GoogleAnalytics:StatsTabMixin'
+
+'TYPO3.Neos:Shortcut':
+  superTypes:
+    'TYPO3.Neos.GoogleAnalytics.StatsTabMixin': ~
+
+#
+# Mixin configuring the Analytics tab for the inspector
+#
+'TYPO3.Neos.GoogleAnalytics:StatsTabMixin':
+  ui:
+    inspector:
+      tabs:
+        stats:
+          label: 'Stats'
+          position: 100
+          icon: 'icon-bar-chart'
+      groups:
+        analytics:
+          label: 'Analytics'
+          position: 10
+          tab: 'stats'
+      # All analytics metrics are "views" for the inspector
+      #
+      # Stats for the GoogleAnalytics data source are configured in Settings.yaml.
+      views:
+        gaSessionsPerDay:
+          label: 'Sessions'
+          group: 'analytics'
+          position: 10
+          view: 'Content/Inspector/Views/Data/TimeSeriesView'
+          viewOptions:
+            subtitle: '3 months'
+            dataSource: 'GoogleAnalytics'
+            arguments:
+              stat: 'sessionsPerDay'
+              startDate: '3 months ago'
+              endDate: '1 day ago'
+            collection: 'rows'
+            series:
+              timeData: 'ga_date'
+              valueData: 'ga_sessions'
+            chart:
+              selectedInterval: 'months'
+        gaBasic:
+          label: 'Performance'
+          group: 'analytics'
+          position: 20
+          view: 'Content/Inspector/Views/Data/ColumnView'
+          viewOptions:
+            dataSource: 'GoogleAnalytics'
+            arguments:
+              stat: 'basic'
+              startDate: '3 months ago'
+              endDate: '1 day ago'
+            hero:
+              data: 'totals.ga_sessions'
+              label: 'Sessions'
+            columns:
+              -
+                data: 'totals.ga_pageviews'
+                label: 'Pageviews'
+              -
+                data: 'totals.ga_users'
+                label: 'Users'
+        gaSessionsByDeviceCategory:
+          label: 'Device categories'
+          group: 'analytics'
+          position: 30
+          view: 'Content/Inspector/Views/Data/TableView'
+          viewOptions:
+            dataSource: 'GoogleAnalytics'
+            arguments:
+              stat: 'sessionsByDeviceCategory'
+              startDate: '3 months ago'
+              endDate: '1 day ago'
+            collection: 'rows'
+            columns:
+              -
+                data: 'ga_deviceCategory'
+                iconMap:
+                  desktop: 'icon-desktop'
+                  tablet: 'icon-tablet'
+                  mobile: 'icon-mobile-phone'
+              -
+                data: 'ga_sessions'
+              -
+                data: 'percent'
+                suffix: '%'
+        gaSessionsByUserType:
+          label: 'User types'
+          group: 'analytics'
+          position: 40
+          view: 'Content/Inspector/Views/Data/TableView'
+          viewOptions:
+            dataSource: 'GoogleAnalytics'
+            arguments:
+              stat: 'sessionsByUserType'
+              startDate: '3 months ago'
+              endDate: '1 day ago'
+            collection: 'rows'
+            columns:
+              -
+                data: 'ga_userType'
+                iconMap:
+                  'New Visitor': 'icon-plus'
+                  'Returning Visitor': 'icon-refresh'
+              -
+                data: 'ga_sessions'
+              -
+                data: 'percent'
+                suffix: '%'

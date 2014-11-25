@@ -1,0 +1,16 @@
+TYPO3\Neos\GoogleAnalytics\Service\TokenStorage:
+  properties:
+    cache:
+      object:
+        factoryObjectName: TYPO3\Flow\Cache\CacheManager
+        factoryMethodName: getCache
+        arguments:
+          1:
+            value: TYPO3_Neos_GoogleAnalytics_Tokens
+
+TYPO3\Neos\GoogleAnalytics\Service\GoogleAnalytics:
+  arguments:
+    1:
+      object:
+        factoryObjectName: TYPO3\Neos\GoogleAnalytics\Service\ClientFactory
+        factoryMethodName: create

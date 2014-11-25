@@ -1,0 +1,46 @@
+{namespace g=TYPO3\Neos\GoogleAnalytics\ViewHelpers}
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<div class="neos-content neos-container-fluid">
+	<f:flashMessages as="flashMessages">
+		<f:if condition="{flashMessages -> f:count()} > 0">
+			<ul id="neos-notifications-inline">
+				<f:for each="{flashMessages}" as="flashMessage">
+					<li data-type="{flashMessage.severity -> f:format.case(mode: 'lower')}">{neos:backend.translate(id: 'flashMessage.{flashMessage.code}', arguments: "{flashMessage.arguments}", value:'{flashMessage}')}</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</f:flashMessages>
+
+	<f:form action="update" id="accounts">
+		<table class="neos-table">
+			<thead>
+				<tr>
+					<th>{neos:backend.translate(id: 'site', value: 'Site')}</th>
+					<th>{neos:backend.translate(id: 'ga_profile', value: 'Google Analytics Profile')}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<f:for each="{sitesWithConfiguration}" as="siteWithConfiguration" key="index">
+					<tr>
+						<td>{siteWithConfiguration.site.name}</td>
+						<td>
+							<g:groupedSelect
+								name="siteConfigurations[{index}][profileId]"
+								value="{siteWithConfiguration.configuration.profileId}"
+								options="{groupedProfiles}"
+								prependOptionLabel="{neos:backend.translate(id: 'no_profile', value: 'No profile')}"
+								prependOptionValue="" />
+							<f:if condition="{siteWithConfiguration.configuration}">
+								<f:form.hidden name="siteConfigurations[{index}][__identity]" value="{siteWithConfiguration.configuration -> f:format.identifier()}" />
+							</f:if>
+							<f:form.hidden name="siteConfigurations[{index}][site]" value="{siteWithConfiguration.site}" />
+						</td>
+					</tr>
+				</f:for>
+			</tbody>
+		</table>
+		<div class="neos-footer">
+			<f:form.submit value="{neos:backend.translate(id: 'save', value: 'Save')}" class="neos-button neos-button-primary" />
+		</div>
+	</f:form>
+</div>

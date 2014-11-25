@@ -1,0 +1,15 @@
+{
+    "name": "typo3/neos-googleanalytics",
+    "type": "typo3-flow-package",
+    "description": "Google Analytics integration for TYPO3 Neos",
+    "license": "GPL-3.0+",
+    "require": {
+        "google/apiclient": "1.0.*@beta",
+        "typo3/neos": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "TYPO3\\Neos\\GoogleAnalytics": "Classes"
+        }
+    }
+}

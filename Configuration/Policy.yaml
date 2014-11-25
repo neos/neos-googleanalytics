@@ -1,0 +1,17 @@
+#                                                                        #
+# Security policy for the TYPO3 Neos GoogleAnalytics package             #
+#                                                                        #
+
+privilegeTargets:
+
+  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'TYPO3.Neos.GoogleAnalytics:Module.Administration.Configuration':
+      matcher: 'method(TYPO3\Neos\GoogleAnalytics\Controller\ConfigurationController->.*Action())'
+
+roles:
+
+  'TYPO3.Neos:Administrator':
+    privileges:
+      -
+        privilegeTarget: 'TYPO3.Neos.GoogleAnalytics:Module.Administration.Configuration'
+        permission: GRANT
