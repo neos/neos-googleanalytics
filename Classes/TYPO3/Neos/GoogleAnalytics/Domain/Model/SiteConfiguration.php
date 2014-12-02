@@ -32,6 +32,11 @@ class SiteConfiguration {
 	protected $profileId;
 
 	/**
+	 * @var string
+	 */
+	protected $trackingId;
+
+	/**
 	 * @return string
 	 */
 	public function getProfileId() {
@@ -59,6 +64,21 @@ class SiteConfiguration {
 	 */
 	public function setSite($site) {
 		$this->site = $site;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTrackingId() {
+		return $this->trackingId;
+	}
+
+	/**
+	 * @param string $trackingId
+	 * @return void
+	 */
+	public function setTrackingId($trackingId) {
+		$this->trackingId = $trackingId;
 	}
 
 }

@@ -85,6 +85,8 @@ class ConfigurationController extends \TYPO3\Flow\Mvc\Controller\ActionControlle
 			}
 		}
 
+		$this->emitSiteConfigurationChanged();
+
 		$this->addFlashMessage('Configuration has been updated.', 'Update', NULL, array(), 1417109043);
 		$this->redirect('index');
 	}
@@ -194,4 +196,10 @@ class ConfigurationController extends \TYPO3\Flow\Mvc\Controller\ActionControlle
 		$redirectUri = (string)$uri;
 		return $redirectUri;
 	}
+
+	/**
+	 * @Flow\Signal
+	 * @return void
+	 */
+	protected function emitSiteConfigurationChanged() {}
 }

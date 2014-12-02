@@ -15,7 +15,16 @@ TYPO3:
             icon: 'icon-bar-chart'
             resource: 'TYPO3_Neos_GoogleAnalytics_Module_Administration_Configuration'
 
+    typoScript:
+      autoInclude:
+        'TYPO3.Neos.GoogleAnalytics': TRUE
+
     GoogleAnalytics:
+
+      tracking:
+        # If Google Analytics tracking should be enabled, disabled by default
+        enabled: FALSE
+
       authentication:
         # Application name for the consent screen
         applicationName: 'TYPO3 Neos'

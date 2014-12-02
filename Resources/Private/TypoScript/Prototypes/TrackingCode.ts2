@@ -1,0 +1,22 @@
+prototype(TYPO3.Neos.GoogleAnalytics:SiteConfiguration) {
+	@class = 'TYPO3\\Neos\\GoogleAnalytics\\TypoScriptObjects\\SiteConfiguration'
+	node = ${node}
+}
+
+# A Google Analytics tracking code object
+#
+prototype(TYPO3.Neos.GoogleAnalytics:TrackingCode) < prototype(TYPO3.TypoScript:Template) {
+	templatePath = 'resource://TYPO3.Neos.GoogleAnalytics/Private/Templates/Prototypes/TrackingCode.html'
+
+	# Configure the tracking id
+	trackingId = ''
+
+	# Make the trackingId available for nested objects
+	@override.trackingId = ${this.trackingId}
+
+	# Actual tracking code JavaScript snippets, can be extended with additional lines
+	code = TYPO3.TypoScript:Array {
+		create = ${"ga('create', '" + trackingId + "', 'auto');"}
+		send = ${"ga('send', 'pageview');"}
+	}
+}

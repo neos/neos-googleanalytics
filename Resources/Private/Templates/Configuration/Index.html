@@ -17,6 +17,7 @@
 				<tr>
 					<th>{neos:backend.translate(id: 'site', value: 'Site')}</th>
 					<th>{neos:backend.translate(id: 'ga_profile', value: 'Google Analytics Profile')}</th>
+					<th>{neos:backend.translate(id: 'ga_trackingid', value: 'Tracking-ID')}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -34,6 +35,9 @@
 								<f:form.hidden name="siteConfigurations[{index}][__identity]" value="{siteWithConfiguration.configuration -> f:format.identifier()}" />
 							</f:if>
 							<f:form.hidden name="siteConfigurations[{index}][site]" value="{siteWithConfiguration.site}" />
+						</td>
+						<td>
+							<f:form.textfield name="siteConfigurations[{index}][trackingId]" value="{siteWithConfiguration.configuration.trackingId}" />
 						</td>
 					</tr>
 				</f:for>
