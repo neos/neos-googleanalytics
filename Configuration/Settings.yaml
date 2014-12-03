@@ -45,3 +45,10 @@ TYPO3:
           dimensions: 'ga:deviceCategory'
         loadTimes:
           metrics: 'ga:avgPageLoadTime,ga:avgServerResponseTime'
+
+      # Site specific settings
+      sites: []
+        ## All site specific settings are indexed by site node name
+        #
+        # neosdemotypo3org:
+        #   trackingId: 'UA-XXXXX-YY'
