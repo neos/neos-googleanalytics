@@ -8,7 +8,7 @@ prototype(TYPO3.Neos.GoogleAnalytics:SiteConfiguration) {
 prototype(TYPO3.Neos.GoogleAnalytics:TrackingCode) < prototype(TYPO3.TypoScript:Template) {
 	templatePath = 'resource://TYPO3.Neos.GoogleAnalytics/Private/Templates/Prototypes/TrackingCode.html'
 
-	# Configure the tracking id
+	# Tracking ID is blank by default:
 	trackingId = ''
 
 	# Make the trackingId available for nested objects

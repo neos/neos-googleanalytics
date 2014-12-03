@@ -21,10 +21,6 @@ TYPO3:
 
     GoogleAnalytics:
 
-      tracking:
-        # If Google Analytics tracking should be enabled, disabled by default
-        enabled: FALSE
-
       authentication:
         # Application name for the consent screen
         applicationName: 'TYPO3 Neos'

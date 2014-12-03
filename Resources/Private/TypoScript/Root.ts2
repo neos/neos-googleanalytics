@@ -4,11 +4,13 @@ prototype(TYPO3.Neos:Page) {
 	googleAnalyticsTrackingCode = TYPO3.Neos.GoogleAnalytics:TrackingCode {
 		# Google suggests to include the tracking code directly after the <body> tag
 		@position = 'after bodyTag 100'
-		# Include tracking code if enabled in settings and a tracking id is configured for the current site
-		@if.trackingEnabled = ${Configuration.setting('TYPO3.Neos.GoogleAnalytics.tracking.enabled') && !!this.siteConfiguration.trackingId}
 
 		# Get the trackingId from a SiteConfiguration entity for the site of the current node
 		siteConfiguration = TYPO3.Neos.GoogleAnalytics:SiteConfiguration
-		trackingId = ${this.siteConfiguration.trackingId}
+		trackingId = ${siteConfiguration.trackingId}
+
+		# Include tracking code if a tracking id is configured for the current site
+		@if.trackingIdIsSet = ${!String.isBlank(this.trackingId)}
+
 	}
 }
