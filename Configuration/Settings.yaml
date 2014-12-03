@@ -52,3 +52,4 @@ TYPO3:
         #
         # neosdemotypo3org:
         #   trackingId: 'UA-XXXXX-YY'
+        #   profileId: '12345678'

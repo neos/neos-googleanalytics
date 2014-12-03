@@ -56,6 +56,12 @@ class Reporting {
 	protected $statsSettings;
 
 	/**
+	 * @Flow\Inject(setting="sites", package="TYPO3.Neos.GoogleAnalytics")
+	 * @var array
+	 */
+	protected $sitesSettings;
+
+	/**
 	 * Get metrics and dimension values for a configured stat
 	 *
 	 * TODO Catch "(403) Access Not Configured" (e.g. IP does not match)
@@ -99,6 +105,8 @@ class Reporting {
 	/**
 	 * Get a site configuration (which has a Google Analytics profile id) for the given node
 	 *
+	 * This will first look for a SiteConfiguration entity and then fall back to site specific settings.
+	 *
 	 * @param NodeInterface $node
 	 * @return SiteConfiguration
 	 * @throws MissingConfigurationException If no site configuration was found, or the profile was not assigned
@@ -114,6 +122,11 @@ class Reporting {
 		if ($siteConfiguration instanceof SiteConfiguration && $siteConfiguration->getProfileId() !== '') {
 			return $siteConfiguration;
 		} else {
+			if (isset($this->sitesSettings[$site->getNodeName()]['profileId']) && (string)$this->sitesSettings[$site->getNodeName()]['profileId'] !== '') {
+				$siteConfiguration = new SiteConfiguration();
+				$siteConfiguration->setProfileId($this->sitesSettings[$site->getNodeName()]['profileId']);
+				return $siteConfiguration;
+			}
 			throw new MissingConfigurationException('No profile configured for site', 1415806282);
 		}
 	}
