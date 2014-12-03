@@ -12,4 +12,8 @@
 			</ul>
 		</f:if>
 	</f:flashMessages>
+
+	<f:if condition="{authenticated}">
+		<f:render partial="AccountDisconnect" />
+	</f:if>
 </div>

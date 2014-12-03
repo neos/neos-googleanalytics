@@ -63,4 +63,14 @@ class TokenStorage {
 
 		return $accessToken;
 	}
+
+	/**
+	 * Remove existing tokens
+	 *
+	 * @return void
+	 */
+	public function removeTokens() {
+		$this->cache->remove('AccessToken');
+		$this->cache->remove('RefreshToken');
+	}
 }

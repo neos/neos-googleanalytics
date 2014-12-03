@@ -127,10 +127,22 @@ class ConfigurationController extends \TYPO3\Flow\Mvc\Controller\ActionControlle
 	}
 
 	/**
+	 * Logout (disconnect) the Google account
+	 *
+	 * @return void
+	 */
+	public function logoutAction() {
+		$this->tokenStorage->removeTokens();
+		$this->addFlashMessage('Account has been disconnected.', 'Disconnect', NULL, array(), 1417607416);
+		$this->redirect('index');
+	}
+
+	/**
 	 * @return void
 	 */
 	public function errorMessageAction() {
-		// TODO Add some way to re-authenticate / delete access tokens
+		$authenticated = $this->analytics->getClient()->getAccessToken() !== NULL;
+		$this->view->assign('authenticated', $authenticated);
 	}
 
 	/**
