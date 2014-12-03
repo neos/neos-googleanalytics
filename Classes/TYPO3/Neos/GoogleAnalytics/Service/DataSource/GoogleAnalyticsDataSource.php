@@ -57,6 +57,14 @@ class GoogleAnalyticsDataSource extends AbstractDataSource {
 				'data' => $stats
 			);
 			return $data;
+		} catch (\Google_Service_Exception $exception) {
+			$errors = $exception->getErrors();
+			return array(
+				'error' => array(
+					'message' => isset($errors[0]['message']) ? $errors[0]['message'] : 'Google API returned error',
+					'code' => isset($errors[0]['reason']) ? $errors[0]['reason'] : 1417606128
+				)
+			);
 		} catch (Exception $exception) {
 			return array(
 				'error' => array(

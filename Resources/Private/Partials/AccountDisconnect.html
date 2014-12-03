@@ -1,0 +1,5 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<f:form action="logout" method="post" class="neos-inline-form">
+	<span>Google account connected</span>
+	<f:form.submit value="{neos:backend.translate(id: 'disconnect', value: 'Disconnect')}" class="neos-button" title="Disconnect Google Analytics account" />
+</f:form>
