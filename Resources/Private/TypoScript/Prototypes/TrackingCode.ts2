@@ -6,6 +6,8 @@ prototype(TYPO3.Neos.GoogleAnalytics:SiteConfiguration) {
 # A Google Analytics tracking code object
 #
 prototype(TYPO3.Neos.GoogleAnalytics:TrackingCode) < prototype(TYPO3.TypoScript:Template) {
+	@if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
+
 	templatePath = 'resource://TYPO3.Neos.GoogleAnalytics/Private/Templates/Prototypes/TrackingCode.html'
 
 	# Tracking ID is blank by default:
