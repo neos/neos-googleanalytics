@@ -32,19 +32,17 @@ TYPO3:
         developerKey: ~
 
       stats:
-        sessionsPerDay:
-          metrics: 'ga:sessions'
+        uniquePageviewsPerDay:
+          metrics: 'ga:uniquePageviews'
           dimensions: 'ga:date'
         basic:
-          metrics: 'ga:pageviews,ga:sessions,ga:users'
-        sessionsByUserType:
-          metrics: 'ga:sessions'
+          metrics: 'ga:pageviews,ga:uniquePageviews,ga:users'
+        uniquePageviewsByUserType:
+          metrics: 'ga:uniquePageviews'
           dimensions: 'ga:userType'
-        sessionsByDeviceCategory:
-          metrics: 'ga:sessions'
+        uniquePageviewsByDeviceCategory:
+          metrics: 'ga:uniquePageviews'
           dimensions: 'ga:deviceCategory'
-        loadTimes:
-          metrics: 'ga:avgPageLoadTime,ga:avgServerResponseTime'
 
       # Site specific settings
       sites: []

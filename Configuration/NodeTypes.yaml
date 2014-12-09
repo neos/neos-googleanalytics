@@ -29,7 +29,7 @@
       #
       # Stats for the GoogleAnalytics data source are configured in Settings.yaml.
       views:
-        gaSessionsPerDay:
+        gaUniquePageviewsPerDay:
           label: 'Sessions'
           group: 'analytics'
           position: 10
@@ -38,13 +38,13 @@
             subtitle: '3 months'
             dataSource: 'GoogleAnalytics'
             arguments:
-              stat: 'sessionsPerDay'
+              stat: 'uniquePageviewsPerDay'
               startDate: '3 months ago'
               endDate: '1 day ago'
             collection: 'rows'
             series:
               timeData: 'ga_date'
-              valueData: 'ga_sessions'
+              valueData: 'ga_uniquePageviews'
             chart:
               selectedInterval: 'months'
         gaBasic:
@@ -59,7 +59,7 @@
               startDate: '3 months ago'
               endDate: '1 day ago'
             hero:
-              data: 'totals.ga_sessions'
+              data: 'totals.ga_uniquePageviews'
               label: 'Sessions'
             columns:
               -
@@ -68,7 +68,7 @@
               -
                 data: 'totals.ga_users'
                 label: 'Users'
-        gaSessionsByDeviceCategory:
+        gaUniquePageviewsByDeviceCategory:
           label: 'Device categories'
           group: 'analytics'
           position: 30
@@ -76,7 +76,7 @@
           viewOptions:
             dataSource: 'GoogleAnalytics'
             arguments:
-              stat: 'sessionsByDeviceCategory'
+              stat: 'uniquePageviewsByDeviceCategory'
               startDate: '3 months ago'
               endDate: '1 day ago'
             collection: 'rows'
@@ -88,11 +88,11 @@
                   tablet: 'icon-tablet'
                   mobile: 'icon-mobile-phone'
               -
-                data: 'ga_sessions'
+                data: 'ga_uniquePageviews'
               -
                 data: 'percent'
                 suffix: '%'
-        gaSessionsByUserType:
+        gaUniquePageviewsByUserType:
           label: 'User types'
           group: 'analytics'
           position: 40
@@ -100,7 +100,7 @@
           viewOptions:
             dataSource: 'GoogleAnalytics'
             arguments:
-              stat: 'sessionsByUserType'
+              stat: 'uniquePageviewsByUserType'
               startDate: '3 months ago'
               endDate: '1 day ago'
             collection: 'rows'
@@ -111,7 +111,7 @@
                   'New Visitor': 'icon-plus'
                   'Returning Visitor': 'icon-refresh'
               -
-                data: 'ga_sessions'
+                data: 'ga_uniquePageviews'
               -
                 data: 'percent'
                 suffix: '%'
