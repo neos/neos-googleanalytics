@@ -4,7 +4,7 @@
     "description": "Google Analytics integration for TYPO3 Neos",
     "license": "GPL-3.0+",
     "require": {
-        "google/apiclient": "1.0.*@beta",
+        "google/apiclient": "1.1.*",
         "typo3/neos": "*"
     },
     "autoload": {
