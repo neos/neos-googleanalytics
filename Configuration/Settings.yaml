@@ -5,6 +5,10 @@ TYPO3:
       requireJsPathMapping:
         'TYPO3.Neos.GoogleAnalytics/Inspector/Editors': 'resource://TYPO3.Neos.GoogleAnalytics/Public/Scripts/Inspector/Editors'
 
+      translation:
+        autoInclude:
+          'TYPO3.Neos.GoogleAnalytics': ['NodeTypes/*']
+
     modules:
       administration:
         submodules:

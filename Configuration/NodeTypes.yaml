@@ -17,12 +17,12 @@
     inspector:
       tabs:
         stats:
-          label: 'Stats'
+          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:tabs.stats'
           position: 100
           icon: 'icon-bar-chart'
       groups:
         analytics:
-          label: 'Analytics'
+          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:groups.analytics'
           position: 10
           tab: 'stats'
       # All analytics metrics are "views" for the inspector
@@ -30,7 +30,7 @@
       # Stats for the GoogleAnalytics data source are configured in Settings.yaml.
       views:
         gaUniquePageviewsPerDay:
-          label: 'Sessions'
+          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsPerDay'
           group: 'analytics'
           position: 10
           view: 'Content/Inspector/Views/Data/TimeSeriesView'
@@ -48,7 +48,7 @@
             chart:
               selectedInterval: 'months'
         gaBasic:
-          label: 'Performance'
+          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaBasic'
           group: 'analytics'
           position: 20
           view: 'Content/Inspector/Views/Data/ColumnView'
@@ -69,7 +69,7 @@
                 data: 'totals.ga_users'
                 label: 'Users'
         gaUniquePageviewsByDeviceCategory:
-          label: 'Device categories'
+          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByDeviceCategory'
           group: 'analytics'
           position: 30
           view: 'Content/Inspector/Views/Data/TableView'
@@ -93,7 +93,7 @@
                 data: 'percent'
                 suffix: '%'
         gaUniquePageviewsByUserType:
-          label: 'User types'
+          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByUserType'
           group: 'analytics'
           position: 40
           view: 'Content/Inspector/Views/Data/TableView'
