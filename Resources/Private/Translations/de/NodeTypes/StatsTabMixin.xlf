@@ -16,7 +16,7 @@
 			<target xml:lang="de" state="translated">Leistung</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target xml:lang="de" state="translated">Gerätekategorien</target><alt-trans><target xml:lang="de">Geräteklassen</target></alt-trans></trans-unit>
+			<target xml:lang="de" state="translated">Geräteklassen</target><alt-trans><target xml:lang="de">Gerätekategorien</target></alt-trans></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
 			<target xml:lang="de" state="translated">Nutzertypen</target></trans-unit>
