@@ -11,9 +11,9 @@
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve" approved="yes">
 				<source>Sessions</source>
 			<target xml:lang="da">Sessioner</target></trans-unit>
-      <trans-unit id="views.gaBasic" xml:space="preserve">
+      <trans-unit id="views.gaBasic" xml:space="preserve" approved="yes">
 				<source>Performance</source>
-			<target xml:lang="da" state="translated">Ydeevne</target></trans-unit>
+			<target xml:lang="da">Ydeevne</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve" approved="yes">
 				<source>Device categories</source>
 			<target xml:lang="da">Enhedskategorier</target></trans-unit>
