@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file original="" product-name="TYPO3.Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="pt-BR">
+  <file original="" product-name="TYPO3.Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="pt-PT">
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve">
 				<source>Stats</source>
-			<target xml:lang="pt-BR" state="translated">Estatísticas</target></trans-unit>
+			<target xml:lang="pt-PT" state="needs-translation">Stats</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target xml:lang="pt-BR" state="translated">Análise</target></trans-unit>
+			<target xml:lang="pt-PT" state="needs-translation">Analytics</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
-			<target xml:lang="pt-BR" state="translated">Sessões</target></trans-unit>
+			<target xml:lang="pt-PT" state="needs-translation">Sessions</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve">
 				<source>Performance</source>
-			<target xml:lang="pt-BR" state="translated">Performance</target></trans-unit>
+			<target xml:lang="pt-PT" state="needs-translation">Performance</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target xml:lang="pt-BR" state="translated">Categorias de dispositivos</target></trans-unit>
+			<target xml:lang="pt-PT" state="needs-translation">Device categories</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
-			<target xml:lang="pt-BR" state="translated">Tipos de usuário</target></trans-unit>
+			<target xml:lang="pt-PT" state="needs-translation">User types</target></trans-unit>
     </body>
   </file>
 </xliff>
