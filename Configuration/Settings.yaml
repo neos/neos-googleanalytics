@@ -16,7 +16,7 @@ TYPO3:
             label: 'Analytics'
             controller: 'TYPO3\Neos\GoogleAnalytics\Controller\ConfigurationController'
             description: 'Google Analytics configuration'
-            icon: 'icon-bar-chart'
+            icon: 'icon-bar-chart icon-line-chart'
             privilegeTarget: 'TYPO3.Neos.GoogleAnalytics:Module.Administration.Configuration'
 
     typoScript:

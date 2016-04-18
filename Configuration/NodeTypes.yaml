@@ -19,10 +19,11 @@
         stats:
           label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:tabs.stats'
           position: 100
-          icon: 'icon-bar-chart'
+          icon: 'icon-bar-chart icon-line-chart'
       groups:
         analytics:
           label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:groups.analytics'
+          icon: 'icon-line-chart'
           position: 10
           tab: 'stats'
       # All analytics metrics are "views" for the inspector
