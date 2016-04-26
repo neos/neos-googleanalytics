@@ -1,5 +1,4 @@
 TYPO3_Neos_GoogleAnalytics_Tokens:
   frontend: TYPO3\Flow\Cache\Frontend\StringFrontend
   backend: TYPO3\Flow\Cache\Backend\SimpleFileBackend
-  backendOptions:
-    cacheDirectory: '%FLOW_PATH_DATA%Persistent/GoogleAnalyticsTokens'
+  persistent: true
