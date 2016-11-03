@@ -88,15 +88,24 @@ class Reporting {
 
 		$nodeUri = $this->getLiveNodeUri($node, $controllerContext);
 		$filters = 'ga:pagePath==' . $nodeUri->getPath() . ';ga:hostname==' . $nodeUri->getHost();
+		$parameters = array(
+			'filters' => $filters
+		);
+		if (isset($statConfiguration['dimensions'])) {
+			$parameters['dimensions'] = $statConfiguration['dimensions'];
+		}
+		if (isset($statConfiguration['sort'])) {
+			$parameters['sort'] = $statConfiguration['sort'];
+		}
+		if (isset($statConfiguration['max-results'])) {
+			$parameters['max-results'] = $statConfiguration['max-results'];
+		}
 		$gaResult = $this->analytics->data_ga->get(
 			'ga:' . $siteConfiguration->getProfileId(),
 			$startDateFormatted,
 			$endDateFormatted,
 			$statConfiguration['metrics'],
-			array(
-				'filters' => $filters,
-				'dimensions' => isset($statConfiguration['dimensions']) ? $statConfiguration['dimensions'] : ''
-			)
+			$parameters
 		);
 
 		return new DataResult($gaResult);
