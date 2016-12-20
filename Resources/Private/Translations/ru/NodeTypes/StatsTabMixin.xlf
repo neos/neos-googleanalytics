@@ -7,7 +7,7 @@
 			<target xml:lang="ru">Статистика</target><alt-trans><target xml:lang="ru">статистика</target></alt-trans></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve" approved="yes">
 				<source>Analytics</source>
-			<target xml:lang="ru">Аналитика</target></trans-unit>
+			<target xml:lang="ru">Аналитика</target><alt-trans><target xml:lang="ru">Анализ</target></alt-trans></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve" approved="yes">
 				<source>Sessions</source>
 			<target xml:lang="ru">Сеансы</target></trans-unit>
