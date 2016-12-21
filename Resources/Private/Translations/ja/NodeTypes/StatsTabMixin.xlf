@@ -7,7 +7,7 @@
 			<target xml:lang="ja" state="translated">統計</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target xml:lang="ja" state="translated">分析</target></trans-unit>
+			<target xml:lang="ja" state="translated">解析</target><alt-trans><target xml:lang="ja">分析</target></alt-trans></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
 			<target xml:lang="ja" state="translated">セッション</target></trans-unit>

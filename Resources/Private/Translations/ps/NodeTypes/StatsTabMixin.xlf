@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file original="" product-name="TYPO3.Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="la-LA">
+  <file original="" product-name="TYPO3.Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="ps">
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve">
 				<source>Stats</source>
-			<target xml:lang="la-LA">crwdns1555:0crwdne1555:0</target></trans-unit>
+			<target xml:lang="ps" state="needs-translation">Stats</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target xml:lang="la-LA">crwdns1556:0crwdne1556:0</target></trans-unit>
+			<target xml:lang="ps" state="needs-translation">Analytics</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
-			<target xml:lang="la-LA">crwdns1557:0crwdne1557:0</target></trans-unit>
+			<target xml:lang="ps" state="needs-translation">Sessions</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve">
 				<source>Performance</source>
-			<target xml:lang="la-LA">crwdns1558:0crwdne1558:0</target></trans-unit>
+			<target xml:lang="ps" state="needs-translation">Performance</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target xml:lang="la-LA">crwdns1559:0crwdne1559:0</target></trans-unit>
+			<target xml:lang="ps" state="needs-translation">Device categories</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
-			<target xml:lang="la-LA">crwdns1560:0crwdne1560:0</target></trans-unit>
+			<target xml:lang="ps" state="needs-translation">User types</target></trans-unit>
     </body>
   </file>
 </xliff>
