@@ -27,7 +27,7 @@ TYPO3:
 
       authentication:
         # Application name for the consent screen
-        applicationName: 'TYPO3 Neos'
+        applicationName: 'Neos CMS'
         # "Client ID" of the OAuth 2.0 "Client ID for web application"
         clientId: ~
         # "Client Secret" of the OAuth 2.0 "Client ID for web application"
@@ -52,6 +52,6 @@ TYPO3:
       sites: []
         ## All site specific settings are indexed by site node name
         #
-        # neosdemotypo3org:
+        # neosdemo:
         #   trackingId: 'UA-XXXXX-YY'
         #   profileId: '12345678'
