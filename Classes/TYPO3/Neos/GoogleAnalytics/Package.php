@@ -1,29 +1,33 @@
 <?php
 namespace TYPO3\Neos\GoogleAnalytics;
 
-/*                                                                            *
- * This script belongs to the TYPO3 Flow package "TYPO3.Neos.GoogleAnalytics" *
- *                                                                            *
- * It is free software; you can redistribute it and/or modify it under        *
- * the terms of the GNU General Public License, either version 3 of the       *
- * License, or (at your option) any later version.                            *
- *                                                                            *
- * The TYPO3 project - inspiring people to share!                             *
- *                                                                            */
+/*
+ * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ *
+ * (c) Contributors of the Neos Project - www.neos.io
+ *
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ */
 
 use TYPO3\Flow\Core\Bootstrap;
 use TYPO3\Flow\Package\Package as BasePackage;
+use TYPO3\TypoScript\Core\Cache\ContentCache;
 
-class Package extends BasePackage {
+/**
+ * The Package class, used to wire signals to slots in this package.
+ */
+class Package extends BasePackage
+{
+    /**
+     * @param Bootstrap $bootstrap The current bootstrap
+     * @return void
+     */
+    public function boot(Bootstrap $bootstrap)
+    {
+        $dispatcher = $bootstrap->getSignalSlotDispatcher();
 
-	/**
-	 * @param Bootstrap $bootstrap The current bootstrap
-	 * @return void
-	 */
-	public function boot(Bootstrap $bootstrap) {
-		$dispatcher = $bootstrap->getSignalSlotDispatcher();
-
-		$dispatcher->connect('TYPO3\Neos\GoogleAnalytics\Controller\ConfigurationController', 'siteConfigurationChanged', 'TYPO3\TypoScript\Core\Cache\ContentCache', 'flush');
-	}
-
+        $dispatcher->connect(Controller\ConfigurationController::class, 'siteConfigurationChanged', ContentCache::class, 'flush');
+    }
 }
