@@ -34,7 +34,7 @@ class DataResult implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         $totals = $this->result->getTotalsForAllResults();
 

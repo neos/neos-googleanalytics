@@ -21,7 +21,7 @@ class GoogleAnalyticsDataSource extends AbstractDataSource
     /**
      * @var string
      */
-    static protected $identifier = 'GoogleAnalytics';
+    protected static $identifier = 'GoogleAnalytics';
 
     /**
      * @Flow\Inject
