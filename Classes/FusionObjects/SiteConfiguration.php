@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\TypoScriptObjects;
+namespace Neos\GoogleAnalytics\FusionObjects;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,11 +11,11 @@ namespace TYPO3\Neos\GoogleAnalytics\TypoScriptObjects;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 
-class SiteConfiguration extends \TYPO3\TypoScript\TypoScriptObjects\AbstractTypoScriptObject
+class SiteConfiguration extends \Neos\Fusion\FusionObjects\AbstractFusionObject
 {
     /**
      * @Flow\Inject
@@ -34,14 +34,14 @@ class SiteConfiguration extends \TYPO3\TypoScript\TypoScriptObjects\AbstractTypo
     /**
      * Find a SiteConfiguration entity for the current site
      *
-     * @return \TYPO3\Neos\GoogleAnalytics\Domain\Model\SiteConfiguration
+     * @return \Neos\GoogleAnalytics\Domain\Model\SiteConfiguration
      */
     public function evaluate()
     {
         $node = $this->getNode();
         if ($node instanceof NodeInterface) {
             $contentContext = $node->getContext();
-            if ($contentContext instanceof \TYPO3\Neos\Domain\Service\ContentContext) {
+            if ($contentContext instanceof \Neos\Neos\Domain\Service\ContentContext) {
                 $site = $contentContext->getCurrentSite();
                 $siteConfiguration = $this->siteConfigurationRepository->findOneBySite($site);
 

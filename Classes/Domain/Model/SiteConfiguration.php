@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\Domain\Model;
+namespace Neos\GoogleAnalytics\Domain\Model;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -12,7 +12,7 @@ namespace TYPO3\Neos\GoogleAnalytics\Domain\Model;
  */
 
 use Doctrine\ORM\Mapping as ORM;
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
 /**
  * @Flow\Entity
@@ -22,7 +22,7 @@ class SiteConfiguration
     /**
      * @ORM\ManyToOne
      * @ORM\JoinColumn(onDelete="CASCADE")
-     * @var \TYPO3\Neos\Domain\Model\Site
+     * @var \Neos\Neos\Domain\Model\Site
      */
     protected $site;
 
@@ -54,7 +54,7 @@ class SiteConfiguration
     }
 
     /**
-     * @return \TYPO3\Neos\Domain\Model\Site
+     * @return \Neos\Neos\Domain\Model\Site
      */
     public function getSite()
     {
@@ -62,7 +62,7 @@ class SiteConfiguration
     }
 
     /**
-     * @param \TYPO3\Neos\Domain\Model\Site $site
+     * @param \Neos\Neos\Domain\Model\Site $site
      * @return void
      */
     public function setSite($site)

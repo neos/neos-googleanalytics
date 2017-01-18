@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\Service;
+namespace Neos\GoogleAnalytics\Service;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,8 +11,8 @@ namespace TYPO3\Neos\GoogleAnalytics\Service;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Neos\GoogleAnalytics\Exception\MissingConfigurationException;
+use Neos\Flow\Annotations as Flow;
+use Neos\GoogleAnalytics\Exception\MissingConfigurationException;
 
 /**
  * Factory for GoogleAnalytics API client
@@ -26,7 +26,7 @@ class ClientFactory
     protected $tokenStorage;
 
     /**
-     * @Flow\Inject(setting="authentication", package="TYPO3.Neos.GoogleAnalytics")
+     * @Flow\InjectConfiguration(path="authentication", package="Neos.GoogleAnalytics")
      * @var array
      */
     protected $authenticationSettings;
@@ -47,7 +47,7 @@ class ClientFactory
         ];
         foreach ($requiredAuthenticationSettings as $key) {
             if (!isset($this->authenticationSettings[$key])) {
-                throw new MissingConfigurationException(sprintf('Missing setting "TYPO3.Neos.GoogleAnalytics.authentication.%s"', $key), 1415796352);
+                throw new MissingConfigurationException(sprintf('Missing setting "Neos.GoogleAnalytics.authentication.%s"', $key), 1415796352);
             }
         }
 

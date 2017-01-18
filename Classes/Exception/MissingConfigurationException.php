@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\Exception;
+namespace Neos\GoogleAnalytics\Exception;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,8 +11,8 @@ namespace TYPO3\Neos\GoogleAnalytics\Exception;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Neos\GoogleAnalytics\Exception;
+use Neos\Flow\Annotations as Flow;
+use Neos\GoogleAnalytics\Exception;
 
 /**
  * Missing configuration for the Google Analytics package

@@ -4,14 +4,14 @@
 
 privilegeTargets:
 
-  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
-    'TYPO3.Neos.GoogleAnalytics:Module.Administration.Configuration':
-      matcher: 'method(TYPO3\Neos\GoogleAnalytics\Controller\ConfigurationController->.*Action())'
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'Neos.GoogleAnalytics:Module.Administration.Configuration':
+      matcher: 'method(Neos\GoogleAnalytics\Controller\ConfigurationController->.*Action())'
 
 roles:
 
-  'TYPO3.Neos:Administrator':
+  'Neos.Neos:Administrator':
     privileges:
       -
-        privilegeTarget: 'TYPO3.Neos.GoogleAnalytics:Module.Administration.Configuration'
+        privilegeTarget: 'Neos.GoogleAnalytics:Module.Administration.Configuration'
         permission: GRANT

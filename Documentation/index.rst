@@ -11,7 +11,7 @@ Installation
 
 The package can be installed via composer::
 
-  composer require typo3/neos-googleanalytics
+  composer require neos/googleanalytics
 
 Configuration
 -------------
@@ -128,14 +128,13 @@ and easy deployments:
 
 .. code-block:: yaml
 
-  TYPO3:
-    Neos:
-      GoogleAnalytics:
-        sites:
-          ## All site specific settings are indexed by site node name
-          neossitename:
-            trackingId: 'UA-XXXXX-YY'
-            profileId: '12345678'
+  Neos:
+    GoogleAnalytics:
+      sites:
+        ## All site specific settings are indexed by site node name
+        neossitename:
+          trackingId: 'UA-XXXXX-YY'
+          profileId: '12345678'
 
 The second way is to use the Analytics module in the Neos user interface to select
 an Analytics property for each site (the ``profileId`` from the settings above) and
