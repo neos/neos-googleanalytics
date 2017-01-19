@@ -86,18 +86,17 @@ integration, just fill in the blanks:
 
 .. code-block:: yaml
 
-  TYPO3:
-    Neos:
-      GoogleAnalytics:
-        authentication:
-          # Application name for the consent screen
-          applicationName: 'Neos GA'
-          # "Client ID" of the OAuth 2.0 "Client ID for web application"
-          clientId: ~
-          # "Client Secret" of the OAuth 2.0 "Client ID for web application"
-          clientSecret: ~
-          # "API Key" of the Public API access credential "Key for server applications"
-          developerKey: ~
+  Neos:
+    GoogleAnalytics:
+      authentication:
+        # Application name for the consent screen
+        applicationName: 'Neos GA'
+        # "Client ID" of the OAuth 2.0 "Client ID for web application"
+        clientId: ~
+        # "Client Secret" of the OAuth 2.0 "Client ID for web application"
+        clientSecret: ~
+        # "API Key" of the Public API access credential "Key for server applications"
+        developerKey: ~
 
 Now go to the Analytics module in the Neos user interface.
 
