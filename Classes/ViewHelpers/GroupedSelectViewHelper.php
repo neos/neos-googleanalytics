@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\ViewHelpers;
+namespace Neos\GoogleAnalytics\ViewHelpers;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,16 +11,16 @@ namespace TYPO3\Neos\GoogleAnalytics\ViewHelpers;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Fluid;
-use TYPO3\Fluid\Core\ViewHelper;
+use Neos\Flow\Annotations as Flow;
+use Neos\FluidAdaptor;
+use Neos\FluidAdaptor\Core\ViewHelper;
 
 /**
  * An extended select view helper to handle optgroups
  *
  * The options have to be in a prepared format for this to work.
  */
-class GroupedSelectViewHelper extends Fluid\ViewHelpers\Form\SelectViewHelper
+class GroupedSelectViewHelper extends FluidAdaptor\ViewHelpers\Form\SelectViewHelper
 {
     /**
      * Render the option tags.

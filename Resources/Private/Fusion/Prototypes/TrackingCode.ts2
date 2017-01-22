@@ -1,14 +1,14 @@
-prototype(TYPO3.Neos.GoogleAnalytics:SiteConfiguration) {
-	@class = 'TYPO3\\Neos\\GoogleAnalytics\\TypoScriptObjects\\SiteConfiguration'
+prototype(Neos.GoogleAnalytics:SiteConfiguration) {
+	@class = 'Neos\\GoogleAnalytics\\FusionObjects\\SiteConfiguration'
 	node = ${node}
 }
 
 # A Google Analytics tracking code object
 #
-prototype(TYPO3.Neos.GoogleAnalytics:TrackingCode) < prototype(TYPO3.TypoScript:Template) {
+prototype(Neos.GoogleAnalytics:TrackingCode) < prototype(Neos.Fusion:Template) {
 	@if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
 
-	templatePath = 'resource://TYPO3.Neos.GoogleAnalytics/Private/Templates/Prototypes/TrackingCode.html'
+	templatePath = 'resource://Neos.GoogleAnalytics/Private/Templates/Prototypes/TrackingCode.html'
 
 	# Tracking ID is blank by default:
 	trackingId = ''
@@ -17,7 +17,7 @@ prototype(TYPO3.Neos.GoogleAnalytics:TrackingCode) < prototype(TYPO3.TypoScript:
 	@override.trackingId = ${this.trackingId}
 
 	# Actual tracking code JavaScript snippets, can be extended with additional lines
-	code = TYPO3.TypoScript:Array {
+	code = Neos.Fusion:Array {
 		create = ${"ga('create', '" + trackingId + "', 'auto');"}
 		send = ${"ga('send', 'pageview');"}
 	}

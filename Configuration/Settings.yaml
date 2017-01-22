@@ -1,57 +1,55 @@
-TYPO3:
+Neos:
   Neos:
-
     userInterface:
       requireJsPathMapping:
-        'TYPO3.Neos.GoogleAnalytics/Inspector/Editors': 'resource://TYPO3.Neos.GoogleAnalytics/Public/Scripts/Inspector/Editors'
-
+        'Neos.GoogleAnalytics/Inspector/Editors': 'resource://Neos.GoogleAnalytics/Public/Scripts/Inspector/Editors'
       translation:
         autoInclude:
-          'TYPO3.Neos.GoogleAnalytics': ['NodeTypes/*']
+          'Neos.GoogleAnalytics': ['NodeTypes/*']
 
     modules:
       administration:
         submodules:
           googleAnalytics:
             label: 'Analytics'
-            controller: 'TYPO3\Neos\GoogleAnalytics\Controller\ConfigurationController'
+            controller: 'Neos\GoogleAnalytics\Controller\ConfigurationController'
             description: 'Google Analytics configuration'
             icon: 'icon-bar-chart icon-line-chart'
-            privilegeTarget: 'TYPO3.Neos.GoogleAnalytics:Module.Administration.Configuration'
+            privilegeTarget: 'Neos.GoogleAnalytics:Module.Administration.Configuration'
 
-    typoScript:
+    fusion:
       autoInclude:
-        'TYPO3.Neos.GoogleAnalytics': TRUE
+        'Neos.GoogleAnalytics': TRUE
 
-    GoogleAnalytics:
+  GoogleAnalytics:
 
-      authentication:
-        # Application name for the consent screen
-        applicationName: 'Neos CMS'
-        # "Client ID" of the OAuth 2.0 "Client ID for web application"
-        clientId: ~
-        # "Client Secret" of the OAuth 2.0 "Client ID for web application"
-        clientSecret: ~
-        # "API Key" of the Public API access credential "Key for server applications"
-        developerKey: ~
+    authentication:
+      # Application name for the consent screen
+      applicationName: 'Neos CMS'
+      # "Client ID" of the OAuth 2.0 "Client ID for web application"
+      clientId: ~
+      # "Client Secret" of the OAuth 2.0 "Client ID for web application"
+      clientSecret: ~
+      # "API Key" of the Public API access credential "Key for server applications"
+      developerKey: ~
 
-      stats:
-        uniquePageviewsPerDay:
-          metrics: 'ga:uniquePageviews'
-          dimensions: 'ga:date'
-        basic:
-          metrics: 'ga:pageviews,ga:uniquePageviews,ga:users'
-        uniquePageviewsByUserType:
-          metrics: 'ga:uniquePageviews'
-          dimensions: 'ga:userType'
-        uniquePageviewsByDeviceCategory:
-          metrics: 'ga:uniquePageviews'
-          dimensions: 'ga:deviceCategory'
+    stats:
+      uniquePageviewsPerDay:
+        metrics: 'ga:uniquePageviews'
+        dimensions: 'ga:date'
+      basic:
+        metrics: 'ga:pageviews,ga:uniquePageviews,ga:users'
+      uniquePageviewsByUserType:
+        metrics: 'ga:uniquePageviews'
+        dimensions: 'ga:userType'
+      uniquePageviewsByDeviceCategory:
+        metrics: 'ga:uniquePageviews'
+        dimensions: 'ga:deviceCategory'
 
-      # Site specific settings
-      sites: []
-        ## All site specific settings are indexed by site node name
-        #
-        # neosdemo:
-        #   trackingId: 'UA-XXXXX-YY'
-        #   profileId: '12345678'
+    # Site specific settings
+    sites: []
+      ## All site specific settings are indexed by site node name
+      #
+      # neosdemo:
+      #   trackingId: 'UA-XXXXX-YY'
+      #   profileId: '12345678'

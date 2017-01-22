@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\Domain\Repository;
+namespace Neos\GoogleAnalytics\Domain\Repository;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,8 +11,8 @@ namespace TYPO3\Neos\GoogleAnalytics\Domain\Repository;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Persistence\Repository;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Persistence\Repository;
 
 /**
  * @Flow\Scope("singleton")

@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics;
+namespace Neos\GoogleAnalytics;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -14,6 +14,6 @@ namespace TYPO3\Neos\GoogleAnalytics;
 /**
  * Base exception for GoogleAnalytics package
  */
-class Exception extends \TYPO3\Flow\Exception
+class Exception extends \Neos\Flow\Exception
 {
 }

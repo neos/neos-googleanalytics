@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\Service\DataSource;
+namespace Neos\GoogleAnalytics\Service\DataSource;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,10 +11,10 @@ namespace TYPO3\Neos\GoogleAnalytics\Service\DataSource;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Neos\GoogleAnalytics\Exception;
-use TYPO3\Neos\Service\DataSource\AbstractDataSource;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\GoogleAnalytics\Exception;
+use Neos\Neos\Service\DataSource\AbstractDataSource;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 
 class GoogleAnalyticsDataSource extends AbstractDataSource
 {
@@ -25,7 +25,7 @@ class GoogleAnalyticsDataSource extends AbstractDataSource
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Neos\GoogleAnalytics\Service\Reporting
+     * @var \Neos\GoogleAnalytics\Service\Reporting
      */
     protected $reporting;
 

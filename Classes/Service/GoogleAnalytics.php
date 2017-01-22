@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\Service;
+namespace Neos\GoogleAnalytics\Service;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,8 +11,8 @@ namespace TYPO3\Neos\GoogleAnalytics\Service;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Neos\GoogleAnalytics\Exception\AuthenticationRequiredException;
+use Neos\Flow\Annotations as Flow;
+use Neos\GoogleAnalytics\Exception\AuthenticationRequiredException;
 
 /**
  * Extend the base Google Analytics API service

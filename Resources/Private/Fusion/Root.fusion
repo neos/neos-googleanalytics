@@ -1,13 +1,13 @@
 include: 'Prototypes/*'
 
-prototype(TYPO3.Neos:Page) {
-	googleAnalyticsTrackingCode = TYPO3.Neos.GoogleAnalytics:TrackingCode {
+prototype(Neos.Neos:Page) {
+	googleAnalyticsTrackingCode = Neos.GoogleAnalytics:TrackingCode {
 		# Google suggests to include the tracking code directly after the <body> tag
 		@position = 'after bodyTag 100'
 
-		siteConfiguration = TYPO3.Neos.GoogleAnalytics:SiteConfiguration
+		siteConfiguration = Neos.GoogleAnalytics:SiteConfiguration
 		# Get the trackingId from a SiteConfiguration entity for the site of the current node with fallback to a setting
-		trackingId = ${this.siteConfiguration.trackingId || Configuration.setting('TYPO3.Neos.GoogleAnalytics.sites.' + site.name + '.trackingId')}
+		trackingId = ${this.siteConfiguration.trackingId || Configuration.setting('Neos.GoogleAnalytics.sites.' + site.name + '.trackingId')}
 
 		# Include tracking code if a tracking id is configured for the current site
 		@if.trackingIdIsSet = ${!String.isBlank(this.trackingId)}

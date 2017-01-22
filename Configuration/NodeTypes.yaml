@@ -1,28 +1,28 @@
 #
-# Add the Google Analytics mixin to TYPO3.Neos:Document
+# Add the Google Analytics mixin to Neos.Neos:Document
 #
-'TYPO3.Neos:Document':
+'Neos.Neos:Document':
   superTypes:
-    'TYPO3.Neos.GoogleAnalytics:StatsTabMixin': TRUE
+    'Neos.GoogleAnalytics:StatsTabMixin': true
 
-'TYPO3.Neos:Shortcut':
+'Neos.Neos:Shortcut':
   superTypes:
-    'TYPO3.Neos.GoogleAnalytics:StatsTabMixin': FALSE
+    'Neos.GoogleAnalytics:StatsTabMixin': false
 
 #
 # Mixin configuring the Analytics tab for the inspector
 #
-'TYPO3.Neos.GoogleAnalytics:StatsTabMixin':
+'Neos.GoogleAnalytics:StatsTabMixin':
   ui:
     inspector:
       tabs:
         stats:
-          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:tabs.stats'
+          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:tabs.stats'
           position: 100
           icon: 'icon-bar-chart icon-line-chart'
       groups:
         analytics:
-          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:groups.analytics'
+          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:groups.analytics'
           icon: 'icon-line-chart'
           position: 10
           tab: 'stats'
@@ -31,7 +31,7 @@
       # Stats for the GoogleAnalytics data source are configured in Settings.yaml.
       views:
         gaUniquePageviewsPerDay:
-          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsPerDay'
+          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsPerDay'
           group: 'analytics'
           position: 10
           view: 'Content/Inspector/Views/Data/TimeSeriesView'
@@ -49,7 +49,7 @@
             chart:
               selectedInterval: 'months'
         gaBasic:
-          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaBasic'
+          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaBasic'
           group: 'analytics'
           position: 20
           view: 'Content/Inspector/Views/Data/ColumnView'
@@ -70,7 +70,7 @@
                 data: 'totals.ga_users'
                 label: 'Users'
         gaUniquePageviewsByDeviceCategory:
-          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByDeviceCategory'
+          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByDeviceCategory'
           group: 'analytics'
           position: 30
           view: 'Content/Inspector/Views/Data/TableView'
@@ -94,7 +94,7 @@
                 data: 'percent'
                 suffix: '%'
         gaUniquePageviewsByUserType:
-          label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByUserType'
+          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByUserType'
           group: 'analytics'
           position: 40
           view: 'Content/Inspector/Views/Data/TableView'

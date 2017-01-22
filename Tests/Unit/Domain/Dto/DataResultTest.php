@@ -1,5 +1,5 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\Tests\Unit\Domain\Dto;
+namespace Neos\GoogleAnalytics\Tests\Unit\Domain\Dto;
 
 /*
  * This file is part of the Neos.GoogleAnalytics package.
@@ -11,8 +11,8 @@ namespace TYPO3\Neos\GoogleAnalytics\Tests\Unit\Domain\Dto;
  * source code.
  */
 
-use TYPO3\Flow\Tests\UnitTestCase;
-use TYPO3\Neos\GoogleAnalytics\Domain\Dto\DataResult;
+use Neos\Flow\Tests\UnitTestCase;
+use Neos\GoogleAnalytics\Domain\Dto\DataResult;
 
 class DataResultTest extends UnitTestCase
 {
