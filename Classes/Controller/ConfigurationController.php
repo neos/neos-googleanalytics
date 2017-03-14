@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\Controller;
+namespace Neos\GoogleAnalytics\Controller;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,37 +11,37 @@ namespace TYPO3\Neos\GoogleAnalytics\Controller;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Neos\GoogleAnalytics\Exception\AuthenticationRequiredException;
-use TYPO3\Neos\GoogleAnalytics\Exception\MissingConfigurationException;
+use Neos\Flow\Annotations as Flow;
+use Neos\GoogleAnalytics\Exception\AuthenticationRequiredException;
+use Neos\GoogleAnalytics\Exception\MissingConfigurationException;
 
 /**
  * The ConfigurationController handles the configuration of the Google Analytics module,
  * including connecting to the Google API via OAuth2 and assigning profiles to sites in Neos.
  */
-class ConfigurationController extends \TYPO3\Flow\Mvc\Controller\ActionController
+class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
 {
     /**
      * @Flow\Inject
-     * @var \TYPO3\Neos\Domain\Repository\SiteRepository
+     * @var \Neos\Neos\Domain\Repository\SiteRepository
      */
     protected $siteRepository;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository
+     * @var \Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository
      */
     protected $siteConfigurationRepository;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Neos\GoogleAnalytics\Service\TokenStorage
+     * @var \Neos\GoogleAnalytics\Service\TokenStorage
      */
     protected $tokenStorage;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Neos\GoogleAnalytics\Service\GoogleAnalytics
+     * @var \Neos\GoogleAnalytics\Service\GoogleAnalytics
      */
     protected $analytics;
 
@@ -74,7 +74,7 @@ class ConfigurationController extends \TYPO3\Flow\Mvc\Controller\ActionControlle
     /**
      * Update or add site configurations
      *
-     * @param array <\TYPO3\Neos\GoogleAnalytics\Domain\Model\SiteConfiguration> $siteConfigurations Array of site configurations
+     * @param array<\Neos\GoogleAnalytics\Domain\Model\SiteConfiguration> $siteConfigurations Array of site configurations
      * @return void
      */
     public function updateAction(array $siteConfigurations)
@@ -167,10 +167,10 @@ class ConfigurationController extends \TYPO3\Flow\Mvc\Controller\ActionControlle
         try {
             parent::callActionMethod();
         } catch (\Google_Service_Exception $exception) {
-            $this->addFlashMessage('%1$s', 'Google API error', \TYPO3\Flow\Error\Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
+            $this->addFlashMessage('%1$s', 'Google API error', \Neos\Error\Messages\Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
             $this->forward('errorMessage');
         } catch (MissingConfigurationException $exception) {
-            $this->addFlashMessage('%1$s', 'Missing configuration', \TYPO3\Flow\Error\Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
+            $this->addFlashMessage('%1$s', 'Missing configuration', \Neos\Error\Messages\Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
             $this->forward('errorMessage');
         } catch (AuthenticationRequiredException $exception) {
             $this->redirect('authenticate');
@@ -218,7 +218,7 @@ class ConfigurationController extends \TYPO3\Flow\Mvc\Controller\ActionControlle
      */
     protected function removeUriQueryArguments($redirectUri)
     {
-        $uri = new \TYPO3\Flow\Http\Uri($redirectUri);
+        $uri = new \Neos\Flow\Http\Uri($redirectUri);
         $uri->setQuery(null);
         $redirectUri = (string)$uri;
 

@@ -1,4 +1,4 @@
-TYPO3_Neos_GoogleAnalytics_Tokens:
-  frontend: TYPO3\Flow\Cache\Frontend\StringFrontend
-  backend: TYPO3\Flow\Cache\Backend\SimpleFileBackend
+Neos_GoogleAnalytics_Tokens:
+  frontend: Neos\Cache\Frontend\StringFrontend
+  backend: Neos\Cache\Backend\SimpleFileBackend
   persistent: true

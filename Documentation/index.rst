@@ -11,7 +11,7 @@ Installation
 
 The package can be installed via composer::
 
-  composer require typo3/neos-googleanalytics
+  composer require neos/googleanalytics
 
 Configuration
 -------------
@@ -86,18 +86,17 @@ integration, just fill in the blanks:
 
 .. code-block:: yaml
 
-  TYPO3:
-    Neos:
-      GoogleAnalytics:
-        authentication:
-          # Application name for the consent screen
-          applicationName: 'Neos GA'
-          # "Client ID" of the OAuth 2.0 "Client ID for web application"
-          clientId: ~
-          # "Client Secret" of the OAuth 2.0 "Client ID for web application"
-          clientSecret: ~
-          # "API Key" of the Public API access credential "Key for server applications"
-          developerKey: ~
+  Neos:
+    GoogleAnalytics:
+      authentication:
+        # Application name for the consent screen
+        applicationName: 'Neos GA'
+        # "Client ID" of the OAuth 2.0 "Client ID for web application"
+        clientId: ~
+        # "Client Secret" of the OAuth 2.0 "Client ID for web application"
+        clientSecret: ~
+        # "API Key" of the Public API access credential "Key for server applications"
+        developerKey: ~
 
 Now go to the Analytics module in the Neos user interface.
 
@@ -128,14 +127,13 @@ and easy deployments:
 
 .. code-block:: yaml
 
-  TYPO3:
-    Neos:
-      GoogleAnalytics:
-        sites:
-          ## All site specific settings are indexed by site node name
-          neossitename:
-            trackingId: 'UA-XXXXX-YY'
-            profileId: '12345678'
+  Neos:
+    GoogleAnalytics:
+      sites:
+        ## All site specific settings are indexed by site node name
+        neossitename:
+          trackingId: 'UA-XXXXX-YY'
+          profileId: '12345678'
 
 The second way is to use the Analytics module in the Neos user interface to select
 an Analytics property for each site (the ``profileId`` from the settings above) and

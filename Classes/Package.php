@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics;
+namespace Neos\GoogleAnalytics;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,9 +11,9 @@ namespace TYPO3\Neos\GoogleAnalytics;
  * source code.
  */
 
-use TYPO3\Flow\Core\Bootstrap;
-use TYPO3\Flow\Package\Package as BasePackage;
-use TYPO3\TypoScript\Core\Cache\ContentCache;
+use Neos\Flow\Core\Bootstrap;
+use Neos\Flow\Package\Package as BasePackage;
+use Neos\Fusion\Core\Cache\ContentCache;
 
 /**
  * The Package class, used to wire signals to slots in this package.

@@ -1,8 +1,8 @@
 <?php
-namespace TYPO3\Neos\GoogleAnalytics\Service;
+namespace Neos\GoogleAnalytics\Service;
 
 /*
- * This file is part of the TYPO3.Neos.GoogleAnalytics package.
+ * This file is part of the Neos.GoogleAnalytics package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,14 +11,14 @@ namespace TYPO3\Neos\GoogleAnalytics\Service;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Mvc\Controller\ControllerContext;
-use TYPO3\Neos\Domain\Service\ContentContext;
-use TYPO3\Neos\GoogleAnalytics\Domain\Dto\DataResult;
-use TYPO3\Neos\GoogleAnalytics\Domain\Model\SiteConfiguration;
-use TYPO3\Neos\GoogleAnalytics\Exception\AnalyticsNotAvailableException;
-use TYPO3\Neos\GoogleAnalytics\Exception\MissingConfigurationException;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Mvc\Controller\ControllerContext;
+use Neos\Neos\Domain\Service\ContentContext;
+use Neos\GoogleAnalytics\Domain\Dto\DataResult;
+use Neos\GoogleAnalytics\Domain\Model\SiteConfiguration;
+use Neos\GoogleAnalytics\Exception\AnalyticsNotAvailableException;
+use Neos\GoogleAnalytics\Exception\MissingConfigurationException;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 
 /**
  * @Flow\Scope("singleton")
@@ -33,30 +33,30 @@ class Reporting
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository
+     * @var \Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository
      */
     protected $siteConfigurationRepository;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Neos\Service\LinkingService
+     * @var \Neos\Neos\Service\LinkingService
      */
     protected $linkingService;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\TYPO3CR\Domain\Service\ContextFactoryInterface
+     * @var \Neos\ContentRepository\Domain\Service\ContextFactoryInterface
      */
     protected $contextFactory;
 
     /**
-     * @Flow\Inject(setting="stats", package="TYPO3.Neos.GoogleAnalytics")
+     * @Flow\InjectConfiguration(path="stats", package="Neos.GoogleAnalytics")
      * @var array
      */
     protected $statsSettings;
 
     /**
-     * @Flow\Inject(setting="sites", package="TYPO3.Neos.GoogleAnalytics")
+     * @Flow\InjectConfiguration(path="sites", package="Neos.GoogleAnalytics")
      * @var array
      */
     protected $sitesSettings;
@@ -89,15 +89,24 @@ class Reporting
 
         $nodeUri = $this->getLiveNodeUri($node, $controllerContext);
         $filters = 'ga:pagePath==' . $nodeUri->getPath() . ';ga:hostname==' . $nodeUri->getHost();
+        $parameters = [
+            'filters' => $filters
+        ];
+        if (isset($statConfiguration['dimensions'])) {
+            $parameters['dimensions'] = $statConfiguration['dimensions'];
+        }
+        if (isset($statConfiguration['sort'])) {
+            $parameters['sort'] = $statConfiguration['sort'];
+        }
+        if (isset($statConfiguration['max-results'])) {
+            $parameters['max-results'] = $statConfiguration['max-results'];
+        }
         $gaResult = $this->analytics->data_ga->get(
             'ga:' . $siteConfiguration->getProfileId(),
             $startDateFormatted,
             $endDateFormatted,
             $statConfiguration['metrics'],
-            [
-                'filters' => $filters,
-                'dimensions' => isset($statConfiguration['dimensions']) ? $statConfiguration['dimensions'] : ''
-            ]
+            $parameters
         );
 
         return new DataResult($gaResult);
@@ -139,7 +148,7 @@ class Reporting
      *
      * @param NodeInterface $node
      * @param ControllerContext $controllerContext
-     * @return \TYPO3\Flow\Http\Uri
+     * @return \Neos\Flow\Http\Uri
      * @throws AnalyticsNotAvailableException If the node was not yet published and no live workspace URI can be resolved
      */
     protected function getLiveNodeUri(NodeInterface $node, ControllerContext $controllerContext)
@@ -154,7 +163,7 @@ class Reporting
         }
 
         $nodeUriString = $this->linkingService->createNodeUri($controllerContext, $liveNode, null, 'html', true);
-        $nodeUri = new \TYPO3\Flow\Http\Uri($nodeUriString);
+        $nodeUri = new \Neos\Flow\Http\Uri($nodeUriString);
 
         return $nodeUri;
     }
