@@ -1,6 +1,6 @@
 {
     "name": "typo3/neos-googleanalytics",
-    "type": "typo3-flow-package",
+    "type": "neos-package",
     "description": "Google Analytics integration for Neos CMS",
     "license": "GPL-3.0+",
     "require": {
@@ -10,6 +10,11 @@
     "autoload": {
         "psr-4": {
             "TYPO3\\Neos\\GoogleAnalytics\\": "Classes"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Neos.GoogleAnalytics"
         }
     }
 }
