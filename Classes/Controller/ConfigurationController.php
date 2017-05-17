@@ -74,7 +74,7 @@ class ConfigurationController extends \TYPO3\Flow\Mvc\Controller\ActionControlle
     /**
      * Update or add site configurations
      *
-     * @param array <\TYPO3\Neos\GoogleAnalytics\Domain\Model\SiteConfiguration> $siteConfigurations Array of site configurations
+     * @param array<\TYPO3\Neos\GoogleAnalytics\Domain\Model\SiteConfiguration> $siteConfigurations Array of site configurations
      * @return void
      */
     public function updateAction(array $siteConfigurations)
