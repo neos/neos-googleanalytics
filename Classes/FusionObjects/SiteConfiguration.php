@@ -28,7 +28,7 @@ class SiteConfiguration extends \Neos\Fusion\FusionObjects\AbstractFusionObject
      */
     protected function getNode()
     {
-        return $this->tsValue('node');
+        return $this->fusionValue('node');
     }
 
     /**
