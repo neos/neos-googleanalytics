@@ -4,22 +4,22 @@
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve">
 				<source>Stats</source>
-			<target xml:lang="la-LA">crwdns1555:0crwdne1555:0</target></trans-unit>
+			<target xml:lang="la-LA">crwdns3068:0crwdne3068:0</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target xml:lang="la-LA">crwdns1556:0crwdne1556:0</target></trans-unit>
+			<target xml:lang="la-LA">crwdns3069:0crwdne3069:0</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
-			<target xml:lang="la-LA">crwdns1557:0crwdne1557:0</target></trans-unit>
+			<target xml:lang="la-LA">crwdns3070:0crwdne3070:0</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve">
 				<source>Performance</source>
-			<target xml:lang="la-LA">crwdns1558:0crwdne1558:0</target></trans-unit>
+			<target xml:lang="la-LA">crwdns3071:0crwdne3071:0</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target xml:lang="la-LA">crwdns1559:0crwdne1559:0</target></trans-unit>
+			<target xml:lang="la-LA">crwdns3072:0crwdne3072:0</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
-			<target xml:lang="la-LA">crwdns1560:0crwdne1560:0</target></trans-unit>
+			<target xml:lang="la-LA">crwdns3073:0crwdne3073:0</target></trans-unit>
     </body>
   </file>
 </xliff>
