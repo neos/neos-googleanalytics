@@ -7,6 +7,7 @@ prototype(Neos.GoogleAnalytics:SiteConfiguration) {
 #
 prototype(Neos.GoogleAnalytics:TrackingCode) < prototype(Neos.Fusion:Template) {
 	@if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
+	@if.inProductionContext = ${Configuration.setting('Neos.Flow.core.context') == 'Production'}
 
 	templatePath = 'resource://Neos.GoogleAnalytics/Private/Templates/Prototypes/TrackingCode.html'
 
