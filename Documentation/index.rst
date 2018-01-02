@@ -43,43 +43,46 @@ After the project has been created, you end up in the dashboard of the new proje
 
 .. image:: Images/google-developers-console-project-dashboard.png
 
-The next step is to set up the Consent screen. Click on *APIs & auth* and then *Consent screen*,
-select an email address and fill in the project name. Again, this screen will probably only be
+The next step is to set up the Consent screen. Click on *APIs & Services* and then *Credentials* > *OAuth consent screen*,
+select an email address and fill in the product name. Again, this screen will probably only be
 shown to you, so don't think too hard about it. All other values in the screen are optional.
 
-.. image:: Images/google-developers-concole-consent-screen.png
+.. image:: Images/google-developers-console-consent-screen.png
 
 Now you need to create credentials for the integration. To do this, click on *Credentials* in the
-navigation, then *Create new Client ID*.
+navigation, then *Create credentials* > "OAuth client ID*.
 
-.. image:: Images/google-developers-concole-credentials.png
+.. image:: Images/google-developers-console-credentials.png
 
-Here you need to fill in the domain of your site and must define an *Authorized redirect URI*.
+Here you need to choose *Web application* and fill in the domain of your domain as *Authorized JavaScript origin* and must define an *Authorized redirect URI*.
 It has to be your domain again, followed by::
 
-  /neos/administration/googleAnalytics/authenticate
+  /neos/administration/googleAnalytics/authenticate.html
 
-.. image:: Images/google-developers-concole-client-id.png
+.. image:: Images/google-developers-console-client-id.png
 
-Then click *Create Client ID.* Next create a new public API access key by clicking on
-*Create new Key*. In the following dialog, click *Server key*.
+Then click *Create*.
 
-.. image:: Images/google-developers-concole-create-new-key.png
+Back on credentials page you have to create a new public API access key by clicking on *Create credentials* > *Api key*.
 
-Now define allowed IP addresses, if you like, and click *Create*.
+.. image:: Images/google-developers-console-credentials.png
+
+.. image:: Images/google-developers-console-create-new-key.png
+
+In the following dialog, click *Restrict key* to define allowed IP addresses, if you like. Otherwise click "Close".
 
 Your credentials overview should now look like this:
 
-.. image:: Images/google-developers-concole-credentials-done.png
+.. image:: Images/google-developers-console-credentials-done.png
 
 The last step in the Developers Console is to make sure the Google Analytics API is enabled.
-Click on *APIs* in the left navigation and enter "Analytics" in the search field.
+Click on *Library* in the left navigation and enter "Analytics" in the search field.
 
-.. image:: Images/google-developers-concole-apis.png
+.. image:: Images/google-developers-console-apis.png
 
-Click on the Analytics API link and on the following page on Enable API.
+Click on the Analytics API link and on the following page on Enable.
 
-.. image:: Images/google-developers-concole-enable-api.png
+.. image:: Images/google-developers-console-enable-api.png
 
 With the data from the credentials overview screen you can now configure the Neos
 integration, just fill in the blanks:
