@@ -7,7 +7,7 @@
 			<target xml:lang="sv-SE" state="translated">Statistik</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target xml:lang="sv-SE" state="translated">Analys</target></trans-unit>
+			<target xml:lang="sv-SE" state="translated">Analys</target><alt-trans><target xml:lang="sv-SE">Analyser</target></alt-trans></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
 			<target xml:lang="sv-SE" state="translated">Sessioner</target></trans-unit>
