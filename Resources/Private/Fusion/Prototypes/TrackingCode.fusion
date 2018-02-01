@@ -19,6 +19,12 @@ prototype(Neos.GoogleAnalytics:TrackingCode) < prototype(Neos.Fusion:Template) {
 	# Actual tracking code JavaScript snippets, can be extended with additional lines
 	code = Neos.Fusion:Array {
 		create = ${"ga('create', '" + trackingId + "', 'auto');"}
-		send = ${"ga('send', 'pageview');"}
-	}
+		create.@position = '10'	
+		
+		anonymize = ${"ga('set', 'anonymizeIp', true);"}
+		anonymize.@position = '20'	
+		
+		send = ${"ga('send', 'pageview');"}	
+        	send.@position = '30'
+    	}
 }
