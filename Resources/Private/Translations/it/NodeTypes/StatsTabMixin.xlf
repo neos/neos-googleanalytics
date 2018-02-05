@@ -4,22 +4,22 @@
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve">
 				<source>Stats</source>
-			<target xml:lang="it" state="needs-translation">Stats</target></trans-unit>
+			<target xml:lang="it" state="translated">Statistiche</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target xml:lang="it" state="needs-translation">Analytics</target></trans-unit>
+			<target xml:lang="it" state="translated">Analitica</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
-			<target xml:lang="it" state="needs-translation">Sessions</target></trans-unit>
+			<target xml:lang="it" state="translated">Sessioni</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve">
 				<source>Performance</source>
-			<target xml:lang="it" state="needs-translation">Performance</target></trans-unit>
+			<target xml:lang="it" state="translated">Prestazioni</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target xml:lang="it" state="needs-translation">Device categories</target></trans-unit>
+			<target xml:lang="it" state="translated">Categorie di dispositivi</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
-			<target xml:lang="it" state="needs-translation">User types</target></trans-unit>
+			<target xml:lang="it" state="translated">Tipi di utente</target></trans-unit>
     </body>
   </file>
 </xliff>
