@@ -19,7 +19,7 @@
         stats:
           label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:tabs.stats'
           position: 100
-          icon: 'icon-bar-chart icon-line-chart'
+          icon: 'icon-bar-chart icon-chart-line'
       groups:
         analytics:
           label: 'TYPO3.Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:groups.analytics'
