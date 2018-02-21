@@ -19,7 +19,7 @@
         stats:
           label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:tabs.stats'
           position: 100
-          icon: 'icon-bar-chart icon-line-chart'
+          icon: 'icon-line-chart icon-chart-line'
       groups:
         analytics:
           label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:groups.analytics'
