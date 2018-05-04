@@ -59,6 +59,8 @@ class ClientFactory
         $client->setScopes(['https://www.googleapis.com/auth/analytics.readonly']);
         $client->setAccessType('offline');
 
+        $client->setHttpClient(new \GuzzleHttp\Client([ 'headers' => [ 'referer' => (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] ]]));
+
         $accessToken = $this->tokenStorage->getAccessToken();
         if ($accessToken !== null) {
             $client->setAccessToken($accessToken);
