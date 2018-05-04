@@ -4,7 +4,7 @@
     "description": "Google Analytics integration for Neos CMS",
     "license": ["GPL-3.0-or-later"],
     "require": {
-        "google/apiclient": "1.1.*",
+        "google/apiclient": "~2.2.0",
         "neos/neos": "~3.0 || ~4.0 || dev-master"
     },
     "replace": {

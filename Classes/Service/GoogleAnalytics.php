@@ -29,7 +29,7 @@ class GoogleAnalytics extends \Google_Service_Analytics
      */
     public function requireAuthentication()
     {
-        if ((string)$this->getClient()->getAccessToken() === '') {
+        if ((string) json_encode($this->getClient()->getAccessToken()) === '') {
             throw new AuthenticationRequiredException('No access token', 1415783205);
         }
 

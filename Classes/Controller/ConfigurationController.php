@@ -110,7 +110,7 @@ class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
         if (!empty($code)) {
             $client->authenticate($code);
 
-            $this->tokenStorage->storeAccessToken($client->getAccessToken());
+            $this->tokenStorage->storeAccessToken(json_encode($client->getAccessToken()));
             $this->tokenStorage->storeRefreshToken($client->getRefreshToken());
 
             $indexUri = $this->uriBuilder->reset()
