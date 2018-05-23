@@ -19,11 +19,11 @@
         stats:
           label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:tabs.stats'
           position: 100
-          icon: 'icon-line-chart icon-chart-line'
+          icon: 'chart-line'
       groups:
         analytics:
           label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:groups.analytics'
-          icon: 'icon-line-chart'
+          icon: 'chart-line'
           position: 10
           tab: 'stats'
       # All analytics metrics are "views" for the inspector
