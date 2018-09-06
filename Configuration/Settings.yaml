@@ -22,6 +22,7 @@ Neos:
         'Neos.GoogleAnalytics': TRUE
 
   GoogleAnalytics:
+    enableTracking: true
 
     authentication:
       # Application name for the consent screen
