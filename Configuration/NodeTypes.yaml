@@ -13,6 +13,7 @@
 # Mixin configuring the Analytics tab for the inspector
 #
 'Neos.GoogleAnalytics:StatsTabMixin':
+  abstract: true
   ui:
     inspector:
       tabs:
