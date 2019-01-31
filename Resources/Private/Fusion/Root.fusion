@@ -12,5 +12,7 @@ prototype(Neos.Neos:Page) {
 		# Include tracking code if a tracking id is configured for the current site
 		@if.trackingIdIsSet = ${!String.isBlank(this.trackingId)}
 
+		# Do not show if enableTracking is false
+		@if.trackingIsEnabled = ${Configuration.setting('Neos.GoogleAnalytics.enableTracking')}
 	}
 }
