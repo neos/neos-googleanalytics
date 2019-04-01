@@ -4,22 +4,22 @@
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve">
 				<source>Stats</source>
-			<target xml:lang="id" state="translated">Statistik</target></trans-unit>
+			<target state="translated">Statistik</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target xml:lang="id" state="translated">Analitis</target><alt-trans><target xml:lang="id">Analytics</target></alt-trans></trans-unit>
+			<target state="translated">Analitis</target><alt-trans><target>Analytics</target></alt-trans></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
-			<target xml:lang="id" state="translated">Sesi</target></trans-unit>
+			<target state="translated">Sesi</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve">
 				<source>Performance</source>
-			<target xml:lang="id" state="translated">Performa</target></trans-unit>
+			<target state="translated">Performa</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target xml:lang="id" state="translated">Kategori perangkat</target></trans-unit>
+			<target state="translated">Kategori perangkat</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
-			<target xml:lang="id" state="translated">Jenis pengguna</target></trans-unit>
+			<target state="translated">Jenis pengguna</target></trans-unit>
     </body>
   </file>
 </xliff>

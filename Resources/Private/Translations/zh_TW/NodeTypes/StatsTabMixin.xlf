@@ -4,22 +4,22 @@
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve">
 				<source>Stats</source>
-			<target xml:lang="zh-TW" state="translated">統計資訊</target></trans-unit>
+			<target state="translated">統計資訊</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target xml:lang="zh-TW" state="translated">分析</target></trans-unit>
+			<target state="translated">分析</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
-			<target xml:lang="zh-TW" state="translated">工作階段</target></trans-unit>
+			<target state="translated">工作階段</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve">
 				<source>Performance</source>
-			<target xml:lang="zh-TW" state="translated">效能</target></trans-unit>
+			<target state="translated">效能</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target xml:lang="zh-TW" state="translated">裝置分類</target></trans-unit>
+			<target state="translated">裝置分類</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
-			<target xml:lang="zh-TW" state="translated">使用者類型</target></trans-unit>
+			<target state="translated">使用者類型</target></trans-unit>
     </body>
   </file>
 </xliff>
