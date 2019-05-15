@@ -1,30 +1,29 @@
-prototype(Neos.GoogleAnalytics:SiteConfiguration) {
-	@class = 'Neos\\GoogleAnalytics\\FusionObjects\\SiteConfiguration'
-	node = ${node}
-}
+prototype(Neos.GoogleAnalytics:TrackingCode) < prototype(Neos.Fusion:Component) {
+    # Don't track while in backend
+    @if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
 
-# A Google Analytics tracking code object
-#
-prototype(Neos.GoogleAnalytics:TrackingCode) < prototype(Neos.Fusion:Template) {
-	@if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
+    # Include tracking code if a tracking id is configured for the current site
+    @if.trackingIdIsSet = ${!String.isBlank(this.trackingId)}
 
-	templatePath = 'resource://Neos.GoogleAnalytics/Private/Templates/Prototypes/TrackingCode.html'
+    # Do not show if enableTracking is false
+    @if.trackingIsEnabled = ${Configuration.setting('Neos.GoogleAnalytics.enableTracking')}
 
-	# Tracking ID is blank by default:
-	trackingId = ''
+    # Tracking ID is blank by default:
+    trackingId = ''
 
-	# Make the trackingId available for nested objects
-	@override.trackingId = ${this.trackingId}
+    renderer = Neos.Fusion:Component {
+        # Actual tracking code JavaScript snippets, can be extended with additional lines
+        code = Neos.Fusion:Join {
+            create = 'window.dataLayer = window.dataLayer || [];'
+            push = 'function gtag(){dataLayer.push(arguments);}'
+            date = 'gtag("js", new Date());'
+            config = ${'gtag("config", "' + props.trackingId + '");'}
+        }
+        trackingId = ${props.trackingId}
 
-	# Actual tracking code JavaScript snippets, can be extended with additional lines
-	code = Neos.Fusion:Array {
-		create = ${"ga('create', '" + trackingId + "', 'auto');"}
-		create.@position = '10'	
-		
-		anonymize = ${"ga('set', 'anonymizeIp', true);"}
-		anonymize.@position = '20'	
-		
-		send = ${"ga('send', 'pageview');"}	
-        	send.@position = '30'
-    	}
+        renderer = afx`
+            <script async src={"https://www.googletagmanager.com/gtag/js?id=" + props.trackingId}></script>
+            <script>{props.code}</script>
+        `
+    }
 }

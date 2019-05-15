@@ -5,7 +5,8 @@
     "license": ["GPL-3.0-or-later"],
     "require": {
         "google/apiclient": "~2.2.0",
-        "neos/neos": "~3.0 || ~4.0 || dev-master"
+        "neos/neos": "~3.0 || ~4.0 || dev-master",
+        "neos/fusion-afx": "^1.2"
     },
     "replace": {
         "typo3/neos-googleanalytics": "self.version"

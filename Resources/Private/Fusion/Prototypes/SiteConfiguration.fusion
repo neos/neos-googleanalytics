@@ -1,0 +1,4 @@
+prototype(Neos.GoogleAnalytics:SiteConfiguration) {
+    @class = 'Neos\\GoogleAnalytics\\FusionObjects\\SiteConfiguration'
+    node = ${node}
+}

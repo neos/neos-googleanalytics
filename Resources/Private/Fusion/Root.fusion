@@ -1,18 +1,1 @@
-include: 'Prototypes/*'
-
-prototype(Neos.Neos:Page) {
-	googleAnalyticsTrackingCode = Neos.GoogleAnalytics:TrackingCode {
-		# Google suggests to include the tracking code directly after the <body> tag
-		@position = 'after bodyTag 100'
-
-		siteConfiguration = Neos.GoogleAnalytics:SiteConfiguration
-		# Get the trackingId from a SiteConfiguration entity for the site of the current node with fallback to a setting
-		trackingId = ${this.siteConfiguration.trackingId || Configuration.setting('Neos.GoogleAnalytics.sites.' + site.name + '.trackingId')}
-
-		# Include tracking code if a tracking id is configured for the current site
-		@if.trackingIdIsSet = ${!String.isBlank(this.trackingId)}
-
-		# Do not show if enableTracking is false
-		@if.trackingIsEnabled = ${Configuration.setting('Neos.GoogleAnalytics.enableTracking')}
-	}
-}
+include: **/*.fusion
