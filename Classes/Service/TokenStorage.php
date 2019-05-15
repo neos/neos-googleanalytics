@@ -1,4 +1,5 @@
 <?php
+
 namespace Neos\GoogleAnalytics\Service;
 
 /*
@@ -11,6 +12,9 @@ namespace Neos\GoogleAnalytics\Service;
  * source code.
  */
 
+use Neos\Cache\Exception as CacheException;
+use Neos\Cache\Exception\InvalidDataException;
+use Neos\Cache\Frontend\StringFrontend;
 use Neos\Flow\Annotations as Flow;
 
 /**
@@ -20,13 +24,15 @@ class TokenStorage
 {
     /**
      * @Flow\Inject
-     * @var \Neos\Cache\Frontend\StringFrontend
+     * @var StringFrontend
      */
     protected $cache;
 
     /**
      * @param string $accessToken
      * @return void
+     * @throws CacheException
+     * @throws InvalidDataException
      */
     public function storeAccessToken($accessToken)
     {
@@ -36,6 +42,8 @@ class TokenStorage
     /**
      * @param string $refreshToken
      * @return void
+     * @throws CacheException
+     * @throws InvalidDataException
      */
     public function storeRefreshToken($refreshToken)
     {
@@ -45,7 +53,7 @@ class TokenStorage
     /**
      * @return string
      */
-    public function getAccessToken()
+    public function getAccessToken(): string
     {
         $accessToken = $this->cache->get('AccessToken');
         if ($accessToken === false) {
@@ -58,7 +66,7 @@ class TokenStorage
     /**
      * @return string
      */
-    public function getRefreshToken()
+    public function getRefreshToken(): string
     {
         $accessToken = $this->cache->get('RefreshToken');
         if ($accessToken === false) {

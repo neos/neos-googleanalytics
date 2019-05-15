@@ -12,10 +12,12 @@ namespace Neos\GoogleAnalytics\FusionObjects;
  */
 
 use Neos\Flow\Annotations as Flow;
+use Neos\Fusion\FusionObjects\AbstractFusionObject;
 use Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\Neos\Domain\Service\ContentContext;
 
-class SiteConfiguration extends \Neos\Fusion\FusionObjects\AbstractFusionObject
+class SiteConfiguration extends AbstractFusionObject
 {
     /**
      * @Flow\Inject
@@ -41,7 +43,7 @@ class SiteConfiguration extends \Neos\Fusion\FusionObjects\AbstractFusionObject
         $node = $this->getNode();
         if ($node instanceof NodeInterface) {
             $contentContext = $node->getContext();
-            if ($contentContext instanceof \Neos\Neos\Domain\Service\ContentContext) {
+            if ($contentContext instanceof ContentContext) {
                 $site = $contentContext->getCurrentSite();
                 $siteConfiguration = $this->siteConfigurationRepository->findOneBySite($site);
 

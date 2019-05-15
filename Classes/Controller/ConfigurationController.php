@@ -11,37 +11,52 @@ namespace Neos\GoogleAnalytics\Controller;
  * source code.
  */
 
+use Google_Service_Exception;
+use Neos\Cache\Exception as CacheException;
+use Neos\Cache\Exception\InvalidDataException;
+use Neos\Error\Messages\Message;
 use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Http\Uri;
+use Neos\Flow\Mvc\Controller\ActionController;
+use Neos\Flow\Mvc\Exception\ForwardException;
+use Neos\Flow\Mvc\Exception\StopActionException;
+use Neos\Flow\Mvc\Exception\UnsupportedRequestTypeException;
+use Neos\Flow\Mvc\Routing\Exception\MissingActionNameException;
+use Neos\Flow\Persistence\Exception\IllegalObjectTypeException;
+use Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository;
 use Neos\GoogleAnalytics\Exception\AuthenticationRequiredException;
 use Neos\GoogleAnalytics\Exception\MissingConfigurationException;
+use Neos\GoogleAnalytics\Service\GoogleAnalytics;
+use Neos\GoogleAnalytics\Service\TokenStorage;
+use Neos\Neos\Domain\Repository\SiteRepository;
 
 /**
  * The ConfigurationController handles the configuration of the Google Analytics module,
  * including connecting to the Google API via OAuth2 and assigning profiles to sites in Neos.
  */
-class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
+class ConfigurationController extends ActionController
 {
     /**
      * @Flow\Inject
-     * @var \Neos\Neos\Domain\Repository\SiteRepository
+     * @var SiteRepository
      */
     protected $siteRepository;
 
     /**
      * @Flow\Inject
-     * @var \Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository
+     * @var SiteConfigurationRepository
      */
     protected $siteConfigurationRepository;
 
     /**
      * @Flow\Inject
-     * @var \Neos\GoogleAnalytics\Service\TokenStorage
+     * @var TokenStorage
      */
     protected $tokenStorage;
 
     /**
      * @Flow\Inject
-     * @var \Neos\GoogleAnalytics\Service\GoogleAnalytics
+     * @var GoogleAnalytics
      */
     protected $analytics;
 
@@ -49,6 +64,7 @@ class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
      * Show a list of sites and assigned GA profiles
      *
      * @return void
+     * @throws AuthenticationRequiredException
      */
     public function indexAction()
     {
@@ -76,6 +92,8 @@ class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
      *
      * @param array<\Neos\GoogleAnalytics\Domain\Model\SiteConfiguration> $siteConfigurations Array of site configurations
      * @return void
+     * @throws StopActionException
+     * @throws IllegalObjectTypeException
      */
     public function updateAction(array $siteConfigurations)
     {
@@ -95,6 +113,11 @@ class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
 
     /**
      * @return void
+     * @throws CacheException
+     * @throws InvalidDataException
+     * @throws StopActionException
+     * @throws UnsupportedRequestTypeException
+     * @throws MissingActionNameException
      */
     public function authenticateAction()
     {
@@ -133,6 +156,7 @@ class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
      * Logout (disconnect) the Google account
      *
      * @return void
+     * @throws StopActionException
      */
     public function logoutAction()
     {
@@ -161,16 +185,18 @@ class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
      * an error message.
      *
      * @return void
+     * @throws ForwardException
+     * @throws StopActionException
      */
     protected function callActionMethod()
     {
         try {
             parent::callActionMethod();
-        } catch (\Google_Service_Exception $exception) {
-            $this->addFlashMessage('%1$s', 'Google API error', \Neos\Error\Messages\Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
+        } catch (Google_Service_Exception $exception) {
+            $this->addFlashMessage('%1$s', 'Google API error', Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
             $this->forward('errorMessage');
         } catch (MissingConfigurationException $exception) {
-            $this->addFlashMessage('%1$s', 'Missing configuration', \Neos\Error\Messages\Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
+            $this->addFlashMessage('%1$s', 'Missing configuration', Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
             $this->forward('errorMessage');
         } catch (AuthenticationRequiredException $exception) {
             $this->redirect('authenticate');
@@ -183,6 +209,7 @@ class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
      * TODO Handle "(403) User does not have any Google Analytics account."
      *
      * @return array
+     * @throws AuthenticationRequiredException
      */
     protected function getGroupedProfiles()
     {
@@ -218,7 +245,7 @@ class ConfigurationController extends \Neos\Flow\Mvc\Controller\ActionController
      */
     protected function removeUriQueryArguments($redirectUri)
     {
-        $uri = new \Neos\Flow\Http\Uri($redirectUri);
+        $uri = new Uri($redirectUri);
         $uri->setQuery(null);
         $redirectUri = (string)$uri;
 

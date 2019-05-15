@@ -11,8 +11,11 @@ namespace Neos\GoogleAnalytics\Service\DataSource;
  * source code.
  */
 
+use DateTime;
+use InvalidArgumentException;
 use Neos\Flow\Annotations as Flow;
 use Neos\GoogleAnalytics\Exception;
+use Neos\GoogleAnalytics\Service\Reporting;
 use Neos\Neos\Service\DataSource\AbstractDataSource;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 
@@ -25,7 +28,7 @@ class GoogleAnalyticsDataSource extends AbstractDataSource
 
     /**
      * @Flow\Inject
-     * @var \Neos\GoogleAnalytics\Service\Reporting
+     * @var Reporting
      */
     protected $reporting;
 
@@ -34,21 +37,21 @@ class GoogleAnalyticsDataSource extends AbstractDataSource
      *
      * {@inheritdoc}
      */
-    public function getData(NodeInterface $node = null, array $arguments)
+    public function getData(NodeInterface $node = null, array $arguments = []): array
     {
         if (!isset($arguments['stat'])) {
-            throw new \InvalidArgumentException('Missing "stat" argument', 1416864525);
+            throw new InvalidArgumentException('Missing "stat" argument', 1416864525);
         }
 
         $startDateArgument = isset($arguments['startDate']) ? $arguments['startDate'] : '3 months ago';
         $endDateArgument = isset($arguments['endDate']) ? $arguments['endDate'] : '1 day ago';
         try {
-            $startDate = new \DateTime($startDateArgument);
+            $startDate = new DateTime($startDateArgument);
         } catch (\Exception $exception) {
             return ['error' => ['message' => 'Invalid date format for argument "startDate"', 'code' => 1417435564]];
         }
         try {
-            $endDate = new \DateTime($endDateArgument);
+            $endDate = new DateTime($endDateArgument);
         } catch (\Exception $exception) {
             return ['error' => ['message' => 'Invalid date format for argument "endDate"', 'code' => 1417435581]];
         }
@@ -59,15 +62,6 @@ class GoogleAnalyticsDataSource extends AbstractDataSource
             ];
 
             return $data;
-        } catch (\Google_Service_Exception $exception) {
-            $errors = $exception->getErrors();
-
-            return [
-                'error' => [
-                    'message' => isset($errors[0]['message']) ? $errors[0]['message'] : 'Google API returned error',
-                    'code' => isset($errors[0]['reason']) ? $errors[0]['reason'] : 1417606128
-                ]
-            ];
         } catch (Exception $exception) {
             return [
                 'error' => [
