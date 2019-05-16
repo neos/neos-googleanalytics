@@ -22,7 +22,7 @@ Neos:
 
     fusion:
       autoInclude:
-        'Neos.GoogleAnalytics': TRUE
+        'Neos.GoogleAnalytics': true
 
   GoogleAnalytics:
     authentication:

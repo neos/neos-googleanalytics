@@ -11,6 +11,8 @@ namespace Neos\GoogleAnalytics\Service;
  * source code.
  */
 
+use Google_Client;
+use Google_Service_Analytics;
 use Neos\Flow\Annotations as Flow;
 use Neos\GoogleAnalytics\Exception\AuthenticationRequiredException;
 
@@ -19,8 +21,18 @@ use Neos\GoogleAnalytics\Exception\AuthenticationRequiredException;
  *
  * @Flow\Scope("singleton")
  */
-class GoogleAnalytics extends \Google_Service_Analytics
+class GoogleAnalytics extends Google_Service_Analytics
 {
+    /**
+     * @inheritdoc
+     */
+    public function __construct(Google_Client $client)
+    {
+        parent::__construct($client);
+
+        $client->addScope(Google_Service_Analytics::ANALYTICS_READONLY);
+    }
+
     /**
      * Require an authenticated Google Analytics service
      *

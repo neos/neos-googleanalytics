@@ -1,16 +1,6 @@
-Neos\GoogleAnalytics\Service\TokenStorage:
-  properties:
-    cache:
-      object:
-        factoryObjectName: Neos\Flow\Cache\CacheManager
-        factoryMethodName: getCache
-        arguments:
-          1:
-            value: Neos_GoogleAnalytics_Tokens
-
 Neos\GoogleAnalytics\Service\GoogleAnalytics:
   arguments:
     1:
       object:
-        factoryObjectName: Neos\GoogleAnalytics\Service\ClientFactory
+        factoryObjectName: Flowpack\GoogleApiClient\Service\ClientFactory
         factoryMethodName: create

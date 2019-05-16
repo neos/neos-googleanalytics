@@ -1,4 +1,0 @@
-Neos_GoogleAnalytics_Tokens:
-  frontend: Neos\Cache\Frontend\StringFrontend
-  backend: Neos\Cache\Backend\SimpleFileBackend
-  persistent: true
