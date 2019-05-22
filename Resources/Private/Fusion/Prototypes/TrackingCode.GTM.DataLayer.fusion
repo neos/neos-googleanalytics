@@ -1,0 +1,13 @@
+prototype(Neos.GoogleAnalytics:TrackingCode.GTM.DataLayer) < prototype(Neos.Fusion:Component) {
+    data = Neos.Fusion:DataStructure
+    @if.hasData = ${Type.isArray(this.data) && !Array.isEmpty(this.data)}
+
+    renderer = Neos.Fusion:Component {
+        jsonData = ${Json.stringify(props.data)}
+        renderer = afx`
+            <script>
+                {'window.dataLayer = window.dataLayer || []; window.dataLayer.push(' + props.jsonData + ');'}
+            </script>
+        `
+    }
+}
