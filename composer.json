@@ -2,11 +2,11 @@
     "name": "neos/googleanalytics",
     "type": "neos-package",
     "description": "Google Analytics integration for Neos CMS",
-    "license": ["GPL-3.0-or-later"],
+    "license": "GPL-3.0-or-later",
     "require": {
-        "google/apiclient": "~2.2.0",
         "neos/neos": "~4.3 || dev-master",
-        "neos/fusion-afx": "^1.2"
+        "neos/fusion-afx": "^1.2",
+        "flowpack/googleapiclient": "^1.0"
     },
     "replace": {
         "typo3/neos-googleanalytics": "self.version"
