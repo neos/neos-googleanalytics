@@ -11,48 +11,27 @@ namespace Neos\GoogleAnalytics\Controller;
  * source code.
  */
 
-use Google_Service_Exception;
-use Neos\Cache\Exception as CacheException;
-use Neos\Cache\Exception\InvalidDataException;
-use Neos\Error\Messages\Message;
 use Neos\Flow\Annotations as Flow;
-use Neos\Flow\Http\Uri;
-use Neos\Flow\Mvc\Controller\ActionController;
-use Neos\Flow\Mvc\Exception\ForwardException;
-use Neos\Flow\Mvc\Exception\StopActionException;
-use Neos\Flow\Mvc\Exception\UnsupportedRequestTypeException;
-use Neos\Flow\Mvc\Routing\Exception\MissingActionNameException;
-use Neos\Flow\Persistence\Exception\IllegalObjectTypeException;
-use Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository;
-use Neos\GoogleAnalytics\Exception\AuthenticationRequiredException;
-use Neos\GoogleAnalytics\Exception\MissingConfigurationException;
+use Neos\Flow\Mvc\View\ViewInterface;
+use Neos\Fusion\View\FusionView;
 use Neos\GoogleAnalytics\Service\GoogleAnalytics;
-use Neos\GoogleAnalytics\Service\TokenStorage;
-use Neos\Neos\Domain\Repository\SiteRepository;
+use Neos\Neos\Controller\Module\AbstractModuleController;
 
 /**
- * The ConfigurationController handles the configuration of the Google Analytics module,
- * including connecting to the Google API via OAuth2 and assigning profiles to sites in Neos.
+ * The ConfigurationController shows the current configuration for all configured sites
+ * and possible issues if they exist.
  */
-class ConfigurationController extends ActionController
+class ConfigurationController extends AbstractModuleController
 {
     /**
-     * @Flow\Inject
-     * @var SiteRepository
+     * @var FusionView
      */
-    protected $siteRepository;
+    protected $view;
 
     /**
-     * @Flow\Inject
-     * @var SiteConfigurationRepository
+     * @var string
      */
-    protected $siteConfigurationRepository;
-
-    /**
-     * @Flow\Inject
-     * @var TokenStorage
-     */
-    protected $tokenStorage;
+    protected $defaultViewObjectName = FusionView::class;
 
     /**
      * @Flow\Inject
@@ -64,199 +43,27 @@ class ConfigurationController extends ActionController
      * Show a list of sites and assigned GA profiles
      *
      * @return void
-     * @throws AuthenticationRequiredException
      */
     public function indexAction()
     {
-        $siteConfigurations = $this->siteConfigurationRepository->findAll();
-
-        $sites = $this->siteRepository->findAll();
-        $sitesWithConfiguration = [];
-        foreach ($sites as $site) {
-            $item = ['site' => $site];
-            foreach ($siteConfigurations as $siteConfiguration) {
-                if ($siteConfiguration->getSite() === $site) {
-                    $item['configuration'] = $siteConfiguration;
-                }
-            }
-            $sitesWithConfiguration[] = $item;
-        }
-        $this->view->assign('sitesWithConfiguration', $sitesWithConfiguration);
-
-        $profiles = $this->getGroupedProfiles();
-        $this->view->assign('groupedProfiles', $profiles);
+        $this->view->assignMultiple([
+            'sitesConfiguration' => $this->settings['sites'],
+        ]);
     }
 
     /**
-     * Update or add site configurations
+     * Sets the Fusion path pattern on the view.
      *
-     * @param array<\Neos\GoogleAnalytics\Domain\Model\SiteConfiguration> $siteConfigurations Array of site configurations
-     * @return void
-     * @throws StopActionException
-     * @throws IllegalObjectTypeException
-     */
-    public function updateAction(array $siteConfigurations)
-    {
-        foreach ($siteConfigurations as $siteConfiguration) {
-            if ($this->persistenceManager->isNewObject($siteConfiguration)) {
-                $this->siteConfigurationRepository->add($siteConfiguration);
-            } else {
-                $this->siteConfigurationRepository->update($siteConfiguration);
-            }
-        }
-
-        $this->emitSiteConfigurationChanged();
-
-        $this->addFlashMessage('Configuration has been updated.', 'Update', null, [], 1417109043);
-        $this->redirect('index');
-    }
-
-    /**
-     * @return void
-     * @throws CacheException
-     * @throws InvalidDataException
-     * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
-     * @throws MissingActionNameException
-     */
-    public function authenticateAction()
-    {
-        $client = $this->analytics->getClient();
-
-        $redirectUri = $this->uriBuilder->reset()
-            ->setCreateAbsoluteUri(true)
-            ->uriFor('authenticate');
-        $client->setRedirectUri($this->removeUriQueryArguments($redirectUri));
-
-        // We have to get the "code" query argument without a module prefix
-        $code = $this->request->getHttpRequest()->getArgument('code');
-        if (!empty($code)) {
-            $client->authenticate($code);
-
-            $this->tokenStorage->storeAccessToken(json_encode($client->getAccessToken()));
-            $this->tokenStorage->storeRefreshToken($client->getRefreshToken());
-
-            $indexUri = $this->uriBuilder->reset()
-                ->setCreateAbsoluteUri(true)
-                ->uriFor('index');
-            $this->redirectToUri($this->removeUriQueryArguments($indexUri));
-        }
-
-        // If we don't have a refresh token, require an approval prompt to receive a refresh token
-        $refreshToken = $this->tokenStorage->getRefreshToken();
-        if ($refreshToken === null) {
-            $client->setApprovalPrompt('force');
-        }
-
-        $authUrl = $client->createAuthUrl();
-        $this->view->assign('authUrl', $authUrl);
-    }
-
-    /**
-     * Logout (disconnect) the Google account
-     *
-     * @return void
-     * @throws StopActionException
-     */
-    public function logoutAction()
-    {
-        $this->tokenStorage->removeTokens();
-        $this->addFlashMessage('Account has been disconnected.', 'Disconnect', null, [], 1417607416);
-        $this->redirect('index');
-    }
-
-    /**
+     * @param ViewInterface $view
      * @return void
      */
-    public function errorMessageAction()
+    protected function initializeView(ViewInterface $view)
     {
-        $client = $this->analytics->getClient();
+        parent::initializeView($view);
 
-        if ($client instanceof \Google_Client) {
-            $authenticated = $client->getAccessToken() !== null;
-        } else {
-            $authenticated = false;
-        }
-        $this->view->assign('authenticated', $authenticated);
-    }
-
-    /**
-     * Catch Google service exceptions and forward to the "apiError" action to show
-     * an error message.
-     *
-     * @return void
-     * @throws ForwardException
-     * @throws StopActionException
-     */
-    protected function callActionMethod()
-    {
-        try {
-            parent::callActionMethod();
-        } catch (Google_Service_Exception $exception) {
-            $this->addFlashMessage('%1$s', 'Google API error', Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
-            $this->forward('errorMessage');
-        } catch (MissingConfigurationException $exception) {
-            $this->addFlashMessage('%1$s', 'Missing configuration', Message::SEVERITY_ERROR, ['message' => $exception->getMessage(), 1415797974]);
-            $this->forward('errorMessage');
-        } catch (AuthenticationRequiredException $exception) {
-            $this->redirect('authenticate');
-        }
-    }
-
-    /**
-     * Get profiles grouped by account and webproperty
-     *
-     * TODO Handle "(403) User does not have any Google Analytics account."
-     *
-     * @return array
-     * @throws AuthenticationRequiredException
-     */
-    protected function getGroupedProfiles()
-    {
-        $this->analytics->requireAuthentication();
-
-        $groupedProfiles = [];
-        $accounts = $this->analytics->management_accounts->listManagementAccounts();
-        foreach ($accounts as $account) {
-            $groupedProfiles[$account->getId()]['label'] = $account->getName();
-            $groupedProfiles[$account->getId()]['items'] = [];
-        }
-        $webproperties = $this->analytics->management_webproperties->listManagementWebproperties('~all');
-        $webpropertiesById = [];
-        foreach ($webproperties as $webproperty) {
-            $webpropertiesById[$webproperty->getId()] = $webproperty;
-        }
-        $profiles = $this->analytics->management_profiles->listManagementProfiles('~all', '~all');
-        foreach ($profiles as $profile) {
-            if (isset($webpropertiesById[$profile->getWebpropertyId()])) {
-                $webproperty = $webpropertiesById[$profile->getWebpropertyId()];
-                $groupedProfiles[$profile->getAccountId()]['items'][$profile->getId()] = ['label' => $webproperty->getName() . ' > ' . $profile->getName(), 'value' => $profile->getId()];
-            }
-        }
-
-        return $groupedProfiles;
-    }
-
-    /**
-     * Remove query arguments from the given URI
-     *
-     * @param string $redirectUri
-     * @return string
-     */
-    protected function removeUriQueryArguments($redirectUri)
-    {
-        $uri = new Uri($redirectUri);
-        $uri->setQuery(null);
-        $redirectUri = (string)$uri;
-
-        return $redirectUri;
-    }
-
-    /**
-     * @Flow\Signal
-     * @return void
-     */
-    protected function emitSiteConfigurationChanged()
-    {
+        /** @var FusionView $view */
+        $view->disableFallbackView();
+        $view->setFusionPathPatterns(['resource://@package/Private/BackendFusion']);
+        $view->setFusionPathPattern('resource://@package/Private/BackendFusion');
     }
 }

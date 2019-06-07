@@ -1,0 +1,32 @@
+include: resource://Neos.Fusion/Private/Fusion/Root.fusion
+
+prototype(Neos.GoogleAnalytics:Configuration.Index) < prototype(Neos.Fusion:Component) {
+    sites = ${sitesConfiguration}
+
+    renderer = afx`
+        <div class="neos-content neos-container-fluid">
+            <table class="neos-table">
+                <thead>
+                    <tr>
+                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:site')}</th>
+                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:ga_profile')}</th>
+                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:ga_trackingid')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <Neos.Fusion:Loop items={props.sites} itemName="site" itemKey="siteName">
+                        <tr>
+                            <td>{siteName}</td>
+                            <td>{site.profileId}</td>
+                            <td>{site.trackingId}</td>
+                        </tr>
+                    </Neos.Fusion:Loop>
+                </tbody>
+            </table>
+        </div>
+    `
+}
+
+Neos.GoogleAnalytics.ConfigurationController {
+    index = Neos.GoogleAnalytics:Configuration.Index
+}
