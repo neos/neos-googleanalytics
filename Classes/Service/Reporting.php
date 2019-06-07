@@ -132,14 +132,14 @@ class Reporting
             throw new \InvalidArgumentException(sprintf('Expected a ContentContext instance in the given node, got %s', get_class($context)), 1415722633);
         }
         $site = $context->getCurrentSite();
-        if (array_key_exists($site->getName(), $this->sitesSettings)) {
-            $siteConfiguration = $this->sitesSettings[$site->getName()];
+        if (array_key_exists($site->getNodeName(), $this->sitesSettings)) {
+            $siteConfiguration = $this->sitesSettings[$site->getNodeName()];
 
             if (array_key_exists('profileId', $siteConfiguration) && !empty($siteConfiguration['profileId'])) {
                 return $siteConfiguration;
             }
         }
-        throw new MissingConfigurationException('No profile configured for site', 1415806282);
+        throw new MissingConfigurationException('No profile configured for site ' . $site->getName(), 1415806282);
     }
 
     /**

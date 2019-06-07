@@ -51,6 +51,7 @@ class ConfigurationController extends AbstractModuleController
         $managementAccounts = [];
 
         try {
+            $this->analytics->getClient();
             $managementAccounts = $this->analytics->management_accounts->listManagementAccounts();
 
             if (!is_array($managementAccounts)) {

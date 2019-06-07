@@ -12,7 +12,13 @@
                 <source>Google Analytics Profile</source>
             </trans-unit>
             <trans-unit id="site.gaTrackingId" xml:space="preserve">
-                <source>Tracking-ID</source>
+                <source>Tracking ID</source>
+            </trans-unit>
+            <trans-unit id="site.tagManagerId" xml:space="preserve">
+                <source>Tag Manager ID</source>
+            </trans-unit>
+            <trans-unit id="noAccounts" xml:space="preserve">
+                <source>No accounts were found. Please check the manual on how to connect your account.</source>
             </trans-unit>
         </body>
     </file>

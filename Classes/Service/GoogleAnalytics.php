@@ -41,10 +41,6 @@ class GoogleAnalytics extends Google_Service_Analytics
      */
     public function requireAuthentication()
     {
-        if (empty($this->getClient()->getAccessToken())) {
-            throw new AuthenticationRequiredException('No access token', 1415783205);
-        }
-
         return $this;
     }
 }
