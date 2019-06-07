@@ -2,13 +2,16 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file original="" product-name="Neos.GoogleAnalytics" source-language="en" datatype="plaintext">
         <body>
-            <trans-unit id="site" xml:space="preserve">
+            <trans-unit id="accounts" xml:space="preserve">
+                <source>Authenticated accounts</source>
+            </trans-unit>
+            <trans-unit id="site.name" xml:space="preserve">
                 <source>Site</source>
             </trans-unit>
-            <trans-unit id="ga_profile" xml:space="preserve">
+            <trans-unit id="site.gaProfile" xml:space="preserve">
                 <source>Google Analytics Profile</source>
             </trans-unit>
-            <trans-unit id="ga_trackingid" xml:space="preserve">
+            <trans-unit id="site.gaTrackingId" xml:space="preserve">
                 <source>Tracking-ID</source>
             </trans-unit>
         </body>

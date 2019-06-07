@@ -11,6 +11,8 @@ namespace Neos\GoogleAnalytics\Controller;
  * source code.
  */
 
+use Google_Service_Exception;
+use Neos\Error\Messages\Message;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\View\ViewInterface;
 use Neos\Fusion\View\FusionView;
@@ -46,8 +48,24 @@ class ConfigurationController extends AbstractModuleController
      */
     public function indexAction()
     {
+        $managementAccounts = [];
+
+        try {
+            $managementAccounts = $this->analytics->management_accounts->listManagementAccounts();
+
+            if (!is_array($managementAccounts)) {
+                $managementAccounts = [$managementAccounts];
+            }
+        } catch (Google_Service_Exception $e) {
+            foreach ($e->getErrors() as $error) {
+                $this->addFlashMessage($error['message'], $error['reason'], Message::SEVERITY_ERROR);
+            }
+        }
+
         $this->view->assignMultiple([
             'sitesConfiguration' => $this->settings['sites'],
+            'managementAccounts' => $managementAccounts,
+            'flashMessages' => $this->flashMessageContainer->getMessagesAndFlush(),
         ]);
     }
 

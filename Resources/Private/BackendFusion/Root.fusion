@@ -1,16 +1,56 @@
 include: resource://Neos.Fusion/Private/Fusion/Root.fusion
 
+prototype(Neos.GoogleAnalytics:Component.FlashMessages) < prototype(Neos.Fusion:Component) {
+    flashMessages = ${[]}
+
+    renderer = afx`
+        <div id="neos-notification-container" class="neos-notification-top" @if.hasMessages={props.flashMessages}>
+            <Neos.Fusion:Loop items={props.flashMessages} itemName="message">
+                <div class="neos-notification neos-notification-error">
+                    <div class="neos-notification-content">
+                        <i class="fas fa-error"></i>
+                        <div class="neos-notification-heading" @if.hasTitle={message.title}>{message.message}</div>
+                    </div>
+                </div>
+            </Neos.Fusion:Loop>
+        </div>
+    `
+}
+
 prototype(Neos.GoogleAnalytics:Configuration.Index) < prototype(Neos.Fusion:Component) {
-    sites = ${sitesConfiguration}
+    sites = ${[]}
+    flashMessages = ${[]}
+    managementAccounts = ${[]}
 
     renderer = afx`
         <div class="neos-content neos-container-fluid">
+            <Neos.GoogleAnalytics:Component.FlashMessages flashMessages={props.flashMessages}/>
+
             <table class="neos-table">
                 <thead>
                     <tr>
-                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:site')}</th>
-                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:ga_profile')}</th>
-                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:ga_trackingid')}</th>
+                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:accounts')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <Neos.Fusion:Loop items={props.managementAccounts} itemName="account">
+                                    <li>{account.username}</li>
+                                </Neos.Fusion:Loop>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="neos-table">
+                <thead>
+                    <tr>
+                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:site.name')}</th>
+                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:site.gaProfile')}</th>
+                        <th>{I18n.translate('Neos.GoogleAnalytics:Main:site.gaTrackingId')}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,5 +68,9 @@ prototype(Neos.GoogleAnalytics:Configuration.Index) < prototype(Neos.Fusion:Comp
 }
 
 Neos.GoogleAnalytics.ConfigurationController {
-    index = Neos.GoogleAnalytics:Configuration.Index
+    index = Neos.GoogleAnalytics:Configuration.Index {
+        sites = ${sitesConfiguration}
+        flashMessages = ${flashMessages}
+        managementAccounts = ${managementAccounts}
+    }
 }
