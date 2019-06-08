@@ -37,7 +37,7 @@ class Version20141111161429 extends AbstractMigration {
             return; // Nothing to do here
         }
 
-        $columnCharSets = $this->connection->executeQuery("SELECT character_set_name FROM information_schema.`COLUMNS` WHERE table_name = '${tableName}' AND column_name = 'persistence_object_identifier'")->fetch();
+        $columnCharSets = $this->connection->executeQuery("SELECT character_set_name FROM information_schema.`COLUMNS` WHERE table_schema IN (SELECT DATABASE()) AND table_name = '${tableName}' AND column_name = 'persistence_object_identifier'")->fetch();
 
         $charSet = $columnCharSets['character_set_name'];
 
