@@ -1,0 +1,6 @@
+prototype(Neos.GoogleAnalytics:TrackingCode.GTM.NoScript) < prototype(Neos.GoogleAnalytics:TrackingCode.Base) {
+    containerId = ${this.configuration.tagManager.id}
+    @if.hasContainerId = ${!String.isBlank(this.containerId)}
+
+    renderer = ${'<!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=' + props.containerId + '" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->'}
+}

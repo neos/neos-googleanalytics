@@ -1,17 +1,14 @@
-prototype(Neos.GoogleAnalytics:TrackingCode) < prototype(Neos.Fusion:Component) {
-    # Don't track while in backend
-    @if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
+prototype(Neos.GoogleAnalytics:TrackingCode.GA) < prototype(Neos.GoogleAnalytics:TrackingCode.Base) {
+    trackingId = ${this.configuration.analytics.id}
 
-    # Include tracking code if a tracking id is configured for the current site
-    @if.trackingIdIsSet = ${!String.isBlank(this.trackingId)}
-
-    # Do not show if enableTracking is false
-    @if.trackingIsEnabled = ${Configuration.setting('Neos.GoogleAnalytics.enableTracking')}
-
-    # Tracking ID is blank by default:
-    trackingId = ''
+    @if {
+        hasTrackingId = ${!String.isBlank(this.trackingId)}
+        hasNoContainerId = ${String.isBlank(this.configuration.tagManager.id)}
+    }
 
     renderer = Neos.Fusion:Component {
+        trackingId = ${props.trackingId}
+
         # Actual tracking code JavaScript snippets, can be extended with additional lines
         code = Neos.Fusion:Join {
             create = 'window.dataLayer = window.dataLayer || [];'
@@ -19,7 +16,6 @@ prototype(Neos.GoogleAnalytics:TrackingCode) < prototype(Neos.Fusion:Component) 
             date = 'gtag("js", new Date());'
             config = ${'gtag("config", "' + props.trackingId + '");'}
         }
-        trackingId = ${props.trackingId}
 
         renderer = afx`
             <script async src={"https://www.googletagmanager.com/gtag/js?id=" + props.trackingId}></script>

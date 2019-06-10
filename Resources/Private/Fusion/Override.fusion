@@ -1,0 +1,16 @@
+prototype(Neos.Neos:Page) {
+    googleAnalytics = Neos.GoogleAnalytics:TrackingCode.GA {
+        @if.addToPage = ${this.configuration.addToPagePrototype}
+        @position = 'after headTag 100'
+    }
+
+    googleTagManager = Neos.GoogleAnalytics:TrackingCode.GTM.Script {
+        @if.addToPage = ${this.configuration.addToPagePrototype}
+        @position = 'before head'
+    }
+
+    googleTagManagerNoScript = Neos.GoogleAnalytics:TrackingCode.GTM.NoScript {
+        @if.addToPage = ${this.configuration.addToPagePrototype}
+        @position = 'before body'
+    }
+}

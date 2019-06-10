@@ -1,0 +1,6 @@
+prototype(Neos.GoogleAnalytics:TrackingCode.Base) < prototype(Neos.Fusion:Component) {
+    # Don't track while in backend
+    @if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
+
+    configuration = ${Neos.GoogleAnalytics.TrackingConfiguration.setting(site)}
+}
