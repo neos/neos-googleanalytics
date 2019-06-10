@@ -1,17 +1,18 @@
 prototype(Neos.Neos:Page) {
-    googleAnalytics = Neos.GoogleAnalytics:TrackingCode.GA {
-        @if.addToPage = ${this.configuration.addToPagePrototype}
+    googleTracking = Neos.Fusion:Join {
+        analytics = Neos.GoogleAnalytics:TrackingCode.GA {
+            @if.addToPage = ${this.configuration.addToPagePrototype}
+        }
+
+        tagManagerDataLayer = Neos.GoogleAnalytics:TrackingCode.GTM.DataLayer {
+            @if.addToPage = ${this.configuration.addToPagePrototype}
+        }
+
+        tagManager = Neos.GoogleAnalytics:TrackingCode.GTM.Script {
+            @if.addToPage = ${this.configuration.addToPagePrototype}
+        }
+
         @position = 'after headTag 100'
-    }
-
-    googleTagManagerDataLayer = Neos.GoogleAnalytics:TrackingCode.GTM.DataLayer {
-        @if.addToPage = ${this.configuration.addToPagePrototype}
-        @position = 'before googleTagManager'
-    }
-
-    googleTagManager = Neos.GoogleAnalytics:TrackingCode.GTM.Script {
-        @if.addToPage = ${this.configuration.addToPagePrototype}
-        @position = 'before head'
     }
 
     googleTagManagerNoScript = Neos.GoogleAnalytics:TrackingCode.GTM.NoScript {
