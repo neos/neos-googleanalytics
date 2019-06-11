@@ -1,0 +1,25 @@
+prototype(Neos.GoogleAnalytics:TrackingCode.GA) < prototype(Neos.GoogleAnalytics:TrackingCode.Base) {
+    trackingId = ${this.configuration.analytics.id}
+
+    @if {
+        hasTrackingId = ${!String.isBlank(this.trackingId)}
+        hasNoContainerId = ${String.isBlank(this.configuration.tagManager.id)}
+    }
+
+    renderer = Neos.Fusion:Component {
+        trackingId = ${props.trackingId}
+
+        # Actual tracking code JavaScript snippets, can be extended with additional lines
+        code = Neos.Fusion:Join {
+            create = 'window.dataLayer = window.dataLayer || [];'
+            push = 'function gtag(){dataLayer.push(arguments);}'
+            date = 'gtag("js", new Date());'
+            config = ${'gtag("config", "' + props.trackingId + '");'}
+        }
+
+        renderer = afx`
+            <script async src={"https://www.googletagmanager.com/gtag/js?id=" + props.trackingId}></script>
+            <script>{props.code}</script>
+        `
+    }
+}

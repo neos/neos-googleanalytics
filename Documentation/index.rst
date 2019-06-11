@@ -118,15 +118,12 @@ Neos:
 Now the integration is set up to fetch data and display the Analytics statistics in the Neos
 user interface.
 
-Assigning tracking IDs
-^^^^^^^^^^^^^^^^^^^^^^
+Configure tracking
+^^^^^^^^^^^^^^^^^^
 
 To actually track visits with Google Analytics, some JavaScript with the tracking ID has to be
 included in the markup. You can do this manually in your template, but the easier way is
-to set up tracking IDs for each site in the Analytics integration.
-
-This can be done in two ways. The first is via settings and allows for versioning the settings
-and easy deployments:
+to set up tracking for each site in the Analytics integration.
 
 .. code-block:: yaml
 
@@ -135,14 +132,47 @@ and easy deployments:
       sites:
         ## All site specific settings are indexed by site node name
         neossitename:
-          trackingId: 'UA-XXXXX-YY'
-          profileId: '12345678'
+          analytics:
+            id: 'UA-XXXXX-YY'
 
-The second way is to use the Analytics module in the Neos user interface to select
-an Analytics property for each site (the ``profileId`` from the settings above) and
-configure a tracking ID.
+Instead of using the Google Analytics tracking code, you can integrate the Google Tag Manager the same way:
 
-.. image:: Images/neos-analytics-module-connected.png
+.. code-block:: yaml
+
+  Neos:
+    GoogleAnalytics:
+      sites:
+        neossitename:
+          tagManager:
+            id: 'GTM-XXXXX'
+
+.. note::
+   If you configure both, a container and an Analytics ID, only the Tag Manager is included.
+
+It is also possible to define default values for all sites. These will be merged with any site specific settings.
+
+.. code-block:: yaml
+
+  Neos:
+    GoogleAnalytics:
+      default:
+        analytics:
+          id: 'UA-XXXXX-YY'
+
+Disable tracking
+----------------
+
+You can disable tracking for a site by either setting the  ``id `` to  ``false `` (this is the default value), or leaving it blank.
+
+.. code-block:: yaml
+
+  Neos:
+    GoogleAnalytics:
+      sites:
+        neossitename:
+          tagManager:
+            id: false
+
 
 Usage
 -----
@@ -157,3 +187,23 @@ Customizing metrics display
 
 Its is possible to adjust the displayed metrics through configuration. The package
 comes with preconfigured data, examine ``NodeTypes.yaml`` and ``Settings.yaml``.
+
+Upgrade instructions (2.x -> 3.0.0)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Configuration for the tracking code has been changed:
+
+.. code-block:: yaml
+
+  Neos:
+    GoogleAnalytics:
+      sites:
+        neossitename:
+          analytics:
+            id: 'UA-XXXXX-YY'
+
+``enableTracking`` setting
+--------------------------
+
+Tracking code is now only included if you provide either a container or an Analytics ID.
+The ``enableTracking`` setting has therefore been removed.
