@@ -62,5 +62,8 @@ Neos:
       #
       # neosdemo:
       #   addToPagePrototype: false
+      #   profileId: '12345678'
+      #   analytics:
+      #     id: 'UA-XXXXX-YY'
       #   tagManager:
       #     id: GTM-XXXXX
