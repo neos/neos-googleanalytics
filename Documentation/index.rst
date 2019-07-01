@@ -18,81 +18,6 @@ Then run `composer update` in your projects root directory.
 Configuration
 -------------
 
-Statistics display inside Neos
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Configuration requires some setup on the side of Google, before the package can be used.
-In a nutshell:
-
-#. Log in to the Google Developers Console
-#. Create a service account key
-#. Enable the Analytics API
-#. Configure the Google Analytics Neos integration using the created credentials
-
-**The steps in detail**
-
-Go to the `Google Developers Console <https://console.developers.google.com/>`_ and create
-a project. This is needed to create the API credentials and keys for the Analytics
-integration. The project name can be chosen freely and doesn't really matter, as you will
-probably be the only one to ever see it.
-
-.. image:: Images/google-developers-console-create-project.png
-
-After the project has been created, you end up in the dashboard of the new project.
-
-.. image:: Images/google-developers-console-project-dashboard.png
-
-If you don't have one yet you have to create a new service account. For this go to "Service accounts" in the sidebar::
-
-.. image:: Images/google-developers-console-select-service-accounts.png
-
-Now create a new one and fill out the required information::
-
-.. image:: Images/google-developers-console-create-service-account.png
-
-Now give the account the `Viewer` role for the project.
-
-Now you need to create credentials for the integration. To do this, click on *Credentials* in the
-navigation, then *Create credentials* > "Service account key*.
-
-.. image:: Images/google-developers-console-credentials.png
-
-Here you need to choose your service account and select `json` as key type::
-
-.. image:: Images/google-developers-console-service-account.png
-
-Then click *Create*. The download of your credentials file should start immediately.
-
-Your credentials overview should now look like this:
-
-.. image:: Images/google-developers-console-credentials-done.png
-
-The last step in the Developers Console is to make sure the Google Analytics API is enabled.
-Click on *Library* in the left navigation and enter "Analytics" in the search field.
-
-.. image:: Images/google-developers-console-apis.png
-
-Click on the Analytics API link and on the following page on Enable.
-
-.. image:: Images/google-developers-console-enable-api.png
-
-With the credentials file you downloaded you can now configure Neos.
-You can either do this by storing the credentials in the persistent cache with the following command::
-
-    flow googleapi:storecredentials my-credentials-file.json
-
-Or you can set the environment variable `GOOGLE_APPLICATION_CREDENTIALS`
-to the path where you store your credentials file.
-
-Now go to the Analytics module in the Neos user interface and verify your setup.
-
-.. image:: Images/neos-analytics-module.png
-
-.. image:: Images/neos-analytics-accounts.png
-
-Now the integration is set up to fetch data and display the Analytics statistics in the Neos
-user interface.
-
 Configure tracking
 ^^^^^^^^^^^^^^^^^^
 
@@ -150,12 +75,109 @@ You can disable tracking for a site by either setting the  ``id `` to  ``false `
           tagManager:
             id: false
 
+Statistics display inside Neos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Configuration requires some setup on the side of Google, before the package can be used.
+In a nutshell:
+
+#. Log in to the Google Developers Console
+#. Create a service account key
+#. Enable the Analytics API
+#. Give the service account permissions to your analytics account
+#. Configure the Google Analytics Neos integration using the created credentials
+
+**The steps in detail**
+
+Go to the `Google Developers Console <https://console.developers.google.com/>`_ and create
+a project. This is needed to create the API credentials and keys for the Analytics
+integration. The project name can be chosen freely and doesn't really matter, as you will
+probably be the only one to ever see it.
+
+.. image:: Images/google-developers-console-create-project.png
+
+After the project has been created, you end up in the dashboard of the new project.
+
+.. image:: Images/google-developers-console-project-dashboard.png
+
+If you don't have one yet you have to create a new service account. For this go to "Service accounts" in the sidebar::
+
+.. image:: Images/google-developers-console-select-service-accounts.png
+
+Now create a new one and fill out the required information::
+
+.. image:: Images/google-developers-console-create-service-account.png
+
+Now give the account the `Viewer` role for the project.
+
+Now you need to create credentials for the integration. To do this, click on *Credentials* in the
+navigation, then *Create credentials* > "Service account key*.
+
+.. image:: Images/google-developers-console-credentials.png
+
+Here you need to choose your service account and select `json` as key type::
+
+.. image:: Images/google-developers-console-service-account.png
+
+Then click *Create*. The download of your credentials file should start immediately.
+
+Your credentials overview should now look like this:
+
+.. image:: Images/google-developers-console-credentials-done.png
+
+The last step in the Developers Console is to make sure the Google Analytics API is enabled.
+Click on *Library* in the left navigation and enter "Analytics" in the search field.
+
+.. image:: Images/google-developers-console-apis.png
+
+Click on the Analytics API link and on the following page on Enable.
+
+.. image:: Images/google-developers-console-enable-api.png
+
+To allow the service account to access your analytics data you have to give it the necessary permissions.
+For that log into Google Analytics and go to the `Admin` menu on the bottom left.
+Then select `User Management` and add the email address of your service account as a new user with
+the read & analyze permission.
+
+.. image:: Images/google-analytics-account-permission.png
+
+Copy the profile id (visible as view id) from your analytics account and add it to your sites settings in
+your `Settings.yaml`.
+
+.. image:: Images/google-analytics-profile-id.png
+
+The configuration should then look like this::
+
+  Neos:
+    GoogleAnalytics:
+      sites:
+        neossitename:
+          analytics:
+            id: 'UA-XXXXX-YY'
+          profileId: 123456789
+
+With the credentials file you downloaded before you can now configure Neos.
+You can either do this by storing the credentials in the persistent cache with the following command::
+
+    flow googleapi:storecredentials my-credentials-file.json
+
+Or you can set the environment variable `GOOGLE_APPLICATION_CREDENTIALS`
+to the path where you store your credentials file.
+
+Now go to the Analytics module in the Neos user interface and verify your setup.
+
+.. image:: Images/neos-analytics-module.png
+
+.. image:: Images/neos-analytics-accounts.png
+
+Now the integration is set up to fetch data and display the Analytics statistics in the Neos
+user interface.
 
 Usage
 -----
 
-If Google has collected statistical data for your site, you will get the most
-important data shown in an inspector tab for documents:
+If Google has collected statistical data for your site and you configured the statistics display,
+you will get the most important data shown in an inspector tab for documents:
 
 .. image:: Images/neos-analytics-inspector.png
 
