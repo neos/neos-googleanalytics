@@ -26,6 +26,7 @@ use Neos\GoogleAnalytics\Exception\MissingConfigurationException;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Neos\Neos\Exception as NeosException;
 use Neos\Neos\Service\LinkingService;
+use Neos\Utility\Arrays;
 
 /**
  * @Flow\Scope("singleton")
@@ -61,6 +62,12 @@ class Reporting
      * @var array
      */
     protected $sitesSettings;
+
+    /**
+     * @Flow\InjectConfiguration(path="default", package="Neos.GoogleAnalytics")
+     * @var array
+     */
+    protected $defaultSettings;
 
     /**
      * Get metrics and dimension values for a configured stat
@@ -133,7 +140,7 @@ class Reporting
         }
         $site = $context->getCurrentSite();
         if (array_key_exists($site->getNodeName(), $this->sitesSettings)) {
-            $siteConfiguration = $this->sitesSettings[$site->getNodeName()];
+            $siteConfiguration = Arrays::arrayMergeRecursiveOverrule($this->defaultSettings, $this->sitesSettings[$site->getNodeName()]);
 
             if (array_key_exists('profileId', $siteConfiguration) && !empty($siteConfiguration['profileId'])) {
                 return $siteConfiguration;
