@@ -1,8 +1,8 @@
 prototype(Neos.GoogleAnalytics:Component.FlashMessages) < prototype(Neos.Fusion:Component) {
     flashMessages = ${[]}
-
+    @if.hasMessages = ${Type.isArray(this.flashMessages) && Array.length(this.flashMessages)}
     renderer = afx`
-        <div id="neos-notification-container" class="neos-notification-top" @if.hasMessages={props.flashMessages}>
+        <div id="neos-notification-container" class="neos-notification-top">
             <Neos.Fusion:Loop items={props.flashMessages} itemName="message">
                 <div class="neos-notification neos-notification-error">
                     <div class="neos-notification-content">
