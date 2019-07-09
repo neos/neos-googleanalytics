@@ -20,7 +20,7 @@ prototype(Neos.GoogleAnalytics:Component.FlashMessages.Message) < prototype(Neos
 
     renderer = afx`
         <div class={'neos-notification neos-notification-' + props.severity}>
-            <div class={'neos-notification-content' + (props.message.message ? ' expandable' : '')}>
+            <div class={['neos-notification-content',  props.message.message ? 'expandable' : null]}>
                 <i class={'fas fa-' + props.severity}></i>
                 <div class="neos-notification-heading" @if.hasTitle={props.message.title}>
                     {props.message.title}
