@@ -25,7 +25,7 @@ prototype(Neos.GoogleAnalytics:Component.FlashMessages.Message) < prototype(Neos
                 <div class="neos-notification-heading" @if.hasTitle={props.message.title}>
                     {props.message.title}
                 </div>
-                <div class="neos-expand-content">{props.message.message}</div>
+                <div class="neos-expand-content" @if.hasMessage={props.message.message}>{props.message.message}</div>
             </div>
         </div>
     `
