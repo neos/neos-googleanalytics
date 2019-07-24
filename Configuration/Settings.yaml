@@ -22,19 +22,9 @@ Neos:
 
     fusion:
       autoInclude:
-        'Neos.GoogleAnalytics': TRUE
+        'Neos.GoogleAnalytics': true
 
   GoogleAnalytics:
-    authentication:
-      # Application name for the consent screen
-      applicationName: 'Neos CMS'
-      # "Client ID" of the OAuth 2.0 "Client ID for web application"
-      clientId: ~
-      # "Client Secret" of the OAuth 2.0 "Client ID for web application"
-      clientSecret: ~
-      # "API Key" of the Public API access credential "Key for server applications"
-      developerKey: ~
-
     stats:
       uniquePageviewsPerDay:
         metrics: 'ga:uniquePageviews'

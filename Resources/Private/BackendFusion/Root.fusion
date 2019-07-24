@@ -1,0 +1,11 @@
+include: resource://Neos.Fusion/Private/Fusion/Root.fusion
+include: resource://Neos.GoogleAnalytics/Private/BackendFusion/Components/FlashMessages.fusion
+include: resource://Neos.GoogleAnalytics/Private/BackendFusion/Views/Configuration.Index.fusion
+
+Neos.GoogleAnalytics.ConfigurationController {
+    index = Neos.GoogleAnalytics:Configuration.Index {
+        sites = ${sitesConfiguration}
+        flashMessages = ${flashMessages}
+        managementAccounts = ${managementAccounts}
+    }
+}

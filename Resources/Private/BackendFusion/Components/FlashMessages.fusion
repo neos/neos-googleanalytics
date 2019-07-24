@@ -1,0 +1,32 @@
+prototype(Neos.GoogleAnalytics:Component.FlashMessages) < prototype(Neos.Fusion:Component) {
+    flashMessages = ${[]}
+    @if.hasMessages = ${Type.isArray(this.flashMessages) && Array.length(this.flashMessages)}
+
+    renderer = afx`
+        <div id="neos-notification-container" class="neos-notification-top">
+            <Neos.Fusion:Loop items={props.flashMessages} itemName="message">
+                <Neos.GoogleAnalytics:Component.FlashMessages.Message message={message}/>
+            </Neos.Fusion:Loop>
+        </div>
+    `
+}
+
+prototype(Neos.GoogleAnalytics:Component.FlashMessages.Message) < prototype(Neos.Fusion:Component) {
+    message = ${{}}
+
+    severity = ${String.toLowerCase(this.message.severity)}
+    severity.@process.replaceOKStatus = ${value == 'ok' ? 'success' : value}
+    severity.@process.replaceNoticeStatus = ${value == 'notice' ? 'info' : value}
+
+    renderer = afx`
+        <div class={'neos-notification neos-notification-' + props.severity}>
+            <div class={['neos-notification-content',  props.message.message ? 'expandable' : null]}>
+                <i class={'fas fa-' + props.severity}></i>
+                <div class="neos-notification-heading" @if.hasTitle={props.message.title}>
+                    {props.message.title}
+                </div>
+                <div class="neos-expand-content" @if.hasMessage={props.message.message}>{props.message.message}</div>
+            </div>
+        </div>
+    `
+}

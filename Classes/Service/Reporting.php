@@ -11,14 +11,22 @@ namespace Neos\GoogleAnalytics\Service;
  * source code.
  */
 
+use Neos\ContentRepository\Domain\Service\ContextFactoryInterface;
 use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Http\Uri;
 use Neos\Flow\Mvc\Controller\ControllerContext;
+use Neos\Flow\Mvc\Routing\Exception\MissingActionNameException;
+use Neos\Flow\Property\Exception as PropertyException;
+use Neos\Flow\Security\Exception as SecurityException;
+use Neos\GoogleAnalytics\Exception\AuthenticationRequiredException;
 use Neos\Neos\Domain\Service\ContentContext;
 use Neos\GoogleAnalytics\Domain\Dto\DataResult;
-use Neos\GoogleAnalytics\Domain\Model\SiteConfiguration;
 use Neos\GoogleAnalytics\Exception\AnalyticsNotAvailableException;
 use Neos\GoogleAnalytics\Exception\MissingConfigurationException;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\Neos\Exception as NeosException;
+use Neos\Neos\Service\LinkingService;
+use Neos\Utility\Arrays;
 
 /**
  * @Flow\Scope("singleton")
@@ -33,19 +41,13 @@ class Reporting
 
     /**
      * @Flow\Inject
-     * @var \Neos\GoogleAnalytics\Domain\Repository\SiteConfigurationRepository
-     */
-    protected $siteConfigurationRepository;
-
-    /**
-     * @Flow\Inject
-     * @var \Neos\Neos\Service\LinkingService
+     * @var LinkingService
      */
     protected $linkingService;
 
     /**
      * @Flow\Inject
-     * @var \Neos\ContentRepository\Domain\Service\ContextFactoryInterface
+     * @var ContextFactoryInterface
      */
     protected $contextFactory;
 
@@ -62,6 +64,12 @@ class Reporting
     protected $sitesSettings;
 
     /**
+     * @Flow\InjectConfiguration(path="default", package="Neos.GoogleAnalytics")
+     * @var array
+     */
+    protected $defaultSettings;
+
+    /**
      * Get metrics and dimension values for a configured stat
      *
      * TODO Catch "(403) Access Not Configured" (e.g. IP does not match)
@@ -72,8 +80,13 @@ class Reporting
      * @param \DateTime $startDate
      * @param \DateTime $endDate
      * @return DataResult
-     * @throws MissingConfigurationException
      * @throws AnalyticsNotAvailableException
+     * @throws AuthenticationRequiredException
+     * @throws MissingActionNameException
+     * @throws MissingConfigurationException
+     * @throws NeosException
+     * @throws PropertyException
+     * @throws SecurityException
      */
     public function getNodeStat(NodeInterface $node, ControllerContext $controllerContext, $statIdentifier, \DateTime $startDate, \DateTime $endDate)
     {
@@ -102,7 +115,7 @@ class Reporting
             $parameters['max-results'] = $statConfiguration['max-results'];
         }
         $gaResult = $this->analytics->data_ga->get(
-            'ga:' . $siteConfiguration->getProfileId(),
+            'ga:' . $siteConfiguration['profileId'],
             $startDateFormatted,
             $endDateFormatted,
             $statConfiguration['metrics'],
@@ -115,32 +128,25 @@ class Reporting
     /**
      * Get a site configuration (which has a Google Analytics profile id) for the given node
      *
-     * This will first look for a SiteConfiguration entity and then fall back to site specific settings.
-     *
      * @param NodeInterface $node
-     * @return SiteConfiguration
+     * @return array
      * @throws MissingConfigurationException If no site configuration was found, or the profile was not assigned
      */
-    protected function getSiteConfigurationByNode(NodeInterface $node)
+    protected function getSiteConfigurationByNode(NodeInterface $node): array
     {
         $context = $node->getContext();
         if (!$context instanceof ContentContext) {
             throw new \InvalidArgumentException(sprintf('Expected a ContentContext instance in the given node, got %s', get_class($context)), 1415722633);
         }
         $site = $context->getCurrentSite();
-        $siteConfiguration = $this->siteConfigurationRepository->findOneBySite($site);
+        if (array_key_exists($site->getNodeName(), $this->sitesSettings)) {
+            $siteConfiguration = Arrays::arrayMergeRecursiveOverrule($this->defaultSettings, $this->sitesSettings[$site->getNodeName()]);
 
-        if ($siteConfiguration instanceof SiteConfiguration && $siteConfiguration->getProfileId() !== '') {
-            return $siteConfiguration;
-        } else {
-            if (isset($this->sitesSettings[$site->getNodeName()]['profileId']) && (string)$this->sitesSettings[$site->getNodeName()]['profileId'] !== '') {
-                $siteConfiguration = new SiteConfiguration();
-                $siteConfiguration->setProfileId($this->sitesSettings[$site->getNodeName()]['profileId']);
-
+            if (array_key_exists('profileId', $siteConfiguration) && !empty($siteConfiguration['profileId'])) {
                 return $siteConfiguration;
             }
-            throw new MissingConfigurationException('No profile configured for site', 1415806282);
         }
+        throw new MissingConfigurationException('No profile configured for site ' . $site->getName(), 1415806282);
     }
 
     /**
@@ -148,8 +154,12 @@ class Reporting
      *
      * @param NodeInterface $node
      * @param ControllerContext $controllerContext
-     * @return \Neos\Flow\Http\Uri
+     * @return Uri
      * @throws AnalyticsNotAvailableException If the node was not yet published and no live workspace URI can be resolved
+     * @throws MissingActionNameException
+     * @throws PropertyException
+     * @throws SecurityException
+     * @throws NeosException
      */
     protected function getLiveNodeUri(NodeInterface $node, ControllerContext $controllerContext)
     {
@@ -163,7 +173,7 @@ class Reporting
         }
 
         $nodeUriString = $this->linkingService->createNodeUri($controllerContext, $liveNode, null, 'html', true);
-        $nodeUri = new \Neos\Flow\Http\Uri($nodeUriString);
+        $nodeUri = new Uri($nodeUriString);
 
         return $nodeUri;
     }

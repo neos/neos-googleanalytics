@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="Neos.GoogleAnalytics" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="accounts" xml:space="preserve">
+                <source>Authenticated accounts</source>
+            </trans-unit>
+            <trans-unit id="site.name" xml:space="preserve">
+                <source>Site</source>
+            </trans-unit>
+            <trans-unit id="site.gaProfile" xml:space="preserve">
+                <source>Google Analytics Profile</source>
+            </trans-unit>
+            <trans-unit id="site.gaTrackingId" xml:space="preserve">
+                <source>Tracking ID</source>
+            </trans-unit>
+            <trans-unit id="site.tagManagerId" xml:space="preserve">
+                <source>Tag Manager ID</source>
+            </trans-unit>
+            <trans-unit id="noAccounts" xml:space="preserve">
+                <source>No accounts were found. Please check the manual on how to connect your account.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -11,9 +11,9 @@ namespace Neos\GoogleAnalytics\ViewHelpers;
  * source code.
  */
 
-use Neos\Flow\Annotations as Flow;
 use Neos\FluidAdaptor;
 use Neos\FluidAdaptor\Core\ViewHelper;
+use Traversable;
 
 /**
  * An extended select view helper to handle optgroups
@@ -26,11 +26,10 @@ class GroupedSelectViewHelper extends FluidAdaptor\ViewHelpers\Form\SelectViewHe
      * Render the option tags.
      *
      * @return array an associative array of options, key will be the value of the option tag
-     * @throws ViewHelper\Exception
      */
-    protected function getOptions()
+    protected function getOptions(): array
     {
-        if (!is_array($this->arguments['options']) && !($this->arguments['options'] instanceof \Traversable)) {
+        if (!is_array($this->arguments['options']) && !($this->arguments['options'] instanceof Traversable)) {
             return [];
         }
 
@@ -42,8 +41,10 @@ class GroupedSelectViewHelper extends FluidAdaptor\ViewHelpers\Form\SelectViewHe
      *
      * @param array $options the options for the form.
      * @return string rendered tags.
+     * @throws FluidAdaptor\Exception
+     * @throws ViewHelper\Exception
      */
-    protected function renderOptionTags($options)
+    protected function renderOptionTags($options): string
     {
         $output = '';
         if ($this->hasArgument('prependOptionLabel')) {
@@ -64,7 +65,7 @@ class GroupedSelectViewHelper extends FluidAdaptor\ViewHelpers\Form\SelectViewHe
      * @param array $options
      * @return string
      */
-    protected function renderOptionTagsInternal($options)
+    protected function renderOptionTagsInternal(array $options): string
     {
         $output = '';
         foreach ($options as $suboptions) {
@@ -87,7 +88,7 @@ class GroupedSelectViewHelper extends FluidAdaptor\ViewHelpers\Form\SelectViewHe
      * @param string $label content of the option tag (will be escaped)
      * @return string the rendered option tag
      */
-    protected function renderOptionTag($value, $label)
+    protected function renderOptionTag($value, $label): string
     {
         $output = '<option value="' . htmlspecialchars($value) . '"';
         if ($this->isSelected($value)) {

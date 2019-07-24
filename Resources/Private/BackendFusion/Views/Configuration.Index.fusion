@@ -1,0 +1,54 @@
+prototype(Neos.GoogleAnalytics:Configuration.Index) < prototype(Neos.Fusion:Component) {
+    sites = ${[]}
+    flashMessages = ${[]}
+    managementAccounts = ${[]}
+
+    renderer = afx`
+        <div class="neos-content neos-container-fluid">
+            <Neos.GoogleAnalytics:Component.FlashMessages flashMessages={props.flashMessages}/>
+
+            <table class="neos-table">
+                <thead>
+                    <tr>
+                        <th>{Translation.translate('Neos.GoogleAnalytics:Main:accounts', 'Authenticated accounts')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <Neos.Fusion:Loop items={props.managementAccounts} itemName="account">
+                                    <li>{account.username}</li>
+                                </Neos.Fusion:Loop>
+                                <li @if.hasNoAccounts={!props.managementAccounts}>
+                                    {Translation.translate('Neos.GoogleAnalytics:Main:noAccounts', 'No accounts were found. Please check the manual on how to connect your account.')}
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="neos-table">
+                <thead>
+                    <tr>
+                        <th>{Translation.translate('Neos.GoogleAnalytics:Main:site.name', 'Site')}</th>
+                        <th>{Translation.translate('Neos.GoogleAnalytics:Main:site. gaProfile', 'Google Analytics Profile')}</th>
+                        <th>{Translation.translate('Neos.GoogleAnalytics:Main:site.gaTrackingId', 'Tracking ID')}</th>
+                        <th>{Translation.translate('Neos.GoogleAnalytics:Main:site.tagManagerId', 'Tag Manager ID')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <Neos.Fusion:Loop items={props.sites} itemName="site" itemKey="siteName">
+                        <tr>
+                            <td>{siteName}</td>
+                            <td>{site.profileId}</td>
+                            <td>{site.analytics.id}</td>
+                            <td>{site.tagManager.id}</td>
+                        </tr>
+                    </Neos.Fusion:Loop>
+                </tbody>
+            </table>
+        </div>
+    `
+}
