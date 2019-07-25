@@ -100,11 +100,11 @@ After the project has been created, you end up in the dashboard of the new proje
 
 .. image:: Images/google-developers-console-project-dashboard.png
 
-If you don't have one yet you have to create a new service account. For this go to "Service accounts" in the sidebar::
+If you don't have one yet you have to create a new service account. For this go to "Service accounts" in the sidebar:
 
 .. image:: Images/google-developers-console-select-service-accounts.png
 
-Now create a new one and fill out the required information::
+Now create a new one and fill out the required information:
 
 .. image:: Images/google-developers-console-create-service-account.png
 
@@ -115,7 +115,7 @@ navigation, then *Create credentials* > "Service account key*.
 
 .. image:: Images/google-developers-console-credentials.png
 
-Here you need to choose your service account and select `json` as key type::
+Here you need to choose your service account and select `json` as key type:
 
 .. image:: Images/google-developers-console-service-account.png
 
