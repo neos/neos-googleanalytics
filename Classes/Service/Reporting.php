@@ -101,7 +101,8 @@ class Reporting
         $endDateFormatted = $endDate->format('Y-m-d');
 
         $nodeUri = $this->getLiveNodeUri($node, $controllerContext);
-        $filters = 'ga:pagePath==' . $nodeUri->getPath() . ';ga:hostname==' . $nodeUri->getHost();
+        $hostname = !empty($siteConfiguration['overrideHostname']) ? $siteConfiguration['overrideHostname'] : $nodeUri->getHost();
+        $filters = 'ga:pagePath==' . $nodeUri->getPath() . ';ga:hostname==' . $hostname;
         $parameters = [
             'filters' => $filters
         ];

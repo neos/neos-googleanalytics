@@ -41,6 +41,7 @@ Neos:
     # Default settings
     default:
       addToPagePrototype: true
+      overrideHostname: ''
       analytics:
         id: false
       tagManager:
