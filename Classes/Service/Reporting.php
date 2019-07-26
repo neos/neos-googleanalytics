@@ -11,6 +11,7 @@ namespace Neos\GoogleAnalytics\Service;
  * source code.
  */
 
+use DateTime;
 use Neos\ContentRepository\Domain\Service\ContextFactoryInterface;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Http\Uri;
@@ -77,8 +78,8 @@ class Reporting
      * @param NodeInterface $node
      * @param ControllerContext $controllerContext
      * @param string $statIdentifier
-     * @param \DateTime $startDate
-     * @param \DateTime $endDate
+     * @param DateTime $startDate
+     * @param DateTime $endDate
      * @return DataResult
      * @throws AnalyticsNotAvailableException
      * @throws AuthenticationRequiredException
@@ -88,7 +89,7 @@ class Reporting
      * @throws PropertyException
      * @throws SecurityException
      */
-    public function getNodeStat(NodeInterface $node, ControllerContext $controllerContext, $statIdentifier, \DateTime $startDate, \DateTime $endDate)
+    public function getNodeStat(NodeInterface $node, ControllerContext $controllerContext, $statIdentifier, DateTime $startDate, DateTime $endDate): DataResult
     {
         $this->analytics->requireAuthentication();
         if (!isset($this->statsSettings[$statIdentifier])) {
@@ -101,7 +102,8 @@ class Reporting
         $endDateFormatted = $endDate->format('Y-m-d');
 
         $nodeUri = $this->getLiveNodeUri($node, $controllerContext);
-        $filters = 'ga:pagePath==' . $nodeUri->getPath() . ';ga:hostname==' . $nodeUri->getHost();
+        $hostname = !empty($siteConfiguration['overrideHostname']) ? $siteConfiguration['overrideHostname'] : $nodeUri->getHost();
+        $filters = 'ga:pagePath==' . $nodeUri->getPath() . ';ga:hostname==' . $hostname;
         $parameters = [
             'filters' => $filters
         ];
@@ -161,7 +163,7 @@ class Reporting
      * @throws SecurityException
      * @throws NeosException
      */
-    protected function getLiveNodeUri(NodeInterface $node, ControllerContext $controllerContext)
+    protected function getLiveNodeUri(NodeInterface $node, ControllerContext $controllerContext): Uri
     {
         $contextProperties = $node->getContext()->getProperties();
         $contextProperties['workspaceName'] = 'live';

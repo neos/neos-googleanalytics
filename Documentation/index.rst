@@ -187,6 +187,23 @@ Customizing metrics display
 Its is possible to adjust the displayed metrics through configuration. The package
 comes with preconfigured data, examine ``NodeTypes.yaml`` and ``Settings.yaml``.
 
+Showing metrics in non-live environments
+----------------------------------------
+
+The configuration allows to override the hostname that is used for statistics queries.
+By default the hostname is used that Neos provides based on the selected pages frontend uri.
+This can be used to verify the functionality of the statistics module during development
+or in staging environments.
+
+.. code-block:: yaml
+
+  Neos:
+    GoogleAnalytics:
+      sites:
+        neossitename:
+          overrideHostname: 'example.org'
+
+
 Upgrade instructions (2.x -> 3.0.0)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
