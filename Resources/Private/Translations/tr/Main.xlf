@@ -10,10 +10,10 @@
             <target state="translated">Site</target></trans-unit>
       <trans-unit id="site.gaProfile" xml:space="preserve">
                 <source>Google Analytics Profile</source>
-            <target state="needs-translation">Google Analytics Profile</target></trans-unit>
+            <target state="translated">Google Analitik Profili</target></trans-unit>
       <trans-unit id="site.gaTrackingId" xml:space="preserve">
                 <source>Tracking ID</source>
-            <target state="needs-translation">Tracking ID</target></trans-unit>
+            <target state="translated">Takip Kimliği</target></trans-unit>
       <trans-unit id="site.tagManagerId" xml:space="preserve">
                 <source>Tag Manager ID</source>
             <target state="needs-translation">Tag Manager ID</target></trans-unit>
