@@ -10,7 +10,7 @@
             <target state="translated">Site</target><alt-trans><target>Seite</target></alt-trans></trans-unit>
       <trans-unit id="site.gaProfile" xml:space="preserve">
                 <source>Google Analytics Profile</source>
-            <target state="needs-translation">Google Analytics Profile</target></trans-unit>
+            <target state="translated">Google Analytics Profil</target></trans-unit>
       <trans-unit id="site.gaTrackingId" xml:space="preserve">
                 <source>Tracking ID</source>
             <target state="needs-translation">Tracking ID</target></trans-unit>
