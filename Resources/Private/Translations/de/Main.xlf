@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="accounts" xml:space="preserve">
                 <source>Authenticated accounts</source>
-            <target state="needs-translation">Authenticated accounts</target></trans-unit>
+            <target state="translated">Authentifizierte Konten</target></trans-unit>
       <trans-unit id="site.name" xml:space="preserve" approved="yes">
                 <source>Site</source>
             <target state="translated">Site</target><alt-trans><target>Seite</target></alt-trans></trans-unit>
@@ -13,13 +13,13 @@
             <target state="translated">Google Analytics Profil</target></trans-unit>
       <trans-unit id="site.gaTrackingId" xml:space="preserve">
                 <source>Tracking ID</source>
-            <target state="needs-translation">Tracking ID</target></trans-unit>
+            <target state="translated">Tracking ID</target></trans-unit>
       <trans-unit id="site.tagManagerId" xml:space="preserve">
                 <source>Tag Manager ID</source>
-            <target state="needs-translation">Tag Manager ID</target></trans-unit>
+            <target state="translated">Tag Manager ID</target></trans-unit>
       <trans-unit id="noAccounts" xml:space="preserve">
                 <source>No accounts were found. Please check the manual on how to connect your account.</source>
-            <target state="needs-translation">No accounts were found. Please check the manual on how to connect your account.</target></trans-unit>
+            <target state="translated">Es wurden keine Konten gefunden. Bitte lesen Sie in der Dokumentation, wie Sie Ihr Konto verbinden können.</target></trans-unit>
     </body>
   </file>
 </xliff>
