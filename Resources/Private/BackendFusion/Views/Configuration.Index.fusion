@@ -29,7 +29,7 @@ prototype(Neos.GoogleAnalytics:Configuration.Index) < prototype(Neos.Fusion:Comp
                 </tbody>
             </table>
 
-            <table class="neos-table">
+            <table class="neos-table" @if.hasOneAccount={props.managementAccounts}>
                 <thead>
                     <tr>
                         <th>{Translation.translate('Neos.GoogleAnalytics:Main:site.name', 'Site')}</th>
