@@ -7,7 +7,7 @@
             <target state="needs-translation">Authenticated accounts</target></trans-unit>
       <trans-unit id="site.name" xml:space="preserve" approved="yes">
                 <source>Site</source>
-            <target state="translated">Webside</target></trans-unit>
+            <target state="final">Webside</target></trans-unit>
       <trans-unit id="site.gaProfile" xml:space="preserve">
                 <source>Google Analytics Profile</source>
             <target state="needs-translation">Google Analytics Profile</target></trans-unit>

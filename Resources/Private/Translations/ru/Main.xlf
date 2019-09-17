@@ -7,7 +7,7 @@
             <target state="translated">Проверить подлинность учетной записи</target></trans-unit>
       <trans-unit id="site.name" xml:space="preserve" approved="yes">
                 <source>Site</source>
-            <target state="translated">Сайт</target></trans-unit>
+            <target state="final">Сайт</target></trans-unit>
       <trans-unit id="site.gaProfile" xml:space="preserve">
                 <source>Google Analytics Profile</source>
             <target state="translated">Профили Google Analytics</target></trans-unit>

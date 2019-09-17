@@ -7,13 +7,13 @@
             <target state="needs-translation">Authenticated accounts</target></trans-unit>
       <trans-unit id="site.name" xml:space="preserve" approved="yes">
                 <source>Site</source>
-            <target state="translated">Strona</target></trans-unit>
+            <target state="final">Strona</target></trans-unit>
       <trans-unit id="site.gaProfile" xml:space="preserve">
                 <source>Google Analytics Profile</source>
             <target state="needs-translation">Google Analytics Profile</target></trans-unit>
       <trans-unit id="site.gaTrackingId" xml:space="preserve" approved="yes">
                 <source>Tracking ID</source>
-            <target state="translated">Identyfikator śledzenia</target></trans-unit>
+            <target state="final">Identyfikator śledzenia</target></trans-unit>
       <trans-unit id="site.tagManagerId" xml:space="preserve">
                 <source>Tag Manager ID</source>
             <target state="needs-translation">Tag Manager ID</target></trans-unit>

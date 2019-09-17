@@ -7,7 +7,7 @@
             <target state="translated">Comptes authentifiés</target><alt-trans><target>Compte d'authentification</target></alt-trans></trans-unit>
       <trans-unit id="site.name" xml:space="preserve" approved="yes">
                 <source>Site</source>
-            <target state="translated">Site</target></trans-unit>
+            <target state="final">Site</target></trans-unit>
       <trans-unit id="site.gaProfile" xml:space="preserve">
                 <source>Google Analytics Profile</source>
             <target state="translated">Profil Google Analytics</target></trans-unit>
@@ -16,7 +16,7 @@
             <target state="translated">Code de suivi</target></trans-unit>
       <trans-unit id="site.tagManagerId" xml:space="preserve">
                 <source>Tag Manager ID</source>
-            <target state="needs-translation">Tag Manager ID</target></trans-unit>
+            <target state="translated">ID du Tag Manager</target></trans-unit>
       <trans-unit id="noAccounts" xml:space="preserve">
                 <source>No accounts were found. Please check the manual on how to connect your account.</source>
             <target state="translated">Aucun compte n'a été trouvé. Veuillez vérifier le manuel sur la façon de connecter votre compte.</target></trans-unit>
