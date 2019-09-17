@@ -71,20 +71,4 @@ class ConfigurationController extends AbstractModuleController
             'flashMessages' => $this->flashMessageContainer->getMessagesAndFlush(),
         ]);
     }
-
-    /**
-     * Sets the Fusion path pattern on the view.
-     *
-     * @param ViewInterface $view
-     * @return void
-     */
-    protected function initializeView(ViewInterface $view): void
-    {
-        parent::initializeView($view);
-
-        /** @var FusionView $view */
-        $view->disableFallbackView();
-        $view->setFusionPathPatterns(['resource://@package/Private/BackendFusion']);
-        $view->setFusionPathPattern('resource://@package/Private/BackendFusion');
-    }
 }
