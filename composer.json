@@ -6,7 +6,9 @@
     "require": {
         "neos/neos": "~4.3 || ~5.0 || dev-master",
         "neos/fusion-afx": "^1.2",
-        "flowpack/googleapiclient": "^1.0"
+        "flowpack/googleapiclient": "^1.0",
+        "guzzlehttp/psr7": "^1.4",
+        "ext-json": "*"
     },
     "replace": {
         "typo3/neos-googleanalytics": "self.version"
