@@ -61,7 +61,7 @@ class ConfigurationController extends AbstractModuleController
             }
         } catch (Google_Service_Exception $e) {
             foreach ($e->getErrors() as $error) {
-                $this->addFlashMessage($error['message'], $error['reason'], Message::SEVERITY_ERROR);
+                $this->addFlashMessage('', $error['message'], Message::SEVERITY_ERROR);
             }
         }
 
