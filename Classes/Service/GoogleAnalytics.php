@@ -41,7 +41,7 @@ class GoogleAnalytics extends Google_Service_Analytics
      * @return GoogleAnalytics The current instance for chaining
      * @throws AuthenticationRequiredException
      */
-    public function requireAuthentication()
+    public function requireAuthentication(): GoogleAnalytics
     {
         return $this;
     }

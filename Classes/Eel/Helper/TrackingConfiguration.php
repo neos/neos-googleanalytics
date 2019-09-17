@@ -3,6 +3,16 @@ declare(strict_types=1);
 
 namespace Neos\GoogleAnalytics\Eel\Helper;
 
+/*
+ * This file is part of the Neos.GoogleAnalytics package.
+ *
+ * (c) Contributors of the Neos Project - www.neos.io
+ *
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ */
+
 use Neos\Flow\Annotations as Flow;
 use Neos\ContentRepository\Domain\NodeAggregate\NodeName;
 use Neos\ContentRepository\Domain\Projection\Content\NodeInterface;
@@ -11,8 +21,6 @@ use Neos\Utility\Arrays;
 
 /**
  * Class TrackingConfiguration
- *
- * @package Neos\GoogleAnalytics\Eel\Helper
  */
 class TrackingConfiguration implements ProtectedContextAwareInterface
 {
@@ -28,7 +36,6 @@ class TrackingConfiguration implements ProtectedContextAwareInterface
      */
     protected $sitesSettings;
 
-
     /**
      * Gets tracking settings
      *
@@ -39,7 +46,7 @@ class TrackingConfiguration implements ProtectedContextAwareInterface
      * @param string|array|null $path the settings path
      * @return mixed
      */
-    public function setting($site = null, $path = null)
+    public function setting(?NodeInterface $site = null, $path = null)
     {
         $settings = $this->defaultSettings;
 
@@ -63,7 +70,7 @@ class TrackingConfiguration implements ProtectedContextAwareInterface
      * @param string $methodName
      * @return bool
      */
-    public function allowsCallOfMethod($methodName)
+    public function allowsCallOfMethod($methodName): bool
     {
         return true;
     }
