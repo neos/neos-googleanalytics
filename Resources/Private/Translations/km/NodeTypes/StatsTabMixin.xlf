@@ -4,22 +4,22 @@
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve" approved="yes">
 				<source>Stats</source>
-			<target state="translated">ស្ថិតិ</target></trans-unit>
+			<target state="final">ស្ថិតិ</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve" approved="yes">
 				<source>Analytics</source>
-			<target state="translated">វិភាគ</target></trans-unit>
+			<target state="final">វិភាគ</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve" approved="yes">
 				<source>Sessions</source>
-			<target state="translated">កំឡុងពេល</target></trans-unit>
+			<target state="final">កំឡុងពេល</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve" approved="yes">
 				<source>Performance</source>
-			<target state="translated">ការសម្ដែង</target></trans-unit>
+			<target state="final">ការសម្ដែង</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve" approved="yes">
 				<source>Device categories</source>
-			<target state="translated">ប្រភេទឧបករណ៍</target></trans-unit>
+			<target state="final">ប្រភេទឧបករណ៍</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve" approved="yes">
 				<source>User types</source>
-			<target state="translated">ប្រភេទអ្នកប្រើប្រាស់</target></trans-unit>
+			<target state="final">ប្រភេទអ្នកប្រើប្រាស់</target></trans-unit>
     </body>
   </file>
 </xliff>
