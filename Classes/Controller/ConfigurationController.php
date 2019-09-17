@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Neos\GoogleAnalytics\Controller;
 
 /*
@@ -46,7 +48,7 @@ class ConfigurationController extends AbstractModuleController
      *
      * @return void
      */
-    public function indexAction()
+    public function indexAction(): void
     {
         $managementAccounts = [];
 
@@ -76,7 +78,7 @@ class ConfigurationController extends AbstractModuleController
      * @param ViewInterface $view
      * @return void
      */
-    protected function initializeView(ViewInterface $view)
+    protected function initializeView(ViewInterface $view): void
     {
         parent::initializeView($view);
 

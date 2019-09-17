@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Neos\GoogleAnalytics\Exception;
 
 /*
@@ -11,7 +13,6 @@ namespace Neos\GoogleAnalytics\Exception;
  * source code.
  */
 
-use Neos\Flow\Annotations as Flow;
 use Neos\GoogleAnalytics\Exception;
 
 /**

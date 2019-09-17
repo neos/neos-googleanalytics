@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Neos\GoogleAnalytics\Domain\Dto;
 
 /*
@@ -10,8 +12,6 @@ namespace Neos\GoogleAnalytics\Domain\Dto;
  * information, please view the LICENSE file which was distributed with this
  * source code.
  */
-
-use Neos\Flow\Annotations as Flow;
 
 /**
  * A data result to wrap Google Analytics data results for conversion
