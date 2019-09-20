@@ -1,0 +1,7 @@
+-
+  requestFilter: 'isPackage("Neos.GoogleAnalytics") && isController("Configuration")'
+  viewObjectName: 'Neos\Fusion\View\FusionView'
+  options:
+    fusionPathPatterns:
+      - 'resource://Neos.Fusion/Private/Fusion'
+      - 'resource://Neos.GoogleAnalytics/Private/BackendFusion'

@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Neos\GoogleAnalytics\Controller;
 
 /*
@@ -46,7 +48,7 @@ class ConfigurationController extends AbstractModuleController
      *
      * @return void
      */
-    public function indexAction()
+    public function indexAction(): void
     {
         $managementAccounts = [];
 
@@ -59,7 +61,7 @@ class ConfigurationController extends AbstractModuleController
             }
         } catch (Google_Service_Exception $e) {
             foreach ($e->getErrors() as $error) {
-                $this->addFlashMessage($error['message'], $error['reason'], Message::SEVERITY_ERROR);
+                $this->addFlashMessage('', $error['message'], Message::SEVERITY_ERROR);
             }
         }
 
@@ -68,21 +70,5 @@ class ConfigurationController extends AbstractModuleController
             'managementAccounts' => $managementAccounts,
             'flashMessages' => $this->flashMessageContainer->getMessagesAndFlush(),
         ]);
-    }
-
-    /**
-     * Sets the Fusion path pattern on the view.
-     *
-     * @param ViewInterface $view
-     * @return void
-     */
-    protected function initializeView(ViewInterface $view)
-    {
-        parent::initializeView($view);
-
-        /** @var FusionView $view */
-        $view->disableFallbackView();
-        $view->setFusionPathPatterns(['resource://@package/Private/BackendFusion']);
-        $view->setFusionPathPattern('resource://@package/Private/BackendFusion');
     }
 }

@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Neos\GoogleAnalytics\Service;
 
 /*
@@ -11,10 +13,9 @@ namespace Neos\GoogleAnalytics\Service;
  * source code.
  */
 
-use DateTime;
 use Neos\ContentRepository\Domain\Service\ContextFactoryInterface;
 use Neos\Flow\Annotations as Flow;
-use Neos\Flow\Http\Uri;
+use GuzzleHttp\Psr7\Uri;
 use Neos\Flow\Mvc\Controller\ControllerContext;
 use Neos\Flow\Mvc\Routing\Exception\MissingActionNameException;
 use Neos\Flow\Property\Exception as PropertyException;
@@ -78,8 +79,8 @@ class Reporting
      * @param NodeInterface $node
      * @param ControllerContext $controllerContext
      * @param string $statIdentifier
-     * @param DateTime $startDate
-     * @param DateTime $endDate
+     * @param \DateTime $startDate
+     * @param \DateTime $endDate
      * @return DataResult
      * @throws AnalyticsNotAvailableException
      * @throws AuthenticationRequiredException
@@ -89,7 +90,7 @@ class Reporting
      * @throws PropertyException
      * @throws SecurityException
      */
-    public function getNodeStat(NodeInterface $node, ControllerContext $controllerContext, $statIdentifier, DateTime $startDate, DateTime $endDate): DataResult
+    public function getNodeStat(NodeInterface $node, ControllerContext $controllerContext, string $statIdentifier, \DateTime $startDate, \DateTime $endDate): DataResult
     {
         $this->analytics->requireAuthentication();
         if (!isset($this->statsSettings[$statIdentifier])) {

@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Neos\GoogleAnalytics\Service;
 
 /*
@@ -39,7 +41,7 @@ class GoogleAnalytics extends Google_Service_Analytics
      * @return GoogleAnalytics The current instance for chaining
      * @throws AuthenticationRequiredException
      */
-    public function requireAuthentication()
+    public function requireAuthentication(): GoogleAnalytics
     {
         return $this;
     }
