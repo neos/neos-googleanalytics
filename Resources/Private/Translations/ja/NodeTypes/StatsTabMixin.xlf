@@ -13,13 +13,13 @@
 			<target state="translated">セッション</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve">
 				<source>Performance</source>
-			<target state="translated">パフォーマンス</target></trans-unit>
+			<target state="translated">性能</target><alt-trans><target>パフォーマンス</target></alt-trans></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
 			<target state="translated">デバイスのカテゴリ</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
-			<target state="translated">ユーザーの種類</target></trans-unit>
+			<target state="translated">ユーザタイプ</target><alt-trans><target>ユーザーの種類</target></alt-trans></trans-unit>
     </body>
   </file>
 </xliff>
