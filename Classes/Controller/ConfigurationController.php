@@ -66,7 +66,7 @@ class ConfigurationController extends AbstractModuleController
         $this->view->assignMultiple([
             'sitesConfiguration' => $this->settings['sites'],
             'managementAccounts' => $managementAccounts,
-            'flashMessages' => $this->flashMessageContainer->getMessagesAndFlush(),
+            'flashMessages' => $this->controllerContext->flashMessageContainer()->getMessagesAndFlush(),
         ]);
     }
 
