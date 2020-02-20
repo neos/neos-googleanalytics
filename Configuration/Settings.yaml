@@ -44,6 +44,7 @@ Neos:
       overrideHostname: ''
       analytics:
         id: false
+        anonymizeIp: false
       tagManager:
         id: false
 
