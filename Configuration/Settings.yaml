@@ -44,8 +44,8 @@ Neos:
       overrideHostname: ''
       analytics:
         id: false
-        parameters:
-          anonymize_ip: false
+        parameters: # define additional GA paramters here e.g. IP anonymization
+          # anonymize_ip: true
       tagManager:
         id: false
 
