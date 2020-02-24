@@ -6,8 +6,10 @@ prototype(Neos.GoogleAnalytics:TrackingCode.GA) < prototype(Neos.GoogleAnalytics
         hasNoContainerId = ${String.isBlank(this.configuration.tagManager.id)}
     }
     
-    anonymizeString = ', {"anonymize_ip": true}'
-    anonymizeString.@if.anonymizeIp = ${this.configuration.analytics.anonymizeIp}
+    parameters = Neos.Fusion:DataStructure {
+        @process.json = ${Json.stringify(value)}
+        anonymize_ip = ${this.configuration.analytics.parameters.anonymizeIp}
+    }
 
     renderer = Neos.Fusion:Component {
         trackingId = ${props.trackingId}
@@ -17,7 +19,7 @@ prototype(Neos.GoogleAnalytics:TrackingCode.GA) < prototype(Neos.GoogleAnalytics
             create = 'window.dataLayer = window.dataLayer || [];'
             push = 'function gtag(){dataLayer.push(arguments);}'
             date = 'gtag("js", new Date());'
-            config = ${'gtag("config", "' + props.trackingId + '"' + props.anonymizeString + ');'}
+            config = ${'gtag("config", "' + props.trackingId + '", ' + props.parameters + ');'}
         }
 
         renderer = afx`
