@@ -45,7 +45,7 @@ Neos:
       analytics:
         id: false
         parameters:
-          anonymizeIp: false
+          anonymize_ip: false
       tagManager:
         id: false
 
