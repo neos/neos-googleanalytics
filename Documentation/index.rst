@@ -35,6 +35,20 @@ to set up tracking for each site in the Analytics integration.
           analytics:
             id: 'UA-XXXXX-YY'
 
+The Google Analytics tracking also supports additional parameters, f.e. to anonymize ips.
+You can define them like this:
+
+.. code-block:: yaml
+
+  Neos:
+    GoogleAnalytics:
+      sites:
+        neossitename:
+          analytics:
+            id: 'UA-XXXXX-YY'
+            parameters:
+              anonymize_ip: true
+
 Instead of using the Google Analytics tracking code, you can integrate the Google Tag Manager the same way:
 
 .. code-block:: yaml
