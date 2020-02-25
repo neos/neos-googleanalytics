@@ -6,10 +6,8 @@ prototype(Neos.GoogleAnalytics:TrackingCode.GA) < prototype(Neos.GoogleAnalytics
         hasNoContainerId = ${String.isBlank(this.configuration.tagManager.id)}
     }
     
-    parameters = Neos.Fusion:DataStructure {
-        @process.json = ${Json.stringify(value)}
-        anonymize_ip = ${this.configuration.analytics.parameters.anonymizeIp}
-    }
+    parameters = ${this.configuration.analytics.parameters}
+    parameters.@process.json = ${Json.stringify(value)}
 
     renderer = Neos.Fusion:Component {
         trackingId = ${props.trackingId}
