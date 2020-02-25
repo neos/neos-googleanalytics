@@ -74,6 +74,22 @@ You can disable tracking for a site by either setting the  ``id `` to  ``false `
         neossitename:
           tagManager:
             id: false
+            
+Additional Parameters
+---------------------
+
+If you are using the Google Analytics tracking code, you can also add additional parameters e.g.  ``authorize_ip `` to  ``true `` (`IP anonymization with gtag.js <https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization/>`_). These paramters are added automatically as JSON to the gtag. The default setting is no parameters.
+
+.. code-block:: yaml
+
+  Neos:
+    GoogleAnalytics:
+      sites:
+        neossitename:
+          analytics:
+            id: 'UA-XXXXX-YY'
+            parameters:
+              anonymize_ip: true
 
 Statistics display inside Neos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
