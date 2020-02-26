@@ -17,7 +17,7 @@ Neos:
             label: 'Analytics'
             controller: 'Neos\GoogleAnalytics\Controller\ConfigurationController'
             description: 'Google Analytics configuration'
-            icon: 'icon-bar-chart icon-line-chart'
+            icon: 'icon-chart-line icon-line-chart'
             privilegeTarget: 'Neos.GoogleAnalytics:Module.Administration.Configuration'
 
     fusion:
