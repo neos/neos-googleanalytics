@@ -4,22 +4,22 @@
     <body>
       <trans-unit id="accounts" xml:space="preserve">
                 <source>Authenticated accounts</source>
-            <target state="needs-translation">Authenticated accounts</target></trans-unit>
+            <target state="translated">Geverifieerde accounts</target></trans-unit>
       <trans-unit id="site.name" xml:space="preserve">
                 <source>Site</source>
             <target state="translated">Site</target></trans-unit>
       <trans-unit id="site.gaProfile" xml:space="preserve">
                 <source>Google Analytics Profile</source>
-            <target state="needs-translation">Google Analytics Profile</target></trans-unit>
+            <target state="translated">Google Analytics-profiel</target></trans-unit>
       <trans-unit id="site.gaTrackingId" xml:space="preserve">
                 <source>Tracking ID</source>
-            <target state="needs-translation">Tracking ID</target></trans-unit>
+            <target state="translated">Tracking ID</target></trans-unit>
       <trans-unit id="site.tagManagerId" xml:space="preserve">
                 <source>Tag Manager ID</source>
-            <target state="needs-translation">Tag Manager ID</target></trans-unit>
+            <target state="translated">Tag Manager ID</target></trans-unit>
       <trans-unit id="noAccounts" xml:space="preserve">
                 <source>No accounts were found. Please check the manual on how to connect your account.</source>
-            <target state="needs-translation">No accounts were found. Please check the manual on how to connect your account.</target></trans-unit>
+            <target state="translated">Er zijn geen accounts gevonden. Controleer de handleiding voor het verbinden van uw account.</target></trans-unit>
     </body>
   </file>
 </xliff>
