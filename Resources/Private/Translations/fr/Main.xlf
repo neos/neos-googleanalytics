@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="accounts" xml:space="preserve">
                 <source>Authenticated accounts</source>
-            <target state="translated">Comptes authentifiés</target><alt-trans><target>Compte d'authentification</target></alt-trans></trans-unit>
+            <target state="translated">Comptes authentifiés</target></trans-unit>
       <trans-unit id="site.name" xml:space="preserve" approved="yes">
                 <source>Site</source>
             <target state="final">Site</target></trans-unit>

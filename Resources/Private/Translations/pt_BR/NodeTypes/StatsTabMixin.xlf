@@ -7,7 +7,7 @@
 			<target state="translated">Estatísticas</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target state="translated">Análises</target><alt-trans><target>Análise</target></alt-trans></trans-unit>
+			<target state="translated">Análises</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
 			<target state="translated">Sessões</target></trans-unit>

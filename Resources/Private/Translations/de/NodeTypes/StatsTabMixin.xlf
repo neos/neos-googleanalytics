@@ -7,16 +7,16 @@
 			<target state="final">Statistiken</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve" approved="yes">
 				<source>Analytics</source>
-			<target state="final">Analytics</target><alt-trans><target>Analysen</target></alt-trans></trans-unit>
+			<target state="final">Analytics</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve" approved="yes">
 				<source>Sessions</source>
-			<target state="final">Sitzungen</target><alt-trans><target>Besuche</target></alt-trans></trans-unit>
+			<target state="final">Sitzungen</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve" approved="yes">
 				<source>Performance</source>
 			<target state="final">Leistung</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve" approved="yes">
 				<source>Device categories</source>
-			<target state="final">Geräteklassen</target><alt-trans><target>Gerätekategorien</target></alt-trans></trans-unit>
+			<target state="final">Geräteklassen</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve" approved="yes">
 				<source>User types</source>
 			<target state="final">Nutzertypen</target></trans-unit>

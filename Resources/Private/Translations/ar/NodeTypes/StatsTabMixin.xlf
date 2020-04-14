@@ -10,7 +10,7 @@
 			<target state="translated">تحليلات</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
-			<target state="translated">الجلسات</target><alt-trans><target>الحصص</target></alt-trans></trans-unit>
+			<target state="translated">الجلسات</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve">
 				<source>Performance</source>
 			<target state="translated">الأداء</target></trans-unit>
