@@ -7,7 +7,7 @@
 			<target state="translated">Statistik</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
-			<target state="translated">Analys</target><alt-trans><target>Analyser</target></alt-trans></trans-unit>
+			<target state="translated">Analys</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve">
 				<source>Sessions</source>
 			<target state="translated">Sessioner</target></trans-unit>
@@ -16,7 +16,7 @@
 			<target state="translated">Prestanda</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target state="translated">Enhetskategorier</target><alt-trans><target>Enhetskategori</target></alt-trans></trans-unit>
+			<target state="translated">Enhetskategorier</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
 			<target state="translated">Användartyper</target></trans-unit>

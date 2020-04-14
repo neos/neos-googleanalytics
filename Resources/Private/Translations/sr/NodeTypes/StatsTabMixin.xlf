@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve">
 				<source>Stats</source>
-			<target state="translated">Статистика</target><alt-trans><target>Статистике</target></alt-trans></trans-unit>
+			<target state="translated">Статистика</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
 			<target state="translated">Аналитика</target></trans-unit>

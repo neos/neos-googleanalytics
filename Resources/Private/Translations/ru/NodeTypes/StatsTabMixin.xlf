@@ -4,10 +4,10 @@
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve" approved="yes">
 				<source>Stats</source>
-			<target state="final">Статистика</target><alt-trans><target>статистика</target></alt-trans></trans-unit>
+			<target state="final">Статистика</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve" approved="yes">
 				<source>Analytics</source>
-			<target state="final">Аналитика</target><alt-trans><target>Анализ</target></alt-trans></trans-unit>
+			<target state="final">Аналитика</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsPerDay" xml:space="preserve" approved="yes">
 				<source>Sessions</source>
 			<target state="final">Сеансы</target></trans-unit>

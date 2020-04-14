@@ -16,7 +16,7 @@
 			<target state="translated">Performanță</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target state="translated">Tipuri de dispozitive</target><alt-trans><target>Tipuri dispozitive</target></alt-trans></trans-unit>
+			<target state="translated">Tipuri de dispozitive</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
 			<target state="translated">Tipuri de utilizatori</target></trans-unit>
