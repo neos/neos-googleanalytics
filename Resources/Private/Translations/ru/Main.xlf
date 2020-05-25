@@ -2,24 +2,24 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file original="" product-name="Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="ru">
     <body>
-      <trans-unit id="accounts" xml:space="preserve">
+      <trans-unit id="accounts" xml:space="preserve" approved="yes">
                 <source>Authenticated accounts</source>
-            <target state="translated">Проверить подлинность учетной записи</target></trans-unit>
+            <target state="final">Связать учетные записи</target></trans-unit>
       <trans-unit id="site.name" xml:space="preserve" approved="yes">
                 <source>Site</source>
             <target state="final">Сайт</target></trans-unit>
-      <trans-unit id="site.gaProfile" xml:space="preserve">
+      <trans-unit id="site.gaProfile" xml:space="preserve" approved="yes">
                 <source>Google Analytics Profile</source>
-            <target state="translated">Профили Google Analytics</target></trans-unit>
-      <trans-unit id="site.gaTrackingId" xml:space="preserve">
+            <target state="final">Профиль Google Analytics</target></trans-unit>
+      <trans-unit id="site.gaTrackingId" xml:space="preserve" approved="yes">
                 <source>Tracking ID</source>
-            <target state="translated">Трекинг ID</target></trans-unit>
-      <trans-unit id="site.tagManagerId" xml:space="preserve">
+            <target state="final">Трекинг ID</target></trans-unit>
+      <trans-unit id="site.tagManagerId" xml:space="preserve" approved="yes">
                 <source>Tag Manager ID</source>
-            <target state="translated">Диспетчер тегов</target></trans-unit>
-      <trans-unit id="noAccounts" xml:space="preserve">
+            <target state="final">Tag Manager ID</target></trans-unit>
+      <trans-unit id="noAccounts" xml:space="preserve" approved="yes">
                 <source>No accounts were found. Please check the manual on how to connect your account.</source>
-            <target state="translated">Учетные записи не найдены. Пожалуйста, проверьте руководство по подключению к вашей учетной записи.</target></trans-unit>
+            <target state="final">Учетные записи не найдены. Пожалуйста, проверьте руководство по подключению к вашей учетной записи.</target></trans-unit>
     </body>
   </file>
 </xliff>
