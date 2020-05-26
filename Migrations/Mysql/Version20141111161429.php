@@ -38,8 +38,7 @@ class Version20141111161429 extends AbstractMigration {
         }
 
         $columnCharSets = $this->connection->executeQuery("SELECT character_set_name FROM information_schema.`COLUMNS` WHERE table_schema IN (SELECT DATABASE()) AND table_name = '${tableName}' AND column_name = 'persistence_object_identifier'")->fetch();
-
-        $charSet = $columnCharSets['character_set_name'];
+        $charSet = $columnCharSets['CHARACTER_SET_NAME'];
 
         $this->addSql("CREATE TABLE typo3_neos_googleanalytics_domain_model_siteconfiguration (persistence_object_identifier VARCHAR(40) NOT NULL, site VARCHAR(40) DEFAULT NULL, profileid VARCHAR(255) NOT NULL, INDEX IDX_D675F674694309E4 (site), PRIMARY KEY(persistence_object_identifier)) DEFAULT CHARACTER SET ${charSet} COLLATE ${charSet}_unicode_ci ENGINE = InnoDB");
         $this->addSql("ALTER TABLE typo3_neos_googleanalytics_domain_model_siteconfiguration ADD CONSTRAINT FK_D675F674694309E4 FOREIGN KEY (site) REFERENCES ${tableName} (persistence_object_identifier) ON DELETE CASCADE");
