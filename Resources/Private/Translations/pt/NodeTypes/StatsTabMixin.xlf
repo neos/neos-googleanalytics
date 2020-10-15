@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="tabs.stats" xml:space="preserve">
 				<source>Stats</source>
-			<target state="needs-translation">Stats</target></trans-unit>
+			<target state="translated">Estatus</target></trans-unit>
       <trans-unit id="groups.analytics" xml:space="preserve">
 				<source>Analytics</source>
 			<target state="needs-translation">Analytics</target></trans-unit>
@@ -13,13 +13,14 @@
 			<target state="needs-translation">Sessions</target></trans-unit>
       <trans-unit id="views.gaBasic" xml:space="preserve">
 				<source>Performance</source>
-			<target state="needs-translation">Performance</target></trans-unit>
+			<target state="translated">Rendimiento</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByDeviceCategory" xml:space="preserve">
 				<source>Device categories</source>
-			<target state="needs-translation">Device categories</target></trans-unit>
+			<target state="translated">
+Categorias de dispositivos</target></trans-unit>
       <trans-unit id="views.gaUniquePageviewsByUserType" xml:space="preserve">
 				<source>User types</source>
-			<target state="needs-translation">User types</target></trans-unit>
+			<target state="translated">Tipos do usuario</target></trans-unit>
     </body>
   </file>
 </xliff>
