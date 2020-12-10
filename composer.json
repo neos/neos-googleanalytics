@@ -4,8 +4,8 @@
     "description": "Google Analytics integration for Neos CMS",
     "license": "GPL-3.0-or-later",
     "require": {
-        "neos/neos": "~4.3 || ~5.0 || dev-master",
-        "neos/fusion-afx": "^1.2",
+        "neos/neos": "^7.0 || dev-master",
+        "neos/fusion-afx": "^7.0",
         "flowpack/googleapiclient": "^1.0",
         "guzzlehttp/psr7": "^1.4",
         "ext-json": "*"
@@ -83,7 +83,32 @@
             "Neos.Neos-20161219094403",
             "Neos.Neos-20161219122512",
             "Neos.Fusion-20161219130100",
-            "Neos.Neos-20161220163741"
+            "Neos.Neos-20161220163741",
+            "TYPO3.Form-20160601101500",
+            "Neos.Form-20161124205254",
+            "Neos.Kickstart-20161124230102",
+            "Neos.SiteKickstarter-20161125002311",
+            "Neos.SiteKickstarter-20161125095901",
+            "Neos.Kickstarter-20161125110814",
+            "Neos.Neos-20170115114620",
+            "Neos.Fusion-20170120013047",
+            "Neos.Flow-20170125103800",
+            "Neos.Seo-20170127154600",
+            "Neos.Flow-20170127183102",
+            "Neos.Fusion-20180211175500",
+            "Neos.Fusion-20180211184832",
+            "Neos.Flow-20180415105700",
+            "Neos.Neos-20180907103800",
+            "Neos.Neos.Ui-20190319094900",
+            "Neos.Flow-20190425144900",
+            "Neos.Flow-20190515215000",
+            "Neos.NodeTypes-20190917101945",
+            "Neos.NodeTypes-20200120114136",
+            "Neos.Flow-20200813181400",
+            "Neos.Flow-20201003165200",
+            "Neos.Flow-20201109224100",
+            "Neos.Flow-20201205172733",
+            "Neos.Flow-20201207104500"
         ]
     }
 }
