@@ -17,7 +17,16 @@ prototype(Neos.GoogleAnalytics:TrackingCode.GA) < prototype(Neos.GoogleAnalytics
             create = 'window.dataLayer = window.dataLayer || [];'
             push = 'function gtag(){dataLayer.push(arguments);}'
             date = 'gtag("js", new Date());'
-            config = ${'gtag("config", "' + props.trackingId + '", ' + props.parameters + ');'}
+            config = Neos.Fusion:Case {
+                hasParameters {
+                    condition = ${props.parameters && props.parameters != 'null' && props.parameters != '[]'}
+                    renderer = ${'gtag("config", "' + props.trackingId + '", ' + props.parameters + ');'}
+                }
+                default {
+                    condition = true
+                    renderer = ${'gtag("config", "' + props.trackingId + '");'}
+                }
+            }
         }
 
         renderer = afx`
