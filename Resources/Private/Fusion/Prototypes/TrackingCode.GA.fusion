@@ -17,7 +17,14 @@ prototype(Neos.GoogleAnalytics:TrackingCode.GA) < prototype(Neos.GoogleAnalytics
             create = 'window.dataLayer = window.dataLayer || [];'
             push = 'function gtag(){dataLayer.push(arguments);}'
             date = 'gtag("js", new Date());'
-            config = ${'gtag("config", "' + props.trackingId + '", ' + props.parameters + ');'}
+            config = Neos.Fusion:Join {
+                config = 'config'
+                trackingId = ${props.trackingId}
+                parameters = ${props.parameters}
+                parameters.@if.set = ${props.parameters && props.parameters != 'null' && props.parameters != '[]'}
+                @glue = ', '
+                @process.wrap = ${'gtag(' + value + ');'}
+            }
         }
 
         renderer = afx`
