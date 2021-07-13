@@ -5,7 +5,7 @@ prototype(Neos.GoogleAnalytics:TrackingCode.GA) < prototype(Neos.GoogleAnalytics
         hasTrackingId = ${!String.isBlank(this.trackingId)}
         hasNoContainerId = ${String.isBlank(this.configuration.tagManager.id)}
     }
-    
+
     parameters = ${this.configuration.analytics.parameters}
     parameters.@process.json = ${Json.stringify(value)}
 
@@ -17,13 +17,15 @@ prototype(Neos.GoogleAnalytics:TrackingCode.GA) < prototype(Neos.GoogleAnalytics
             create = 'window.dataLayer = window.dataLayer || [];'
             push = 'function gtag(){dataLayer.push(arguments);}'
             date = 'gtag("js", new Date());'
-            config = Neos.Fusion:Join {
-                config = 'config'
-                trackingId = ${props.trackingId}
-                parameters = ${props.parameters}
-                parameters.@if.set = ${props.parameters && props.parameters != 'null' && props.parameters != '[]'}
-                @glue = ', '
-                @process.wrap = ${'gtag(' + value + ');'}
+            config = Neos.Fusion:Case {
+                hasParameters {
+                    condition = ${props.parameters && props.parameters != 'null' && props.parameters != '[]'}
+                    renderer = ${'gtag("config", "' + props.trackingId + '", ' + props.parameters + ');'}
+                }
+                default {
+                    condition = true
+                    renderer = ${'gtag("config", "' + props.trackingId + '");'}
+                }
             }
         }
 
