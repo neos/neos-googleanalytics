@@ -2,24 +2,14 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file original="" product-name="Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="nl">
     <body>
-      <trans-unit id="accounts" xml:space="preserve">
-                <source>Authenticated accounts</source>
-            <target state="translated">Geverifieerde accounts</target></trans-unit>
-      <trans-unit id="site.name" xml:space="preserve">
-                <source>Site</source>
-            <target state="translated">Site</target></trans-unit>
-      <trans-unit id="site.gaProfile" xml:space="preserve">
-                <source>Google Analytics Profile</source>
-            <target state="translated">Google Analytics-profiel</target></trans-unit>
       <trans-unit id="site.gaTrackingId" xml:space="preserve">
                 <source>Tracking ID</source>
-            <target state="translated">Tracking ID</target></trans-unit>
-      <trans-unit id="site.tagManagerId" xml:space="preserve">
-                <source>Tag Manager ID</source>
-            <target state="translated">Tag Manager ID</target></trans-unit>
-      <trans-unit id="noAccounts" xml:space="preserve">
-                <source>No accounts were found. Please check the manual on how to connect your account.</source>
-            <target state="translated">Er zijn geen accounts gevonden. Controleer de handleiding voor het verbinden van uw account.</target></trans-unit>
+        <target state="translated">Tracking ID</target>
+      </trans-unit>
+      <trans-unit id="site.name" xml:space="preserve">
+                <source>Site</source>
+        <target>Site</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

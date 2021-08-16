@@ -2,24 +2,14 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file original="" product-name="Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="zh-CN">
     <body>
-      <trans-unit id="accounts" xml:space="preserve">
-                <source>Authenticated accounts</source>
-            <target state="translated">已认证帐户</target></trans-unit>
-      <trans-unit id="site.name" xml:space="preserve">
-                <source>Site</source>
-            <target state="translated">站点</target></trans-unit>
-      <trans-unit id="site.gaProfile" xml:space="preserve">
-                <source>Google Analytics Profile</source>
-            <target state="translated">谷歌分析配置文件</target></trans-unit>
       <trans-unit id="site.gaTrackingId" xml:space="preserve">
                 <source>Tracking ID</source>
-            <target state="translated">跟踪 ID</target></trans-unit>
-      <trans-unit id="site.tagManagerId" xml:space="preserve">
-                <source>Tag Manager ID</source>
-            <target state="translated">标签管理 ID</target></trans-unit>
-      <trans-unit id="noAccounts" xml:space="preserve">
-                <source>No accounts were found. Please check the manual on how to connect your account.</source>
-            <target state="translated">没有找到帐户。请查看说明以了解如何连接您的帐户。</target></trans-unit>
+        <target state="translated">跟踪 ID</target>
+      </trans-unit>
+      <trans-unit id="site.name" xml:space="preserve">
+                <source>Site</source>
+        <target>站点</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
