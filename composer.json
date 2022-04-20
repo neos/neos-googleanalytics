@@ -4,8 +4,8 @@
     "description": "Google Analytics integration for Neos CMS",
     "license": "GPL-3.0-or-later",
     "require": {
-        "neos/neos": "^7.0 || dev-master",
-        "neos/fusion-afx": "^7.0",
+        "neos/neos": "^7.0 || ^8.0 || dev-master",
+        "neos/fusion-afx": "^7.0 || ^8.0",
         "flowpack/googleapiclient": "^1.0",
         "guzzlehttp/psr7": "^1.4",
         "ext-json": "*"
