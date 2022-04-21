@@ -2,17 +2,9 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file original="" product-name="Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="de">
     <body>
-      <trans-unit id="site.gaTrackingId" xml:space="preserve">
-                <source>Tracking ID</source>
-        <target>Tracking ID</target>
-      </trans-unit>
       <trans-unit id="accounts" xml:space="preserve">
                 <source>Authenticated accounts</source>
         <target>Authentifizierte Konten</target>
-      </trans-unit>
-      <trans-unit id="noAccounts" xml:space="preserve">
-                <source>No accounts were found. Please check the manual on how to connect your account.</source>
-        <target>Es wurden keine Konten gefunden. Bitte lesen Sie im Handbuch nach, wie Sie Ihr Konto verbinden können.</target>
       </trans-unit>
     </body>
   </file>
