@@ -2,10 +2,6 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file original="" product-name="Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="id">
     <body>
-      <trans-unit id="site.name" xml:space="preserve">
-                <source>Site</source>
-        <target>Situs</target>
-      </trans-unit>
-    </body>
+      </body>
   </file>
 </xliff>
