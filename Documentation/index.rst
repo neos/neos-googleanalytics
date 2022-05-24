@@ -224,6 +224,8 @@ The configuration allows to override the hostname that is used for statistics qu
 By default the hostname is used that Neos provides based on the selected pages frontend uri.
 This can be used to verify the functionality of the statistics module during development
 or in staging environments.
+Additionally, there is a setting for prepending a string to the frontend uri. The frontend uri
+is automatically created.
 
 .. code-block:: yaml
 
@@ -232,6 +234,22 @@ or in staging environments.
       sites:
         neossitename:
           overrideHostname: 'example.org'
+          pagePathPrefix: '/neosuri'
+
+Show only page information
+----------------------------------------
+
+To show the information for the whole site and not only the current page,
+the setting 'includePagePath' can be set. This removes the filter for the frontend uri from
+the API request.
+
+.. code-block:: yaml
+
+  Neos:
+    GoogleAnalytics:
+      sites:
+        neossitename:
+          includePagePath: false
 
 
 Upgrade instructions (2.x -> 3.0.0)

@@ -104,7 +104,13 @@ class Reporting
 
         $nodeUri = $this->getLiveNodeUri($node, $controllerContext);
         $hostname = !empty($siteConfiguration['overrideHostname']) ? $siteConfiguration['overrideHostname'] : $nodeUri->getHost();
-        $filters = 'ga:pagePath==' . $nodeUri->getPath() . ';ga:hostname==' . $hostname;
+        $pagePathPrefix = !empty($siteConfiguration['pagePathPrefix']) ? $siteConfiguration['pagePathPrefix'] : '';
+        $includePagePath = !isset($siteConfiguration['includePagePath']) || $siteConfiguration['includePagePath'];
+
+        $filters = 'ga:hostname==' . $hostname;
+        if($includePagePath){
+            $filters .= ';ga:pagePath==' . $pagePathPrefix . $nodeUri->getPath();
+        }
         $parameters = [
             'filters' => $filters
         ];
