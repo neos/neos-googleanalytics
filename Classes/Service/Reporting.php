@@ -108,7 +108,7 @@ class Reporting
         $includePagePath = !isset($siteConfiguration['includePagePath']) || $siteConfiguration['includePagePath'];
 
         $filters = 'ga:hostname==' . $hostname;
-        if($includePagePath){
+        if ($includePagePath) {
             $filters .= ';ga:pagePath==' . $pagePathPrefix . $nodeUri->getPath();
         }
         $parameters = [
