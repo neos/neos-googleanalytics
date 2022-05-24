@@ -55,7 +55,7 @@ Neos:
       #
       # neosdemo:
       #   addToPagePrototype: false
-      #   pagePathPrefix: 'www.paessler.com'
+      #   pagePathPrefix: 'www.example.org'
       #   includePagePath: false
       #   profileId: '12345678'
       #   analytics:
