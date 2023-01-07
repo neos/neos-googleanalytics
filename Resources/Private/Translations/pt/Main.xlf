@@ -2,9 +2,13 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file original="" product-name="Neos.GoogleAnalytics" source-language="en" datatype="plaintext" target-language="pt-PT">
     <body>
-      <trans-unit id="site.gaTrackingId" xml:space="preserve">
-                <source>Tracking ID</source>
-        <target state="needs-translation">Tracking ID</target>
+      </body>
+  </file>
+  <file original="Main" source-language="en" target-language="pt-PT" datatype="plaintext">
+    <body>
+      <trans-unit id="site.name" xml:space="preserve">
+                <source>Site</source>
+        <target state="translated">Site</target>
       </trans-unit>
     </body>
   </file>
