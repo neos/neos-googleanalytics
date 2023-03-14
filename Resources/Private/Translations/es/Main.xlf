@@ -4,4 +4,32 @@
     <body>
       </body>
   </file>
+  <file original="Main" source-language="en" target-language="es-ES" datatype="plaintext">
+    <body>
+      <trans-unit id="site.gaTrackingId" xml:space="preserve">
+                <source>Tracking ID</source>
+        <target state="translated">Identificador de seguimiento</target>
+      </trans-unit>
+      <trans-unit id="site.tagManagerId" xml:space="preserve">
+                <source>Tag Manager ID</source>
+        <target state="translated">Identificador del administrador de etiquetas</target>
+      </trans-unit>
+      <trans-unit id="site.name" xml:space="preserve">
+                <source>Site</source>
+        <target state="translated">Página web</target>
+      </trans-unit>
+      <trans-unit id="accounts" xml:space="preserve">
+                <source>Authenticated accounts</source>
+        <target state="translated">Cuentas autenticadas</target>
+      </trans-unit>
+      <trans-unit id="site.gaProfile" xml:space="preserve">
+                <source>Google Analytics Profile</source>
+        <target state="translated">Perfil de Google Analytics</target>
+      </trans-unit>
+      <trans-unit id="noAccounts" xml:space="preserve">
+                <source>No accounts were found. Please check the manual on how to connect your account.</source>
+        <target state="translated">No se ha encontrado ninguna cuenta. Consulta el manual para saber cómo conectar tu cuenta.</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
