@@ -4,4 +4,12 @@
     <body>
       </body>
   </file>
+  <file original="Main" source-language="en" target-language="tr" datatype="plaintext">
+    <body>
+      <trans-unit id="site.name" xml:space="preserve">
+                <source>Site</source>
+        <target state="needs-translation">Site</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
