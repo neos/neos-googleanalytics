@@ -31,7 +31,7 @@ to set up tracking for each site in the Analytics integration.
     GoogleAnalytics:
       sites:
         ## All site specific settings are indexed by site node name
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
 
@@ -43,7 +43,7 @@ You can define them like this:
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
             parameters:
@@ -56,7 +56,7 @@ Instead of using the Google Analytics tracking code, you can integrate the Googl
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           tagManager:
             id: 'GTM-XXXXX'
 
@@ -85,7 +85,7 @@ You can disable tracking for a site by either setting the  ``id `` to  ``false `
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           tagManager:
             id: false
             
@@ -99,7 +99,7 @@ If you are using the Google Analytics tracking code, you can also add additional
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
             parameters:
@@ -181,7 +181,7 @@ The configuration should then look like this::
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
           profileId: 123456789
@@ -232,7 +232,7 @@ is automatically created.
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           overrideHostname: 'example.org'
           pagePathPrefix: '/neosuri'
 
@@ -248,7 +248,7 @@ the API request.
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           includePagePath: false
 
 
@@ -262,7 +262,7 @@ Configuration for the tracking code has been changed:
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
 
