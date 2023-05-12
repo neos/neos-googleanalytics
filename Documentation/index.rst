@@ -31,7 +31,7 @@ to set up tracking for each site in the Analytics integration.
     GoogleAnalytics:
       sites:
         ## All site specific settings are indexed by site node name
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
 
@@ -43,7 +43,7 @@ You can define them like this:
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
             parameters:
@@ -56,7 +56,7 @@ Instead of using the Google Analytics tracking code, you can integrate the Googl
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           tagManager:
             id: 'GTM-XXXXX'
 
@@ -85,7 +85,7 @@ You can disable tracking for a site by either setting the  ``id `` to  ``false `
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           tagManager:
             id: false
             
@@ -99,7 +99,7 @@ If you are using the Google Analytics tracking code, you can also add additional
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
             parameters:
@@ -181,7 +181,7 @@ The configuration should then look like this::
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
           profileId: 123456789
@@ -224,14 +224,32 @@ The configuration allows to override the hostname that is used for statistics qu
 By default the hostname is used that Neos provides based on the selected pages frontend uri.
 This can be used to verify the functionality of the statistics module during development
 or in staging environments.
+Additionally, there is a setting for prepending a string to the frontend uri. The frontend uri
+is automatically created.
 
 .. code-block:: yaml
 
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           overrideHostname: 'example.org'
+          pagePathPrefix: '/neosuri'
+
+Show only page information
+----------------------------------------
+
+To show the information for the whole site and not only the current page,
+the setting 'includePagePath' can be set. This removes the filter for the frontend uri from
+the API request.
+
+.. code-block:: yaml
+
+  Neos:
+    GoogleAnalytics:
+      sites:
+        neosSiteName:
+          includePagePath: false
 
 
 Upgrade instructions (2.x -> 3.0.0)
@@ -244,7 +262,7 @@ Configuration for the tracking code has been changed:
   Neos:
     GoogleAnalytics:
       sites:
-        neossitename:
+        neosSiteName:
           analytics:
             id: 'UA-XXXXX-YY'
 
