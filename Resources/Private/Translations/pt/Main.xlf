@@ -7,8 +7,16 @@
   <file original="Main" source-language="en" target-language="pt-PT" datatype="plaintext">
     <body>
       <trans-unit id="site.name" xml:space="preserve">
-                <source>Site</source>
+        <source>Site</source>
         <target state="translated">Site</target>
+      </trans-unit>
+      <trans-unit id="accounts" xml:space="preserve">
+        <source>Authenticated accounts</source>
+        <target state="translated">Contas autenticadas</target>
+      </trans-unit>
+      <trans-unit id="site.gaProfile" xml:space="preserve">
+        <source>Google Analytics Profile</source>
+        <target state="translated">Perfil do Google Analytics</target>
       </trans-unit>
     </body>
   </file>
