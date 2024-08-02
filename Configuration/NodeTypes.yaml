@@ -1,119 +1,119 @@
 #
 # Add the Google Analytics mixin to Neos.Neos:Document
 #
-'Neos.Neos:Document':
-  superTypes:
-    'Neos.GoogleAnalytics:StatsTabMixin': true
+#'Neos.Neos:Document':
+#  superTypes:
+#    'Neos.GoogleAnalytics:StatsTabMixin': false
 
-'Neos.Neos:Shortcut':
-  superTypes:
-    'Neos.GoogleAnalytics:StatsTabMixin': false
+#'Neos.Neos:Shortcut':
+#  superTypes:
+#    'Neos.GoogleAnalytics:StatsTabMixin': false
 
 #
 # Mixin configuring the Analytics tab for the inspector
 #
 'Neos.GoogleAnalytics:StatsTabMixin':
   abstract: true
-  ui:
-    inspector:
-      tabs:
-        stats:
-          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:tabs.stats'
-          position: 100
-          icon: 'icon-line-chart icon-chart-line'
-      groups:
-        analytics:
-          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:groups.analytics'
-          icon: 'icon-line-chart'
-          position: 10
-          tab: 'stats'
-      # All analytics metrics are "views" for the inspector
-      #
-      # Stats for the GoogleAnalytics data source are configured in Settings.yaml.
-      views:
-        gaUniquePageviewsPerDay:
-          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsPerDay'
-          group: 'analytics'
-          position: 10
-          view: 'Content/Inspector/Views/Data/TimeSeriesView'
-          viewOptions:
-            subtitle: '3 months'
-            dataSource: 'GoogleAnalytics'
-            arguments:
-              stat: 'uniquePageviewsPerDay'
-              startDate: '3 months ago'
-              endDate: '1 day ago'
-            collection: 'rows'
-            series:
-              timeData: 'ga_date'
-              valueData: 'ga_uniquePageviews'
-            chart:
-              selectedInterval: 'months'
-        gaBasic:
-          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaBasic'
-          group: 'analytics'
-          position: 20
-          view: 'Content/Inspector/Views/Data/ColumnView'
-          viewOptions:
-            dataSource: 'GoogleAnalytics'
-            arguments:
-              stat: 'basic'
-              startDate: '3 months ago'
-              endDate: '1 day ago'
-            hero:
-              data: 'totals.ga_uniquePageviews'
-              label: 'Sessions'
-            columns:
-              -
-                data: 'totals.ga_pageviews'
-                label: 'Pageviews'
-              -
-                data: 'totals.ga_users'
-                label: 'Users'
-        gaUniquePageviewsByDeviceCategory:
-          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByDeviceCategory'
-          group: 'analytics'
-          position: 30
-          view: 'Content/Inspector/Views/Data/TableView'
-          viewOptions:
-            dataSource: 'GoogleAnalytics'
-            arguments:
-              stat: 'uniquePageviewsByDeviceCategory'
-              startDate: '3 months ago'
-              endDate: '1 day ago'
-            collection: 'rows'
-            columns:
-              -
-                data: 'ga_deviceCategory'
-                iconMap:
-                  desktop: 'icon-desktop'
-                  tablet: 'icon-tablet'
-                  mobile: 'icon-mobile-phone'
-              -
-                data: 'ga_uniquePageviews'
-              -
-                data: 'percent'
-                suffix: '%'
-        gaUniquePageviewsByUserType:
-          label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByUserType'
-          group: 'analytics'
-          position: 40
-          view: 'Content/Inspector/Views/Data/TableView'
-          viewOptions:
-            dataSource: 'GoogleAnalytics'
-            arguments:
-              stat: 'uniquePageviewsByUserType'
-              startDate: '3 months ago'
-              endDate: '1 day ago'
-            collection: 'rows'
-            columns:
-              -
-                data: 'ga_userType'
-                iconMap:
-                  'New Visitor': 'icon-plus'
-                  'Returning Visitor': 'icon-refresh'
-              -
-                data: 'ga_uniquePageviews'
-              -
-                data: 'percent'
-                suffix: '%'
+  # ui:
+  #   inspector:
+  #     tabs:
+  #       stats:
+  #         label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:tabs.stats'
+  #         position: 100
+  #         icon: 'icon-line-chart icon-chart-line'
+  #     groups:
+  #       analytics:
+  #         label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:groups.analytics'
+  #         icon: 'icon-line-chart'
+  #         position: 10
+  #         tab: 'stats'
+  #     # All analytics metrics are "views" for the inspector
+  #     #
+  #     # Stats for the GoogleAnalytics data source are configured in Settings.yaml.
+  #     views:
+  #       gaUniquePageviewsPerDay:
+  #         label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsPerDay'
+  #         group: 'analytics'
+  #         position: 10
+  #         view: 'Content/Inspector/Views/Data/TimeSeriesView'
+  #         viewOptions:
+  #           subtitle: '3 months'
+  #           dataSource: 'GoogleAnalytics'
+  #           arguments:
+  #             stat: 'uniquePageviewsPerDay'
+  #             startDate: '3 months ago'
+  #             endDate: '1 day ago'
+  #           collection: 'rows'
+  #           series:
+  #             timeData: 'ga_date'
+  #             valueData: 'ga_uniquePageviews'
+  #           chart:
+  #             selectedInterval: 'months'
+  #       gaBasic:
+  #         label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaBasic'
+  #         group: 'analytics'
+  #         position: 20
+  #         view: 'Content/Inspector/Views/Data/ColumnView'
+  #         viewOptions:
+  #           dataSource: 'GoogleAnalytics'
+  #           arguments:
+  #             stat: 'basic'
+  #             startDate: '3 months ago'
+  #             endDate: '1 day ago'
+  #           hero:
+  #             data: 'totals.ga_uniquePageviews'
+  #             label: 'Sessions'
+  #           columns:
+  #             -
+  #               data: 'totals.ga_pageviews'
+  #               label: 'Pageviews'
+  #             -
+  #               data: 'totals.ga_users'
+  #               label: 'Users'
+  #       gaUniquePageviewsByDeviceCategory:
+  #         label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByDeviceCategory'
+  #         group: 'analytics'
+  #         position: 30
+  #         view: 'Content/Inspector/Views/Data/TableView'
+  #         viewOptions:
+  #           dataSource: 'GoogleAnalytics'
+  #           arguments:
+  #             stat: 'uniquePageviewsByDeviceCategory'
+  #             startDate: '3 months ago'
+  #             endDate: '1 day ago'
+  #           collection: 'rows'
+  #           columns:
+  #             -
+  #               data: 'ga_deviceCategory'
+  #               iconMap:
+  #                 desktop: 'icon-desktop'
+  #                 tablet: 'icon-tablet'
+  #                 mobile: 'icon-mobile-phone'
+  #             -
+  #               data: 'ga_uniquePageviews'
+  #             -
+  #               data: 'percent'
+  #               suffix: '%'
+  #       gaUniquePageviewsByUserType:
+  #         label: 'Neos.GoogleAnalytics:NodeTypes.StatsTabMixin:views.gaUniquePageviewsByUserType'
+  #         group: 'analytics'
+  #         position: 40
+  #         view: 'Content/Inspector/Views/Data/TableView'
+  #         viewOptions:
+  #           dataSource: 'GoogleAnalytics'
+  #           arguments:
+  #             stat: 'uniquePageviewsByUserType'
+  #             startDate: '3 months ago'
+  #             endDate: '1 day ago'
+  #           collection: 'rows'
+  #           columns:
+  #             -
+  #               data: 'ga_userType'
+  #               iconMap:
+  #                 'New Visitor': 'icon-plus'
+  #                 'Returning Visitor': 'icon-refresh'
+  #             -
+  #               data: 'ga_uniquePageviews'
+  #             -
+  #               data: 'percent'
+  #               suffix: '%'
