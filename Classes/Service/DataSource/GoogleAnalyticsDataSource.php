@@ -39,7 +39,7 @@ class GoogleAnalyticsDataSource extends AbstractDataSource
      *
      * {@inheritdoc}
      */
-    public function getData(NodeInterface $node = null, array $arguments = []): array
+    public function getData(?NodeInterface $node = null, array $arguments = []): array
     {
         if (!isset($arguments['stat'])) {
             throw new InvalidArgumentException('Missing "stat" argument', 1416864525);
