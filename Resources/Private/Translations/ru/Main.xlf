@@ -4,4 +4,16 @@
     <body>
       </body>
   </file>
+  <file original="Main" source-language="en" target-language="ru" datatype="plaintext">
+    <body>
+      <trans-unit id="site.gaTrackingId" xml:space="preserve">
+        <source>Tracking ID</source>
+        <target state="translated">Tracking ID</target>
+      </trans-unit>
+      <trans-unit id="site.tagManagerId" xml:space="preserve">
+        <source>Tag Manager ID</source>
+        <target state="translated">Tag Manager ID</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
