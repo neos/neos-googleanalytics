@@ -4,4 +4,14 @@
     <body>
     </body>
   </file>
+  <file original="Main" source-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="site.gaTrackingId" xml:space="preserve">
+        <source>Tracking ID</source>
+      </trans-unit>
+      <trans-unit id="site.tagManagerId" xml:space="preserve">
+        <source>Tag Manager ID</source>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
