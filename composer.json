@@ -4,11 +4,8 @@
     "description": "Google Analytics integration for Neos CMS",
     "license": "GPL-3.0-or-later",
     "require": {
-        "neos/neos": "^7.0 || ^8.0 || dev-master",
-        "neos/fusion-afx": "^7.0 || ^8.0",
-        "flowpack/googleapiclient": "^1.0",
-        "guzzlehttp/psr7": "^1.4 || ^2.0",
-        "ext-json": "*"
+        "neos/neos": "^9.0",
+        "neos/fusion-afx": "^9.0"
     },
     "replace": {
         "typo3/neos-googleanalytics": "self.version"
@@ -20,7 +17,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0.x-dev"
+            "dev-main": "4.0.x-dev"
         },
         "applied-flow-migrations": [
             "TYPO3.FLOW3-201201261636",
@@ -108,7 +105,15 @@
             "Neos.Flow-20201003165200",
             "Neos.Flow-20201109224100",
             "Neos.Flow-20201205172733",
-            "Neos.Flow-20201207104500"
+            "Neos.Flow-20201207104500",
+            "Neos.Neos-20220318111600",
+            "Neos.Flow-20220318174300",
+            "Neos.Fusion-20220326120900",
+            "Neos.Neos-20230801154834",
+            "Neos.Workspace.Ui-20240603134000",
+            "Neos.Neos-20251005080230",
+            "Neos.Fusion-20251006080506",
+            "Neos.Neos-20251109115127"
         ]
     }
 }
