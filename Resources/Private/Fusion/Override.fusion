@@ -1,4 +1,5 @@
 prototype(Neos.Neos:Page) {
+
     googleTracking = Neos.Fusion:Join {
         analytics = Neos.GoogleAnalytics:TrackingCode.GA {
             @if.addToPage = ${this.configuration.addToPagePrototype}
