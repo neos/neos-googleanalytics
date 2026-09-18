@@ -120,24 +120,6 @@ The package now only provides the tracking code integration.
 
 If you referenced any of these in your own configuration, remove those references.
 
-### 2.x -> 3.0.0
-
-Configuration for the tracking code has been changed:
-
-```yaml
-Neos:
-  GoogleAnalytics:
-    sites:
-      neosSiteName:
-        analytics:
-          id: 'UA-XXXXX-YY'
-```
-
-#### `enableTracking` setting
-
-Tracking code is now only included if you provide either a container or an Analytics ID.
-The `enableTracking` setting has therefore been removed.
-
 ## License
 
 See [LICENSE](./LICENSE.txt)
