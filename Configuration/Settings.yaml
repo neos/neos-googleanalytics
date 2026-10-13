@@ -3,45 +3,14 @@ Neos:
     defaultContext:
       'Neos.GoogleAnalytics.TrackingConfiguration': 'Neos\GoogleAnalytics\Eel\Helper\TrackingConfiguration'
   Neos:
-    userInterface:
-      requireJsPathMapping:
-        'Neos.GoogleAnalytics/Inspector/Editors': 'resource://Neos.GoogleAnalytics/Public/Scripts/Inspector/Editors'
-      translation:
-        autoInclude:
-          'Neos.GoogleAnalytics': ['NodeTypes/*']
-
-    modules:
-      administration:
-        submodules:
-          googleAnalytics:
-            label: 'Analytics'
-            controller: 'Neos\GoogleAnalytics\Controller\ConfigurationController'
-            description: 'Google Analytics configuration'
-            icon: 'icon-chart-line icon-line-chart'
-            privilegeTarget: 'Neos.GoogleAnalytics:Module.Administration.Configuration'
-
     fusion:
       autoInclude:
         'Neos.GoogleAnalytics': true
 
   GoogleAnalytics:
-    stats:
-      uniquePageviewsPerDay:
-        metrics: 'ga:uniquePageviews'
-        dimensions: 'ga:date'
-      basic:
-        metrics: 'ga:pageviews,ga:uniquePageviews,ga:users'
-      uniquePageviewsByUserType:
-        metrics: 'ga:uniquePageviews'
-        dimensions: 'ga:userType'
-      uniquePageviewsByDeviceCategory:
-        metrics: 'ga:uniquePageviews'
-        dimensions: 'ga:deviceCategory'
-
     # Default settings
     default:
       addToPagePrototype: true
-      overrideHostname: ''
       analytics:
         id: false
         parameters: # define additional GA paramters here e.g. IP anonymization
@@ -55,11 +24,7 @@ Neos:
       #
       # neosdemo:
       #   addToPagePrototype: false
-      #   pagePathPrefix: 'www.example.org'
-      #   includePagePath: false
-      #   profileId: '12345678'
       #   analytics:
-      #     id: 'UA-XXXXX-YY'
+      #     id: 'G-XXXXXXXXXX'
       #   tagManager:
       #     id: GTM-XXXXX
-
